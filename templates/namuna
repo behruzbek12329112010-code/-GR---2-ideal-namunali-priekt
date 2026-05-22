@@ -1,0 +1,6 @@
+templates papkasi
+Mana bu joyi eng aqlli yondashuv! Saytning hamma sahifalarida takrorlanadigan qismlar bo'ladi. Masalan, "Biz haqimizda" sahifasiga kirsangiz ham, "Bosh sahifa"da tursangiz ham saytning tepasi (header) va pasti (footer) o'zgarmasdan bir xil turaveradi, to'g'rimi?
+
+header papkasi: Saytning tepa qismi (menyu, logotip) kodi alohida yoziladi.
+
+footer papkasi: Saytning eng pastki qismi (ijtimoiy tarmoqlar linklari, mualliflik huquqi) kodi alohida yoziladi.
