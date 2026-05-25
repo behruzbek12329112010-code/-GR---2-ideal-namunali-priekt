@@ -19,67 +19,58 @@ body {
 .hidden {
     display: none !important;
 }
-/* ==========================================================================
-   8. HISOBGA KIRISH TUGMASI DIZAYNI (ANCHOR TAG STYLES)
-   ========================================================================== */
+
 #rendon {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    
-    /* Tugma o'lchamlari va joylashuvi */
+
     padding: 10px 22px;
     margin-left: 15px;
-    
-    /* Ranglar va Shrift */
+
     color: #ffffff;
     font-size: 0.9rem;
     font-weight: 600;
     letter-spacing: 0.5px;
-    
-    /* Orqa fon: Shaffof va Neon chegara */
     background: rgba(2, 133, 199, 0);
     border: 1.5px solid rgba(113, 113, 113, 0.4);
     border-radius: 8px;
-    
-    /* Silliq effektlar poydevori */
+
     cursor: pointer;
     backdrop-filter: blur(5px);
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     position: relative;
     overflow: hidden;
 }
+
 header.site-header {
     display: flex;
-    justify-content: space-between; /* Logotip chapda, Tugma mutlaqo o'ngda turadi */
+    justify-content: space-between;
     align-items: center;
-    padding: 20px 40px; /* Atrofidagi bo'shliqlar */
+    padding: 20px 40px;
     background: #0b0f19;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     width: 100%;
 }
-/* HOVER ANIMATION: Sichqoncha ustiga kelganda yonish effekti */
+
 #rendon:hover {
     color: #0a0a0a;
     background: #ffffff;
     border-color: #000000;
-    
-    /* Haqiqiy premium neon chiroq effekti (Glow) */
-    box-shadow: 0 0 15px rgba(2, 133, 199, 0), 
-                0 0 30px rgba(2, 132, 199, 0.3);
-    
-    /* Bir oz yuqoriga silliq ko'tarilish */
+
+
+    box-shadow: 0 0 15px rgba(2, 133, 199, 0),
+        0 0 30px rgba(2, 132, 199, 0.3);
+
     transform: translateY(-2px);
 }
 
-/* AKTIV BOSILGANDA (CLICK) EFFEKTI */
 #rendon:active {
     transform: translateY(1px);
     box-shadow: 0 0 8px rgba(2, 132, 199, 0.4);
 }
 
-/* Tugma ichiga chiroyli ikonka qo'shish (Majburiy emas, lekin daxshat ko'rinadi) */
 #rendon::before {
     content: '0$   ';
     margin-right: 6px;
@@ -91,9 +82,9 @@ header.site-header {
     transform: scale(1.15);
 }
 
-/* Header dizayni */
+
 .site-header {
-      display: inline-flex;
+    display: inline-flex;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -105,14 +96,14 @@ header.site-header {
     display: inline-flex;
     font-size: 2.2rem;
     font-weight: 800;
-    letter-spacing: 1px;
+    letter-spacing: 3px;
 }
 
 .logo span {
     color: #0284c7;
 }
 
-/* === UZMOVI DUMALOQ STORY SLIDER DIZAYNI (SKROLBARSIZ VA SURILADIGAN) === */
+
 .story-carousel-container {
     width: 100%;
     overflow-x: auto;
@@ -121,26 +112,26 @@ header.site-header {
     border-radius: 12px;
     margin-bottom: 25px;
     border: 1px solid rgba(255, 255, 255, 0.05);
-    cursor: grab; /* Ushlab surish imkoniyati borligini bildiruvchi belgi */
-    user-select: none; /* Surayotganda rasmlar ko'k bo'lib ko'chib ketmasligi uchun */
-    
-    /* Chrome, Safari va Opera uchun skrolbarni butunlay yo'qotish */
+    cursor: grab;
+    user-select: none;
+
+
     -webkit-overflow-scrolling: touch;
 }
 
 .story-carousel-container::-webkit-scrollbar {
-    display: none; /* Skrol chizig'ini yashirish */
+    display: none;
 }
 
 .story-carousel-container:active {
-    cursor: grabbing; /* Bosib turganda panja yopiladi */
+    cursor: grabbing;
 }
 
 .story-carousel {
     display: flex;
     gap: 15px;
     align-items: center;
-    pointer-events: none; /* Element ichidagi rasmlar drag bo'lishga xalaqit bermasligi uchun */
+    pointer-events: none;
 }
 
 .story-card {
@@ -150,7 +141,7 @@ header.site-header {
     border-radius: 50%;
     border: 3px solid #0284c7;
     overflow: hidden;
-    pointer-events: auto; /* Kartalarning o'zini bosish funksiyasi ishlashi uchun */
+    pointer-events: auto;
     box-shadow: 0 0 10px rgba(2, 132, 199, 0.3);
     transition: transform 0.3s ease, border-color 0.3s;
 }
@@ -167,7 +158,7 @@ header.site-header {
     object-fit: cover;
 }
 
-/* === KATTA QIDIRUV BANNERI DIZAYNI === */
+
 .search-banner-container {
     position: relative;
     width: 100%;
@@ -274,7 +265,7 @@ header.site-header {
     opacity: 0.9;
 }
 
-/* Layoutlar */
+
 .main-layout {
     display: grid;
     grid-template-columns: 3fr 1fr;
@@ -285,8 +276,14 @@ header.site-header {
     .main-layout {
         grid-template-columns: 1fr;
     }
-    .banner-content h2 { font-size: 2.2rem; }
-    .banner-content h3 { font-size: 1.2rem; }
+
+    .banner-content h2 {
+        font-size: 2.2rem;
+    }
+
+    .banner-content h3 {
+        font-size: 1.2rem;
+    }
 }
 
 .section-title {
@@ -307,7 +304,7 @@ header.site-header {
     border-radius: 2px;
 }
 
-/* Grid Tizimi */
+
 .kino-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
@@ -320,7 +317,7 @@ header.site-header {
     overflow: hidden;
     position: relative;
     cursor: pointer;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
     opacity: 0;
     animation: silliqChiqish 0.6s ease-out forwards;
     transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
@@ -331,9 +328,17 @@ header.site-header {
     box-shadow: 0 15px 30px rgba(2, 132, 199, 0.3);
 }
 
-.kino-grid .movie-card:nth-child(3n+1) { animation-delay: 0.05s; }
-.kino-grid .movie-card:nth-child(3n+2) { animation-delay: 0.1s; }
-.kino-grid .movie-card:nth-child(3n+3) { animation-delay: 0.15s; }
+.kino-grid .movie-card:nth-child(3n+1) {
+    animation-delay: 0.05s;
+}
+
+.kino-grid .movie-card:nth-child(3n+2) {
+    animation-delay: 0.1s;
+}
+
+.kino-grid .movie-card:nth-child(3n+3) {
+    animation-delay: 0.15s;
+}
 
 .poster-box {
     width: 100%;
@@ -377,7 +382,7 @@ header.site-header {
     text-overflow: ellipsis;
 }
 
-/* Ichki sahifa */
+
 .movie-detail-page {
     animation: pardaEffekti 0.5s ease-out forwards;
 }
@@ -386,7 +391,7 @@ header.site-header {
     background: #151f32;
     border-radius: 12px;
     padding: 25px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
     margin-bottom: 25px;
 }
 
@@ -407,8 +412,13 @@ header.site-header {
 }
 
 @media (max-width: 650px) {
-    .movie-detail-flex { flex-direction: column; }
-    .detail-poster { max-width: 100% !important; }
+    .movie-detail-flex {
+        flex-direction: column;
+    }
+
+    .detail-poster {
+        max-width: 100% !important;
+    }
 }
 
 .detail-poster {
@@ -496,12 +506,12 @@ header.site-header {
 
 .video-wrapper {
     position: relative;
-    padding-bottom: 56.25%; 
+    padding-bottom: 56.25%;
     height: 0;
     border-radius: 8px;
     overflow: hidden;
     background: #000;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.8);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
 }
 
 .video-wrapper iframe {
@@ -532,42 +542,51 @@ header.site-header {
     margin-bottom: 10px;
 }
 
-/* ==========================================================================
-   SARLAVHA UCHUN PREMIUM SHRIFT VA EFFEKT (POPPINS)
-   ========================================================================== */
-.search-container h1, 
+.search-container h1,
 .main-banner h1,
 #boshSahifaBloki h1 {
     font-family: 'Poppins', sans-serif !important;
-    font-weight: 700 !important; /* Qalin va jiddiy ko'rinish uchun */
-    font-size: 2.8rem !important; /* Shrift hajmi */
-    letter-spacing: -0.5px !important; /* Harflar orasini ideal yaqinlashtirish */
+    font-weight: 700 !important;
+    font-size: 2.8rem !important;
+    letter-spacing: -0.5px !important;
     color: #ffffff !important;
-    
-    /* Premium effekt: Matnga juda mayin ko'k-neon soya berish */
-    text-shadow: 0 2px 10px rgba(2, 132, 199, 0.3), 
-                 0 4px 20px rgba(0, 0, 0, 0.5) !important;
-    
+
+    text-shadow: 0 2px 10px rgba(2, 132, 199, 0.3),
+        0 4px 20px rgba(0, 0, 0, 0.5) !important;
+
     margin-bottom: 8px !important;
 }
 
 
-/* Pastidagi "Millionlab filmlar..." matni uchun ham shriftni chiroyli qilish */
 .search-container p,
 .main-banner p {
     font-family: 'Poppins', sans-serif !important;
     font-weight: 400 !important;
     font-size: 1.05rem !important;
-    color: #94a3b8 !important; /* To'q fonga mos tushuvchi chiroyli kulrang */
+    color: #94a3b8 !important;
     opacity: 0.9;
 }
 
 @keyframes silliqChiqish {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @keyframes pardaEffekti {
-    from { opacity: 0; transform: scale(0.98); }
-    to { opacity: 1; transform: scale(1); }
+    from {
+        opacity: 0;
+        transform: scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }

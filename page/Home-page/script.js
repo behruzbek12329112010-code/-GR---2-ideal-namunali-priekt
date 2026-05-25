@@ -1,11 +1,11 @@
 
-const API_KEY = "ed1c56f1"; 
+const API_KEY = "ed1c56f1";
 const BASE_URL = "https://www.omdbapi.com";
 
 
 const defaultMovies = [
-    "Inception", "Avatar", "Interstellar", "Gladiator", "The Dark Knight", 
-    "Spider-Man", "Avengers", "Titanic", "Wednesday", "The Sopranos", 
+    "Inception", "Avatar", "Interstellar", "Gladiator", "The Dark Knight",
+    "Spider-Man", "Avengers", "Titanic", "Wednesday", "The Sopranos",
     "Breaking Bad", "Narcos", "Sherlock", "Friends", "The Matrix",
     "Joker", "The Prestige", "Whiplash", "Parasite", "Chernobyl",
     "Dexter", "Hannibal", "Shutter Island", "The Pianist",
@@ -45,38 +45,37 @@ function tarjimaQilish(matn) {
 }
 
 window.addEventListener("DOMContentLoaded", () => {
-    yuklashDumaloqKarusel(); 
-    yuklashPremyeralar();    
+    yuklashDumaloqKarusel();
+    yuklashPremyeralar();
     yuklashTasodifiyReklama();
-    initDragScroll(); 
-    
- 
+    initDragScroll();
+
+
     const urlParams = new URLSearchParams(window.location.search);
     const movieFromUrl = urlParams.get('movie');
     if (movieFromUrl) {
-        ochishIchkiSahifa(movieFromUrl, false); // false - tarixni qayta yozmaslik uchun
+        ochishIchkiSahifa(movieFromUrl, false);
     } else {
-        // Agar bosh sahifada bo'lsa, tarixning ilk holatini saqlab qo'yamiz
+
         history.replaceState({ page: "home" }, "", window.location.pathname);
     }
-    
+
     const logo = document.getElementById("logoHome");
-    if(logo) {
+    if (logo) {
         logo.addEventListener("click", () => {
             orqagaQaytish();
-            // Logo bosilganda URL manzilni ham bosh holatga keltirib tarixga yozamiz
+
             history.pushState({ page: "home" }, "", window.location.pathname);
         });
     }
 });
 
-// Brauzerning ← (orqaga) va → (oldinga) tugmalari bosilganda ishlaydigan hodisa
 window.addEventListener("popstate", (event) => {
     if (event.state && event.state.page === "details") {
-        // Agar tarixdagi sahifa ichki qism bo'lsa, o'sha kinoni ochamiz (tarixga qayta yozmasdan)
+
         ochishIchkiSahifa(event.state.movieTitle, false);
     } else {
-        // Aks holda bosh sahifani ko'rsatamiz
+
         document.getElementById("kinoIchkiSahifa").classList.add("hidden");
         document.getElementById("boshSahifaBloki").classList.remove("hidden");
     }
@@ -87,11 +86,10 @@ function orqagaQaytish() {
     document.getElementById("boshSahifaBloki").classList.remove("hidden");
 }
 
-// Dumaloq stories karuselini drag (suyrash) orqali ishlatish mexanizmi
 function initDragScroll() {
     const slider = document.getElementById("storyContainer");
-    if(!slider) return;
-    
+    if (!slider) return;
+
     let isDown = false;
     let startX;
     let scrollLeft;
@@ -114,20 +112,20 @@ function initDragScroll() {
         if (!isDown) return;
         e.preventDefault();
         const x = e.pageX - slider.offsetLeft;
-        const walk = (x - startX) * 2; 
+        const walk = (x - startX) * 2;
         slider.scrollLeft = scrollLeft - walk;
     });
 }
 
-// 1. Tepadagi dumaloq karusel kontentini yuklash
+
 async function yuklashDumaloqKarusel() {
     const carousel = document.getElementById("storyCarousel");
-    if(!carousel) return;
+    if (!carousel) return;
     carousel.innerHTML = "";
 
     const shuffled = [...defaultMovies].sort(() => 0.5 - Math.random());
-    // Siz o'rnatgan limit bo'yicha (0 ta edi, o'zgarishsiz qoldirildi)
-    const selectedStories = shuffled.slice(0, 0); 
+
+    const selectedStories = shuffled.slice(0, 30);
 
     for (let title of selectedStories) {
         try {
@@ -149,22 +147,21 @@ async function yuklashDumaloqKarusel() {
     }
 }
 
-// 2. Asosiy sahifadagi "Mashhur Premyeralar" grid qismini yuklash
 async function yuklashPremyeralar() {
     const grid = document.getElementById("kinoGrid");
-    if(!grid) return;
+    if (!grid) return;
     grid.innerHTML = "<p style='grid-column: 1/-1; text-align:center; color:#94a3b8;'>Kino olami yuklanmoqda...</p>";
-    
+
     const shuffled = [...defaultMovies].sort(() => 0.5 - Math.random());
-    // Siz o'rnatgan limit bo'yicha (0 ta edi, o'zgarishsiz qoldirildi)
-    const selectedMovies = shuffled.slice(0, 0); 
+
+    const selectedMovies = shuffled.slice(0, 42);
     let htmlContent = "";
 
     for (let title of selectedMovies) {
         try {
             const res = await fetch(`${BASE_URL}?apikey=${API_KEY}&t=${encodeURIComponent(title)}`);
             const data = await res.json();
-            
+
             if (data.Response === "True") {
                 htmlContent += `
                     <div class="movie-card" onclick="ochishIchkiSahifa(\`${data.Title.replace(/'/g, "\\'")}\`)">
@@ -185,14 +182,13 @@ async function yuklashPremyeralar() {
     grid.innerHTML = htmlContent || "<p style='grid-column: 1/-1; text-align:center;'>Filmlar yuklanmadi.</p>";
 }
 
-// 3. Film tanlanganda ochiladigan UZMOVI PREMIUM ichki pleyer oynasi
-// `isPushState` parametri default true bo'ladi. Popstate orqali chaqirilganda false beriladi.
+
 async function ochishIchkiSahifa(kinoNomi, isPushState = true) {
     const boshSahifa = document.getElementById("boshSahifaBloki");
     const ichkiSahifa = document.getElementById("kinoIchkiSahifa");
-    
-    if(!ichkiSahifa || !boshSahifa) return;
-    
+
+    if (!ichkiSahifa || !boshSahifa) return;
+
     boshSahifa.classList.add("hidden");
     ichkiSahifa.classList.remove("hidden");
     ichkiSahifa.innerHTML = "<p style='text-align:center; padding:50px; color:#cbd5e1;'>Film tafsilotlari tayyorlanmoqda...</p>";
@@ -205,21 +201,19 @@ async function ochishIchkiSahifa(kinoNomi, isPushState = true) {
             const posterUrl = data.Poster !== "N/A" ? data.Poster : "https://via.placeholder.com/300x450";
             const playerUrl = `https://vidsrc.xyz/embed/movie?imdb=${data.imdbID}`;
 
-            // --- HISTORY API INTEGRATSIYASI ---
-            // Agar sahifa ichidan bosilgan bo'lsa, URL manzilini o'zgartiramiz va tarixga yozamiz
+
             if (isPushState) {
                 history.pushState(
-                    { page: "details", movieTitle: data.Title }, 
-                    "", 
+                    { page: "details", movieTitle: data.Title },
+                    "",
                     `?movie=${encodeURIComponent(data.Title)}`
                 );
             }
 
-            // Ichki sahifadagi Orqaga tugmasini ham popstate'ni trigger qiladigan qildik
             ichkiSahifa.innerHTML = `
                 <div class="movie-detail-header">
-                    <span>${data.Title.toUpperCase()} — ORIGINAL VARIANTI (FULL HD KO'RISH)</span>
-                    <button onclick="history.back()" style="background:#0284c7; color:white; border:none; padding:6px 12px; border-radius:4px; cursor:pointer;">⬅️ Orqaga</button>
+                    <span>${data.Title.toUpperCase()} — </span>
+
                 </div>
 
                 <div class="movie-detail-main">
@@ -246,7 +240,7 @@ async function ochishIchkiSahifa(kinoNomi, isPushState = true) {
 
                 <div id="playerSection" class="player-section hidden">
                     <div style="margin-bottom: 12px; font-size: 0.9rem; color: #38bdf8; text-align:center;">
-                        🎬 Katta ekranga o'tkazish uchun pleyerning o'ng pastki burchagidagi [ 🖥️ Fullscreen ] tugmasini bosing!
+                   
                     </div>
                     <div class="video-wrapper">
                         <iframe id="moviePlayer" src="" 
@@ -259,7 +253,7 @@ async function ochishIchkiSahifa(kinoNomi, isPushState = true) {
                     </div>
                 </div>
             `;
-            
+
             window.currentMovieUrl = playerUrl;
 
         } else {
@@ -273,19 +267,19 @@ async function ochishIchkiSahifa(kinoNomi, isPushState = true) {
 function pleyerniYoqish() {
     const playerSection = document.getElementById("playerSection");
     const moviePlayer = document.getElementById("moviePlayer");
-    
-    if(moviePlayer && playerSection) {
+
+    if (moviePlayer && playerSection) {
         moviePlayer.src = window.currentMovieUrl;
         playerSection.classList.remove("hidden");
         playerSection.scrollIntoView({ behavior: "smooth" });
     }
 }
 
-// 4. O'ng tomondagi "Tasodifiy film" (Reklama) qismini yuklash
+
 async function yuklashTasodifiyReklama() {
     const reklamaBox = document.getElementById("reklamaKino");
-    if(!reklamaBox) return;
-    
+    if (!reklamaBox) return;
+
     const randomTitle = defaultMovies[Math.floor(Math.random() * defaultMovies.length)];
 
     try {
@@ -305,14 +299,13 @@ async function yuklashTasodifiyReklama() {
     }
 }
 
-// 5. Qidiruv tugmasi mantiqi (Ruscha va Inglizcha qidiruvni qo'llab quvvatlaydi)
 const qidirishTugmasi = document.getElementById("qidirishTugmasi");
 const kinoInput = document.getElementById("kinoInput");
 
-if(qidirishTugmasi && kinoInput) {
+if (qidirishTugmasi && kinoInput) {
     qidirishTugmasi.addEventListener("click", () => {
         const kiritilganMatn = kinoInput.value.trim();
-        
+
         if (kiritilganMatn !== "") {
             const qidirilayotganKino = tarjimaQilish(kiritilganMatn);
             ochishIchkiSahifa(qidirilayotganKino);
