@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TMDB Signup UI</title>
+    <link rel="stylesheet" href="/page/sign in/style.css" />
+  </head>
+  <body>
+    <div class="signup-box">
+      <div class="logo">
+        <h1>TMDB</h1>
+      </div>
+
+      <h2 class="title">Akkaunt yaratish</h2>
+
+      <p class="subtitle">
+        Kinolarni yanada real korish uchun TMDBga qoshiling!
+      </p>
+
+      <form id="signupForm">
+        <div class="input-group">
+          <label>Username</label>
+          <input type="text" id="username" placeholder="Username tanlang" />
+        </div>
+
+        <div class="input-group">
+          <label>Parol</label>
+          <input type="password" id="password" placeholder="Parol tanlang" />
+        </div>
+
+        <div class="input-group">
+          <label>Parol tasdiqlang</label>
+          <input
+            type="password"
+            id="confirmPassword"
+            placeholder="Parol tasdiqlang"
+          />
+        </div>
+
+        <div class="terms">
+          <input type="checkbox" id="terms" />
+          <span class="termsofuse"
+            >Men 16yoshdan kattaman va terms of use ga roziman</span
+          >
+        </div>
+
+        <button class="signup-btn" type="submit">Akkauntni Yaratish</button>
+
+        <div class="message" id="message"></div>
+      </form>
+    </div>
+    <script src="/page/sign in/main.js"></script>
+  </body>
+</html>
