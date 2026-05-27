@@ -4,59 +4,165 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UzMovi Premium - Original Cinema</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+    <title>UZXTECH</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght=300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
 
-    <div class="app-container">
+<body class="dark-theme"> <div class="app-container">
         <header class="site-header">
-            <h1 class="logo" id="logoHome" style="cursor: pointer;">UZ<span>XTECH XUSH KELBSIZ</span></h1>
-            <a href="../../page/others/registrassiya.html" id="rendon"> kirish </a>
+            <h1 class="logo" id="logoHome" style="cursor: pointer;">UZ<span>XTECH</span></h1>
+            
+            <div class="header-action-group">
+                <button id="themeToggleBtn" class="theme-toggle-btn" title="Rejimni almashtirish">🌙</button>
+                <button id="homeBtnFromProfile" class="hidden-home-btn hidden">Home</button>
+                <button id="rendon" data-holat="bosh">Tizimga kirish</button>
+            </div>
         </header>
 
-        <div class="story-carousel-container" id="storyContainer">
-            <div id="storyCarousel" class="story-carousel">
-            </div>
-        </div>
+        <main class="main-content-area">
 
-        <div class="search-banner-container">
-            <div class="banner-overlay"></div>
-            <div class="banner-content">
+            <div id="boshSahifaBloki">
+                <div class="story-carousel-container" id="storyContainer">
+                    <div id="storyCarousel" class="story-carousel"></div>
+                </div>
 
+                <div class="search-banner-container" id="dynamicBanner">
+                    <div class="banner-overlay"></div>
+                    <div class="banner-content">
+                        <div class="main-search-wrapper">
+                            <div class="main-search-box">
+                                <input type="text" id="kinoInput" placeholder="Film, teleko‘rsatuv qidirish (Masalan: Avatar, Inception)..." autocomplete="off">
+                                <button id="qidirishTugmasi">Search</button>
+                            </div>
+                            <div id="liveSearchDropdown" class="live-search-dropdown hidden"></div>
+                        </div>
+                    </div>
+                </div>
 
+                <div class="genre-filter-container">
+                    <button class="genre-btn active" data-genre="all">Barchasi</button>
+                    <button class="genre-btn" data-genre="Action">Action</button>
+                    <button class="genre-btn" data-genre="Sci-Fi">Sci-Fi</button>
+                    <button class="genre-btn" data-genre="Drama">Drama</button>
+                    <button class="genre-btn" data-genre="Comedy">Comedy</button>
+                    <button class="genre-btn" data-genre="Thriller">Thriller</button>
+                </div>
 
-                <div class="main-search-box">
-                    <input type="text" id="kinoInput" placeholder="Film, teleko‘rsatuv, kishi va h.k. qidirish......">
-                    <button id="qidirishTugmasi">Search</button>
+                <div class="main-layout">
+                    <section class="left-content">
+                        <h2 class="section-title" id="blockTitle">Mashhur Premyeralar</h2>
+                        <div id="kinoGrid" class="kino-grid"></div>
+                    </section>
+
+                    <aside class="right-sidebar">
+                        <div class="sidebar-card">
+                            <h3 class="sidebar-title">Tasodifiy Premyera</h3>
+                            <div id="reklamaKino" class="random-reklama-box"></div>
+                        </div>
+                    </aside>
                 </div>
             </div>
-        </div>
 
-        <div class="main-layout">
+            <div id="kinoIchkiSahifa" class="movie-detail-page hidden"></div>
 
-            <section class="left-content">
-                <div id="boshSahifaBloki">
-                    <h2 class="section-title" id="blockTitle">Mashhur Premyeralar</h2>
-                    <div id="kinoGrid" class="kino-grid"></div>
+            <div id="profilSahifaBloki" class="profile-page-wrapper hidden">
+                <div class="user-hero-card">
+                    <div class="avatar-zone" id="userAvatar" title="Avatarni o'zgartirish" style="cursor: pointer;">U</div>
+                    <div class="user-text-meta">
+                        <h2 class="username" id="displayUsername">Foydalanuvchi <span class="edit-icon">✏️</span></h2>
+                        <p class="uid-text" id="displayUid">uid: 24095</p>
+                    </div>
                 </div>
 
-                <div id="kinoIchkiSahifa" class="movie-detail-page hidden">
+                <div class="letterboxd-tabs">
+                    <button class="tab-btn active" id="tab-liked" onclick="switchProfileTab('liked-pane', 'tab-liked')">❤ Sevimli filmlar</button>
+                    <button class="tab-btn" id="tab-watchlist" onclick="switchProfileTab('watchlist-pane', 'tab-watchlist')">⏳ Watchlist</button>
+                    <button class="tab-btn" id="tab-watched" onclick="switchProfileTab('watched-pane', 'tab-watched')">👁️ Ko'rib bo'linganlar</button>
                 </div>
-            </section>
 
-            <aside class="right-sidebar">
-                <div class="sidebar-card">
-                    <h3 class="sidebar-title">Tasodifiy Premyera</h3>
-                    <div id="reklamaKino" class="random-reklama-box"></div>
+                <div class="tabs-content-wrapper">
+                    <div id="liked-pane" class="tab-panel-item">
+                        <h3 class="panel-title" id="likedCount">Sevimli filmlar (0 ta)</h3>
+                        <div id="likedGrid" class="movies-flex-grid"></div>
+                    </div>
+
+                    <div id="watchlist-pane" class="tab-panel-item hidden">
+                        <h3 class="panel-title" id="watchlistCount">Keyinroq ko'rish (0 ta)</h3>
+                        <div id="watchlistGrid" class="movies-flex-grid"></div>
+                    </div>
+
+                    <div id="watched-pane" class="tab-panel-item hidden">
+                        <h3 class="panel-title" id="watchedCount">Ko'rilgan filmlar (0 ta)</h3>
+                        <div id="watchedGrid" class="movies-watched-detailed-grid"></div>
+                    </div>
                 </div>
-            </aside>
+            </div>
 
+        </main>
+    </div>
+
+    <div id="loginModalBloki" class="login-modal-wrapper hidden">
+        <div class="login-card animate-form">     
+            <span class="close-modal-btn" onclick="yopishLoginModal()">&times;</span>
+            <h2 id="loginFormTitle">Tizimga Kirish</h2>
+            <br>
+            
+            <form id="authForm" onsubmit="avtorizatsiyaTizimi(event)">
+                <div class="input-group">
+                    <label>Email manzilingiz</label>
+                    <input type="email" id="authEmail" placeholder="example@mail.com" required>
+                </div>
+                <div class="input-group">
+                    <label>Maxfiy parol</label>
+                    <input type="password" id="authParol" placeholder="••••••••" required>
+                </div>
+                
+                <button type="submit" id="authSubmitBtn" class="auth-main-btn">Kirish</button>
+            </form>
+            <br>
+          
         </div>
     </div>
+
+    <div id="avatarModalBloki" class="login-modal-wrapper hidden">
+        <div class="login-card animate-form" style="max-width: 500px;">
+            <span class="close-modal-btn" onclick="document.getElementById('avatarModalBloki').classList.add('hidden')">&times;</span>
+            <h2>Avatar Tanlang</h2>
+            <p class="login-subtitle" style="margin-bottom: 20px;">O'zingizga yoqqan kino personajini profil rasmi qiling:</p>
+            <div class="avatar-selection-grid" id="avatarSelectionGrid"></div>
+        </div>
+    </div>
+    <section class="apple-tv-slider">
+    <div class="slider-wrapper" id="appleTvWrapper">
+        </div>
+
+    <div class="slider-navigation-bar">
+        <div class="slider-meta-info">
+            <h2 id="activeSlideTitle">Yuklanmoqda...</h2>
+            <p id="activeSlideDesc">Iltimos kuting...</p>
+            <button class="apple-trial-btn" id="activeSlideBtn">Bepul sinab ko'rish</button>
+        </div>
+        
+        <div class="slider-dots" id="sliderDots">
+            </div>
+    </div>
+</section>
+<section class="leaderboard-section">
+    <div class="leaderboard-container">
+        <div class="leaderboard-header">
+            <h2><i class="fas fa-trophy"></i> Eng Faol Foydalanuvchilar</h2>
+            <div class="leaderboard-badges">
+                <span class="badge badge-total">Jami ko'rilganlar</span>
+                <span class="badge badge-week">Haftalik faollik</span>
+            </div>
+        </div>
+
+        <div class="leaderboard-grid" id="leaderboardGrid">
+            </div>
+    </div>
+</section>
 
 
     <script src="script.js"></script>

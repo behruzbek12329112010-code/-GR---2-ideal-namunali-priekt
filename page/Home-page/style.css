@@ -1,592 +1,1358 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+/* ================= CSS VARIABLES (4-FUNKSIYA UCHUN) ================= */
+.dark-theme {
+    --bg-main: #0b0f19;
+    --bg-card: #151f32;
+    --bg-input: #0b0f19;
+    --bg-hover: #1e293b;
+    --text-primary: #ffffff;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+    --border-color: rgba(255, 255, 255, 0.05);
+    --shadow-color: rgba(0, 0, 0, 0.5);
 }
 
-body {
-    background-color: #0b0f19;
-    color: #ffffff;
-    padding: 0px;
+.light-theme {
+    --bg-main: #f8fafc;
+    --bg-card: #ffffff;
+    --bg-input: #f1f5f9;
+    --bg-hover: #e2e8f0;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-muted: #64748b;
+    --border-color: rgba(0, 0, 0, 0.08);
+    --shadow-color: rgba(15, 23, 42, 0.08);
 }
+
+/* ================= ASOSIY ELEMENTLARNI O'ZGARUVCHILARGA BOG'LASH ================= */
+body {
+    background-color: var(--bg-main) !important;
+    color: var(--text-primary) !important;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Silliq almashish */
+}
+
+/* App konteyner va asosiy sahifalar foni */
+.app-container, .main-content-area, #boshSahifaBloki, #kinoIchkiSahifa, #profilSahifaBloki {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+}
+
+/* Kino kartochkalari (Movie Cards) foni */
+.movie-card, .watched-detail-card, .live-search-item {
+    background-color: var(--bg-card) !important;
+    border: 1px solid var(--border-color) !important;
+    color: var(--text-primary) !important;
+}
+
+/* Matnlar ranglari */
+h1, h2, h3, h4, h5, h6, span, p {
+    /* Agar matn muayyan klass ichida bo'lsa, o'zgaruvchidan olsin */
+    color: var(--text-primary);
+}
+
+.movie-info-layer h4, .user-name {
+    color: var(--text-primary) !important;
+}
+
+/* Ikkinchi darajali kichik matnlar */
+.movie-views-count, .login-subtitle, .auth-toggle-text, .empty-message, .count-text {
+    color: var(--text-secondary) !important;
+}
+
+/* Input (Qidiruv paneli va Login maydonlari) */
+input, textarea {
+    background-color: var(--bg-input) !important;
+    color: var(--text-primary) !important;
+    border: 1px solid var(--border-color) !important;
+}
+
+/* Leaderboard va profil tab panellari */
+.leaderboard-container, .profile-sidebar, .tab-panel-item {
+    background-color: #151f3200 !important;
+   
+}
+
+/* Slayder ostidagi navigatsiya paneli */
+.slider-navigation-bar {
+    background: linear-gradient(to top, var(--bg-main), transparent) !important;
+}
+
+/* ================= ASOSIY GLOBAL STILLAR ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+
 
 .app-container {
-    max-width: 1700px;
-    margin: 0 auto;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 10px;
 }
 
 .hidden {
-    display: none !important;
+  display: none !important;
 }
 
-#rendon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-
-    padding: 10px 22px;
-    margin-left: 15px;
-
-    color: #ffffff;
-    font-size: 0.9rem;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    background: rgba(2, 133, 199, 0);
-    border: 1.5px solid rgba(113, 113, 113, 0.4);
-    border-radius: 8px;
-
-    cursor: pointer;
-    backdrop-filter: blur(5px);
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    position: relative;
-    overflow: hidden;
-}
-
+/* ================= SITE HEADER ================= */
 header.site-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 40px;
-    background: #0b0f19;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    width: 100%;
-}
-
-#rendon:hover {
-    color: #0a0a0a;
-    background: #ffffff;
-    border-color: #000000;
-
-
-    box-shadow: 0 0 15px rgba(2, 133, 199, 0),
-        0 0 30px rgba(2, 132, 199, 0.3);
-
-    transform: translateY(-2px);
-}
-
-#rendon:active {
-    transform: translateY(1px);
-    box-shadow: 0 0 8px rgba(2, 132, 199, 0.4);
-}
-
-#rendon::before {
-    content: '0$   ';
-    margin-right: 6px;
-    font-size: 0.95rem;
-    transition: transform 0.3s ease;
-}
-
-#rendon:hover::before {
-    transform: scale(1.15);
-}
-
-
-.site-header {
-    display: inline-flex;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-bottom: 15px;
-    margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  background: var(--bg-main);
+  border-bottom: 1px solid var(--border-color);
+  width: 100%;
 }
 
 .logo {
-    display: inline-flex;
-    font-size: 2.2rem;
-    font-weight: 800;
-    letter-spacing: 3px;
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  user-select: none;
+  transition: transform 0.2s ease;
+  color: var(--text-primary);
+}
+
+.logo:hover {
+  transform: scale(1.02);
 }
 
 .logo span {
-    color: #0284c7;
+  color: #0284c7;
 }
 
+.header-action-group {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
 
+/* Theme Toggle Button Stili */
+.theme-toggle-btn {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  font-size: 1.3rem;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 50%;
+  transition: transform 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.theme-toggle-btn:hover {
+  transform: scale(1.1);
+}
+
+.hidden-home-btn {
+  padding: 10px 22px;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  font-weight: 600;
+  background: var(--bg-hover);
+  border: 1.5px solid var(--text-muted);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.hidden-home-btn:hover {
+  background: var(--text-muted);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+#rendon {
+  padding: 10px 22px;
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  background: #151f32;
+  border: 1.5px solid #0284c7;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(2, 132, 199, 0.2);
+}
+
+#rendon:hover {
+  background: #0284c7;
+  box-shadow: 0 4px 20px rgba(2, 132, 199, 0.4);
+  transform: translateY(-2px);
+}
+
+#rendon.exit-mode {
+  border-color: #ef4444;
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+}
+
+#rendon.exit-mode:hover {
+  background: #ef4444;
+  color: #fff;
+}
+
+/* ================= STORIES KARUSEL ================= */
 .story-carousel-container {
-    width: 100%;
-    overflow-x: auto;
-    background: #111827;
-    padding: 15px 10px;
-    border-radius: 12px;
-    margin-bottom: 25px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    cursor: grab;
-    user-select: none;
-
-
-    -webkit-overflow-scrolling: touch;
-}
-
-.story-carousel-container::-webkit-scrollbar {
-    display: none;
-}
-
-.story-carousel-container:active {
-    cursor: grabbing;
+  width: 100%;
+  overflow-x: auto;
+  background: var(--bg-card);
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  border: 1px solid var(--border-color);
 }
 
 .story-carousel {
-    display: flex;
-    gap: 15px;
-    align-items: center;
-    pointer-events: none;
+  display: flex;
+  gap: 15px;
+  align-items: center;
 }
 
 .story-card {
-    flex: 0 0 auto;
-    width: 75px;
-    height: 75px;
-    border-radius: 50%;
-    border: 3px solid #0284c7;
-    overflow: hidden;
-    pointer-events: auto;
-    box-shadow: 0 0 10px rgba(2, 132, 199, 0.3);
-    transition: transform 0.3s ease, border-color 0.3s;
-}
-
-.story-card:hover {
-    transform: scale(1.1);
-    border-color: #38bdf8;
-    box-shadow: 0 0 15px rgba(56, 189, 248, 0.7);
+  flex: 0 0 auto;
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  border: 3px solid #0284c7;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
 }
 
 .story-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
+.card-like-icon {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: rgba(11, 15, 25, 0.75);
+  color: #94a3b8;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(4px);
+}
 
+.card-like-icon:hover,
+.card-like-icon.active {
+  transform: scale(1.15);
+  color: #ef4444;
+}
+
+.movie-views-count {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 5px;
+  font-weight: 500;
+}
+
+/* ================= JONLI QIDIRUV VA DROP-DOWN (2-FUNKSIYA) ================= */
 .search-banner-container {
-    position: relative;
-    width: 100%;
-    min-height: 500px;
-    border-radius: 15px;
-    background-image: url('https://m.media-amazon.com/images/S/pv-target-images/e9b2f577c4e77820cdf7fef2def6db982f7a9808952e93c28619c8987568334f._UR1920,1080_CLs%7C1920,1080%7C/G/bundle/BottomRightCardGradient16x9.png,/G/01/digital/video/merch/subs/benefit-id/g-l/kinofilmcollectionus/logos/channels-logo-white.png%7C0,0,1920,1080+0,0,1920,1080+1359,885,482,117_kv51f71587772292ba13767b090541deed_.jpg');
-    background-size: cover;
-    background-position: center;
-    align-items: center;
-    padding: 40px;
-    margin-bottom: 35px;
-    overflow: hidden;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+  position: relative;
+  width: 100%;
+  min-height: 800px;
+  border-radius: 15px;
+  background-color: #151f32;
+  background-size: cover;
+  background-position: center 25%;
+  display: flex;
+
+  padding: 40px;
+  margin-bottom: 25px;
+  overflow: visible; /* Dropdown ko'rinishi uchun */
+  transition: background-image 0.8s ease-in-out;
 }
 
 .banner-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to right, rgba(3, 37, 65, 0.9) 0%, rgba(3, 37, 65, 0.5) 100%);
-    z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(11, 15, 25, 0.9),
+    rgba(11, 15, 25, 0.4)
+  );
+  z-index: 1;
 }
 
 .banner-content {
-    position: relative;
-    z-index: 2;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+  position: relative;
+  z-index: 10;
+  width: 100%;
 }
 
-.banner-content h2 {
-    margin-top: -13%;
-    text-align: center;
-    font-size: 3rem;
-    font-weight: 700;
-    line-height: 1;
-    color: #e4e4e4;
-}
-
-.banner-content h3 {
-    font-size: 1.6rem;
-    font-weight: 600;
-    margin-bottom: 25px;
-    color: rgba(255, 255, 255, 0.9);
+.main-search-wrapper {
+  position: relative;
+  width: 100%;
 }
 
 .main-search-box {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    min-width: 0;
-    box-sizing: border-box;
-    border-width: 1px;
-    border-style: solid;
-    outline: 0;
-    font-family: var(--kendo-font-family, inherit);
-    font-weight: normal;
-    text-align: start;
-    box-shadow: none;
-    display: inline-flex;
-    flex-flow: row nowrap;
-    align-items: stretch;
-    vertical-align: middle;
-    position: relative;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    border-radius: 25px;
-    transition: color var(--kendo-transition-rapid), background-color var(--kendo-transition-rapid), border-color var(--kendo-transition-rapid), box-shadow var(--kendo-transition-rapid), opacity var(--kendo-transition-rapid);
+  display: flex;
+  background: rgba(15, 23, 42, 0);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  border-radius: 30px;
+  overflow: hidden;
+  width: 100%;
 }
-
 
 #kinoInput {
-    flex: 1;
-    background: transparent;
-    border: none;
-    outline: none;
-    padding: 10px 25px;
-    color: #cfcfcf;
-    font-size: 1rem;
-    font-weight: 400;
-}
-
-#kinoInput::placeholder {
-    color: #999999;
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 18px 25px;
+  color: #ffffff;
+  font-size: 1rem;
 }
 
 #qidirishTugmasi {
-    background: linear-gradient(to right, #ffffff00, #ffffff55);
-    color: rgba(255, 255, 255, 0.409);
-    border: none;
-    padding: 0 30px;
+  background: #0285c700;
+  color: white;
+  border: none;
+  padding: 0 35px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: background 0.2s;
+}
+
+/* Live Search Dropdown Paneli */
+.live-search-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  width: 100%;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  max-height: 380px;
+  overflow-y: auto;
+  z-index: 999;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.live-search-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background 0.2s;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.live-search-item:hover {
+  background: var(--bg-hover);
+}
+
+.live-search-poster {
+  width: 45px;
+  height: 65px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.live-search-meta h5 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.live-search-meta p {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+/* ================= 1-FUNKSIYA: JANRLAR FILTERI STILLARI ================= */
+.genre-filter-container {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+}
+
+.genre-filter-container::-webkit-scrollbar {
+  height: 4px;
+}
+
+.genre-filter-container::-webkit-scrollbar-thumb {
+  background: #0285c731;
+  border-radius: 10px;
+}
+
+.genre-btn {
+     background: #00000000;
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+    padding: 8px 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: 20px;
     cursor: pointer;
-    font-size: 1rem;
-    font-weight: 700;
-    border-radius: 30px;
-    transition: opacity 0.2s ease;
+    transition: all 0.2s ease;
+    white-space: nowrap;
 }
 
-#qidirishTugmasi:hover {
-    opacity: 0.9;
+.genre-btn:hover,
+.genre-btn.active {
+  background: #0285c700;
+  color: #fff;
+  border-color: #0284c7;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
 }
 
-
+/* ================= GRID LAYER VE KARTALAR ================= */
 .main-layout {
-    display: grid;
-    grid-template-columns: 3fr 1fr;
-    gap: 30px;
-}
-
-@media (max-width: 900px) {
-    .main-layout {
-        grid-template-columns: 1fr;
-    }
-
-    .banner-content h2 {
-        font-size: 2.2rem;
-    }
-
-    .banner-content h3 {
-        font-size: 1.2rem;
-    }
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 30px;
 }
 
 .section-title {
-    font-size: 1.4rem;
-    margin-bottom: 20px;
-    position: relative;
-    padding-left: 12px;
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+  position: relative;
+  padding-left: 12px;
+  color: var(--text-primary);
 }
 
 .section-title::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 4px;
-    bottom: 4px;
-    width: 4px;
-    background: #0284c7;
-    border-radius: 2px;
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 4px;
+  bottom: 4px;
+  width: 4px;
+  background: #0284c7;
+  border-radius: 2px;
 }
 
-
 .kino-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
 }
 
 .movie-card {
-    background: #151f32;
-    border-radius: 8px;
-    overflow: hidden;
-    position: relative;
-    cursor: pointer;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-    opacity: 0;
-    animation: silliqChiqish 0.6s ease-out forwards;
-    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .movie-card:hover {
-    transform: scale(1.04) translateY(-5px);
-    box-shadow: 0 15px 30px rgba(2, 132, 199, 0.3);
-}
-
-.kino-grid .movie-card:nth-child(3n+1) {
-    animation-delay: 0.05s;
-}
-
-.kino-grid .movie-card:nth-child(3n+2) {
-    animation-delay: 0.1s;
-}
-
-.kino-grid .movie-card:nth-child(3n+3) {
-    animation-delay: 0.15s;
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(2, 132, 199, 0.2);
 }
 
 .poster-box {
-    width: 100%;
-    height: 270px;
-    position: relative;
+  width: 100%;
+  height: 270px;
+  position: relative;
 }
 
 .poster-box img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .card-rating {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    background: rgba(0, 0, 0, 0.8);
-    color: #ffc107;
-    padding: 2px 6px;
-    font-size: 0.75rem;
-    border-radius: 4px;
-    font-weight: 700;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #ffc107;
+  padding: 2px 6px;
+  font-size: 0.75rem;
+  border-radius: 4px;
+  font-weight: 700;
 }
 
 .movie-info-layer {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(transparent, rgba(0, 0, 0, 0.95) 70%);
-    padding: 15px 10px 10px 10px;
-    text-align: center;
+  padding: 12px;
+  background: var(--bg-card);
+  text-align: center;
 }
 
 .movie-info-layer h4 {
-    font-size: 0.95rem;
-    font-weight: 600;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  font-size: 0.95rem;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--text-primary);
 }
 
-
-.movie-detail-page {
-    animation: pardaEffekti 0.5s ease-out forwards;
-}
-
-.movie-detail-main {
-    background: #151f32;
-    border-radius: 12px;
-    padding: 25px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-    margin-bottom: 25px;
-}
-
-.movie-detail-header {
-    font-size: 1.3rem;
-    font-weight: 600;
-    padding: 12px 20px;
-    background: #1e293b;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    color: #38bdf8;
-    border-left: 5px solid #0284c7;
-}
-
-.movie-detail-flex {
-    display: flex;
-    gap: 30px;
-}
-
-@media (max-width: 650px) {
-    .movie-detail-flex {
-        flex-direction: column;
-    }
-
-    .detail-poster {
-        max-width: 100% !important;
-    }
-}
-
-.detail-poster {
-    flex: 1;
-    max-width: 260px;
-    position: relative;
-    border-radius: 8px;
-    overflow: hidden;
-}
-
-.detail-poster img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-.play-overlay-btn {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: #0284c7;
-    color: white;
-    border: none;
-    padding: 14px 28px;
-    font-size: 1rem;
-    font-weight: 600;
-    border-radius: 30px;
-    cursor: pointer;
-    box-shadow: 0 0 25px rgba(2, 132, 199, 0.8);
-    transition: 0.3s;
-}
-
-.play-overlay-btn:hover {
-    background: #0369a1;
-    transform: translate(-50%, -50%) scale(1.08);
-}
-
-.detail-info-table {
-    flex: 1.5;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.info-row {
-    display: flex;
-    background: #1e293b;
-    border-radius: 6px;
-}
-
-.info-label {
-    width: 130px;
-    background: rgba(255, 255, 255, 0.03);
-    padding: 10px;
-    color: #94a3b8;
-    font-size: 0.8rem;
-    font-weight: 600;
-}
-
-.info-value {
-    padding: 10px;
-    color: #f1f5f9;
-    font-size: 0.9rem;
-}
-
-.detail-plot-box {
-    background: #151f32;
-    border-radius: 12px;
-    padding: 20px;
-    margin-top: 20px;
-    border-left: 4px solid #0284c7;
-    color: #cbd5e1;
-    line-height: 1.6;
-}
-
-.player-section {
-    background: #131a26;
-    border-radius: 12px;
-    padding: 20px;
-    margin-top: 25px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.video-wrapper {
-    position: relative;
-    padding-bottom: 56.25%;
-    height: 0;
-    border-radius: 8px;
-    overflow: hidden;
-    background: #000;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
-}
-
-.video-wrapper iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
-}
-
+/* Sidebar */
 .sidebar-card {
-    background: #151f32;
-    border-radius: 8px;
-    padding: 15px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 15px;
 }
 
 .sidebar-title {
-    font-size: 1rem;
-    color: #0284c7;
-    margin-bottom: 15px;
-    text-align: center;
+  font-size: 1rem;
+  color: #0284c7;
+  margin-bottom: 15px;
+  text-align: center;
 }
 
 .random-reklama-box img {
+  width: 100%;
+  border-radius: 6px;
+}
+
+/* ================= ICHKI SAHIFA PLAYERI VE 3-FUNKSIYA (IZOHLAR) ================= */
+.movie-detail-main {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 25px;
+}
+
+.movie-detail-header {
+  font-size: 1.3rem;
+  font-weight: 600;
+  padding: 12px 20px;
+  background: var(--bg-card);
+  border-radius: 8px;
+  margin-bottom: 20px;
+  color: #38bdf8;
+  border-left: 5px solid #0284c7;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid var(--border-color);
+}
+
+.movie-detail-flex {
+  display: flex;
+  gap: 30px;
+}
+
+.detail-poster {
+  flex: 1;
+  max-width: 260px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.detail-poster img {
+  width: 100%;
+  display: block;
+}
+
+.detail-info-table {
+  flex: 1.5;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.info-row {
+  display: flex;
+  background: var(--bg-hover);
+  border-radius: 6px;
+}
+
+.info-label {
+  width: 130px;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 10px;
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.info-value {
+  padding: 10px;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+}
+
+.detail-plot-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 20px;
+  border-left: 4px solid #0284c7;
+  color: var(--text-secondary);
+}
+
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #000;
+  margin-top: 20px;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.interaction-panel {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.action-toggle-btn {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: 0.2s;
+}
+
+.action-toggle-btn:hover {
+  background: #0284c7;
+  color: white;
+}
+
+.action-toggle-btn.active {
+  background: #ef4444;
+  color: white;
+}
+
+#btnWatchlist.active {
+  background: #0284c7;
+  color: white;
+}
+#btnWatched.active {
+  background: #10b981;
+  color: white;
+}
+
+/* 3-FUNKSIYA: Reyting va Izoh qoldirish bo'limi */
+.reviews-section-wrapper {
+  margin-top: 30px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 25px;
+}
+
+.star-rating-select {
+  display: flex;
+  gap: 5px;
+  font-size: 1.5rem;
+  margin: 15px 0;
+}
+
+.star-select-item {
+  cursor: pointer;
+  color: var(--text-muted);
+  transition: color 0.1s;
+}
+
+.star-select-item.selected {
+  color: #ffc107;
+}
+
+.review-input-box textarea {
+  width: 100%;
+  height: 90px;
+  background: var(--bg-input);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  border-radius: 8px;
+  padding: 12px;
+  outline: none;
+  resize: none;
+  font-size: 0.9rem;
+}
+
+.submit-review-btn {
+  background: #0284c7;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.user-reviews-list {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.single-review-card {
+  background: var(--bg-hover);
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+}
+
+.review-author-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+/* ================= PROFIL BLOKI STILLARI ================= */
+.profile-page-wrapper {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  padding: 30px;
+  border-radius: 16px;
+}
+
+.user-hero-card {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  background: var(--bg-hover);
+  padding: 25px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+}
+
+.avatar-zone {
+  width: 85px;
+  height: 85px;
+  background: #10b981;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  box-shadow: 0 8px 20px rgba(16, 185, 129, 0.2);
+  color: white;
+  overflow: hidden;
+}
+
+.avatar-zone img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 5-FUNKSIYA: Avatar tanlash griddi */
+.avatar-selection-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  padding: 15px 0;
+}
+
+.avatar-option-item {
+  width: 90px;
+  height: 90px;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 3px solid transparent;
+  transition: transform 0.2s;
+}
+
+.avatar-option-item:hover {
+  transform: scale(1.05);
+}
+
+.avatar-option-item.selected {
+  border-color: #0284c7;
+}
+
+.avatar-option-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.username {
+  font-size: 1.6rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text-primary);
+}
+
+.edit-icon {
+  font-size: 1.1rem;
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.uid-text {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+.letterboxd-tabs {
+  display: flex;
+  gap: 10px;
+  border-bottom: 2px solid var(--border-color);
+  margin-bottom: 25px;
+}
+
+.tab-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.tab-btn:hover {
+  color: var(--text-primary);
+}
+.tab-btn.active {
+  color: #38bdf8;
+}
+
+.tab-btn.active::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #0284c7;
+}
+
+.panel-title {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+}
+
+.movies-flex-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 20px;
+}
+
+.empty-message {
+  color: var(--text-muted);
+  text-align: center;
+  grid-column: 1/-1;
+  padding: 30px 0;
+}
+
+/* WATCHED DETAILED GRID */
+.movies-watched-detailed-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.watched-detail-card {
+  display: flex;
+  gap: 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  padding: 15px;
+  border-radius: 10px;
+  align-items: flex-start;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.watched-detail-card:hover {
+  border-color: rgba(2, 132, 199, 0.3);
+  background: var(--bg-hover);
+}
+
+.watched-card-poster {
+  width: 90px;
+  height: 130px;
+  border-radius: 6px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.watched-card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.watched-card-info h4 {
+  font-size: 1.1rem;
+  color: #38bdf8;
+  font-weight: 600;
+}
+
+.profile-review-badge {
+  background: rgba(255, 193, 7, 0.15);
+  color: #ffc107;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  width: fit-content;
+}
+
+/* ================= MODAL OYNALAR STILLARI ================= */
+.login-modal-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(11, 15, 25, 0.85);
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.login-card {
+    background: #0000004c;
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 40px;
     width: 100%;
-    border-radius: 6px;
-    margin-bottom: 10px;
+    max-width: 420px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    position: relative;
 }
 
-.search-container h1,
-.main-banner h1,
-#boshSahifaBloki h1 {
-    font-family: 'Poppins', sans-serif !important;
-    font-weight: 700 !important;
-    font-size: 2.8rem !important;
-    letter-spacing: -0.5px !important;
-    color: #ffffff !important;
-
-    text-shadow: 0 2px 10px rgba(2, 132, 199, 0.3),
-        0 4px 20px rgba(0, 0, 0, 0.5) !important;
-
-    margin-bottom: 8px !important;
+.close-modal-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 1.8rem;
+  color: var(--text-muted);
+  cursor: pointer;
 }
 
+.close-modal-btn:hover {
+  color: #ef4444;
+}
 
-.search-container p,
-.main-banner p {
-    font-family: 'Poppins', sans-serif !important;
-    font-weight: 400 !important;
-    font-size: 1.05rem !important;
-    color: #94a3b8 !important;
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.input-group input {
+  background: var(--bg-input);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 14px 18px;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  outline: none;
+}
+
+.auth-main-btn {
+  width: 100%;
+  background: #0284c7;
+  color: #ffffff;
+  border: none;
+  padding: 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.animate-form {
+  animation: formSlideUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+/* Leaderboard Styles */
+.leaderboard-section {
+    background-color: #0b152300;
+    padding: 40px 20px;
+    margin-top: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0);
+    font-family: 'Poppins', sans-serif;
+}
+
+.leaderboard-container {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.leaderboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.leaderboard-header h2 {
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.leaderboard-header h2 i {
+    color: #00a8ff;
+    margin-right: 10px;
+}
+
+.leaderboard-badges {
+    display: flex;
+    gap: 15px;
+}
+
+.badge {
+    font-size: 13px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-weight: 500;
+}
+
+.badge-total {
+    background-color: rgba(0, 210, 190, 0.15);
+    color: #00d2be;
+}
+
+.badge-week {
+    background-color: rgba(255, 99, 132, 0.15);
+    color: #ff6384;
+}
+
+/* Grid Tizimi */
+.leaderboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(45%, 1fr));
+    gap: 25px 40px;
+}
+
+.user-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: rgba(255, 255, 255, 0.02);
+    padding: 12px;
+    border-radius: 12px;
+    transition: transform 0.2s;
+}
+
+.user-row:hover {
+    transform: translateX(5px);
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.user-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Harf shaklidagi avatar (agar rasm bo'lmasa) */
+.user-avatar-text {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #00d2be, #00a8ff);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.user-info {
+    flex-grow: 1;
+}
+
+.user-name {
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+/* Progress Barlar */
+.progress-container {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.progress-bar-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.progress-track {
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-fill {
+    height: 100%;
+    border-radius: 4px;
+}
+
+.fill-total {
+    background: linear-gradient(90deg, #00d2be, #00aaff3d);
+}
+
+.fill-week {
+    background: linear-gradient(90deg, #ffffff3d, #ffffff);
+}
+
+.count-text {
+    color: #a5b1c2;
+    font-size: 12px;
+    font-weight: 500;
+    min-width: 50px;
+    text-align: right;
+}
+
+/* Mobil moslashuvchanlik */
+@media (max-width: 768px) {
+    .leaderboard-grid {
+        grid-template-columns: 1fr;
+    }
+    .leaderboard-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+/* SAYTNING ASOSIY FONIGA KINOZAL RASMI */
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-image: linear-gradient(rgba(11, 21, 35, 0.85), rgba(6, 11, 19, 0.95)), url('5880754923920624827.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+/* APPLE TV SLIDER CONTAINER */
+.apple-tv-slider {
+    position: relative;
+    margin: 30px 0%;
+    height: 950px;
+    border-radius: 18px;
+    overflow: hidden;
+    background: #000;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+}
+
+.slider-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* HAR BIR SLAYD */
+.slide-item {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), visibility 0.8s;
+}
+
+.slide-item.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* GORIZONTAL 16:9 FORMATDAGI RASM */
+.slide-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 20%;
+    transform: scale(1.05);
+    transition: transform 6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Slayd aktiv bo'lganda rasm sekin yaqinlashadi (Apple effekti) */
+.slide-item.active .slide-img {
+    transform: scale(1);
+}
+
+/* GRADIET OVERLAY (Matnlar oson o'qilishi va chetlari qorayishi uchun) */
+.slide-overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.9) 25%, rgba(0, 0, 0, 0.4) 60%, transparent 100%),
+                linear-gradient(to top, rgba(0, 0, 0, 0.95) 20%, transparent 50%);
+}
+
+/* PASTKI MATN VA NAVIGATSIYA BLOKI */
+.slider-navigation-bar {
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100%;
+    padding: 40px 5%;
+    box-sizing: border-box;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+}
+
+.slider-meta-info {
+    max-width: 600px;
+}
+
+/* Matnlarning pastdan tepaga chiroyli chiqish animatsiyasi */
+.slider-meta-info h2 {
+    font-size: 38px;
+    font-weight: 700;
+    margin: 0 0 10px 0;
+    color: #ffffff;
+    animation: fadeInUp 0.6s cubic-bezier(0.25, 1, 0.5, 1) both;
+}
+
+.slider-meta-info p {
+    font-size: 16px;
+    color: #e2e8f0;
+    line-height: 1.5;
+    margin: 0 0 20px 0;
     opacity: 0.9;
+    animation: fadeInUp 0.6s cubic-bezier(0.25, 1, 0.5, 1) 0.1s both;
 }
 
-@keyframes silliqChiqish {
+.apple-trial-btn {
+    background: #ffffff;
+    color: #000000;
+    border: none;
+    padding: 12px 28px;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 24px;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+    animation: fadeInUp 0.6s cubic-bezier(0.25, 1, 0.5, 1) 0.2s both;
+}
+
+.apple-trial-btn:hover {
+    transform: scale(1.04);
+    background-color: #f1f5f9;
+}
+
+/* NUQTACHALAR (DOTS INDICATOR) */
+.slider-dots {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.35);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    background: #ffffff;
+    transform: scale(1.25);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+
+@keyframes fadeInUp {
     from {
         opacity: 0;
         transform: translateY(20px);
     }
-
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
-@keyframes pardaEffekti {
-    from {
-        opacity: 0;
-        transform: scale(0.98);
-    }
-
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
+/* Ekran o'lchamiga moslashuvchanlik */
+@media (max-width: 900px) {
+    .apple-tv-slider { height: 400px; }
+    .slider-navigation-bar { flex-direction: column; align-items: flex-start; gap: 20px; padding: 20px 5%; }
+    .slider-meta-info h2 { font-size: 26px; }
+    .slider-meta-info p { font-size: 14px; }
+    .slider-dots { margin-bottom: 0; }
+}
+@keyframes formSlideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
