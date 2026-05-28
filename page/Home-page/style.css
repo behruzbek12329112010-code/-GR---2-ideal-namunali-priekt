@@ -1,4 +1,125 @@
-/* ================= CSS VARIABLES (4-FUNKSIYA UCHUN) ================= */
+    /* --- SHAFFOFLIK (GLASSMORPHISM) ASOSIY STILLARI --- */
+:root {
+    --glass-bg: rgba(255, 255, 255, 0.06);
+    --glass-bg-hover: rgba(255, 255, 255, 0.12);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-blur: blur(16px);
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+/* Light theme uchun alohida shaffoflik variantlari */
+body.light-theme {
+    --glass-bg: rgba(0, 0, 0, 0.04);
+    --glass-bg-hover: rgba(0, 0, 0, 0.08);
+    --glass-border: rgba(0, 0, 0, 0.08);
+    --glass-blur: blur(16px);
+    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.08);
+}
+
+/* Orqa fonga chiroyli dinamik rangli doiralar berish (shaffoflik ajralib turishi uchun) */
+body::before, body::after {
+    content: "";
+    position: fixed;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--accent-color, #e50914) 0%, transparent 70%);
+    opacity: 0.15;
+    z-index: -1;
+    pointer-events: none;
+    animation: floatCircles 12s ease-in-out infinite alternate;
+}
+body::before { top: 10%; left: 5%; }
+body::after { bottom: 15%; right: 5%; animation-delay: -6s; }
+
+/* Header elementini shaffof qilish */
+.site-header {
+    background: var(--glass-bg) !important;
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border-bottom: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+}
+
+/* Kino kartochkalarini shaffof qilish */
+.movie-card, .sidebar-card, .live-search-dropdown, .story-card {
+    background: var(--glass-bg) !important;
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border) !important;
+    box-shadow: var(--glass-shadow);
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+
+/* Modallarni shaffof oyna ko'rinishiga keltirish */
+.login-card {
+    background: rgba(20, 20, 20, 0.65) !important;
+    backdrop-filter: blur(25px) !important;
+    -webkit-backdrop-filter: blur(25px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+body.light-theme .login-card {
+    background: rgba(255, 255, 255, 0.75) !important;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Janr tugmalarini shaffof qilish */
+.genre-btn {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: var(--glass-blur);
+    transition: all 0.3s ease;
+}
+.genre-btn:hover {
+    background: var(--glass-bg-hover);
+    transform: translateY(-2px);
+}
+.genre-btn.active {
+    background: var(--accent-color, #e50914) !important;
+    box-shadow: 0 0 15px var(--accent-color, #e50914);
+}
+
+/* --- YANGI INTERAKTIV ANIMATSIYALAR --- */
+
+/* Kartochkalar ustiga sichqoncha kelganda chiroyli masshtab va nur effekti */
+.movie-card:hover, .story-card:hover {
+    transform: translateY(-8px) scale(1.03);
+    border-color: rgba(255, 255, 255, 0.25) !important;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5), 0 0 15px rgba(255, 255, 255, 0.05);
+}
+
+/* Sahifalar yoki elementlar ochilganda silliq paydo bo'lish animatsiyasi */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Bloklar yuklanganda qo'llaniladigan klass */
+#boshSahifaBloki, #kinoIchkiSahifa, #profilSahifaBloki {
+    animation: fadeInUp 0.6s cubic-bezier(0.25, 1, 0.5, 1) both;
+}
+
+/* Orqa fondagi doiralarning sekin harakatlanishi */
+@keyframes floatCircles {
+    0% { transform: translateY(0) scale(1); }
+    100% { transform: translateY(30px) scale(1.1); }
+}
+
+/* Like (Yurakcha) bosilganda pop-effekt animatsiyasi */
+.card-like-icon {
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.card-like-icon:active {
+    transform: scale(1.4);
+}
+    /* ================= CSS VARIABLES (4-FUNKSIYA UCHUN) ================= */
 .dark-theme {
     --bg-main: #0b0f19;
     --bg-card: #151f32;

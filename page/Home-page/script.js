@@ -1,4 +1,4 @@
-const API_KEY = "ed1c56f1";
+  const API_KEY = "ed1c56f1";
 const BASE_URL = "https://www.omdbapi.com";
 
 ///Hozirgi default kinolarimizga "Genre" (Janr) xususiyati biriktirildi (1-FUNKSIYA UCHUN)
@@ -1135,3 +1135,22 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+function ochishAniqBlok(blokId) {
+    ["boshSahifaBloki", "kinoIchkiSahifa", "profilSahifaBloki"].forEach(id => {
+        const blok = document.getElementById(id);
+        if (blok) {
+            blok.classList.add("hidden");
+            // Animatsiyani qayta tiklash uchun CSS trigger
+            blok.style.animation = 'none';
+            blok.offsetHeight; /* reflow */
+            blok.style.animation = null;
+        }
+    });
+    
+    const faolBlok = document.getElementById(blokId);
+    if (faolBlok) {
+        faolBlok.classList.remove("hidden");
+    }
+    tekshirishJoriyFoydalanuvchi();
+}
+ 
