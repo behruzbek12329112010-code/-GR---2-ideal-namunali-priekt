@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Cinema Locator</title>
+    <link rel="stylesheet" href="TIME.css">
+</head>
+<body>
+
+    <header class="hero-section">
+        <div class="main-card">
+            <h1 class="main-title">Smart Cinema Locator</h1>
+            
+            <div class="subtitle-container">
+                <p class="subtitle active-sub" data-lang="uz_lat">🇺🇿 O'zbekiston bo'ylab yoningizdagi eng yaqin kinoteatrlarni va filmlar boshlanish vaqtini soniyalarigacha real vaqt rejimida aniqlang , Siz turgan nuqtadan eng yaqin kinoteatrgacha bo'lgan masofani o'lchang va seans boshlanish vaqtini soniyama-soniya jonli hisoblagich yordamida aniqlang. Kino olami endi sizga har qachongidan ham yaqin</p>
+                <p class="subtitle" data-lang="en">🇬🇧 Find cinemas near you instantly and track movie starting times with a live second-by-second countdown timer. Explore the world of cinema right where you are.</p>
+                <p class="subtitle" data-lang="ru">🇷🇺 Мгновенно определяйте расстояние до ближайших кинотеатров и узнавайте время начала сеансов с точностью до секунды благодаря живому таймеру.</p>
+                <p class="subtitle" data-lang="ar">🇦🇪 اعثر على دور السينما القريبة منك على الفور وتابع مواعيد بدء الأفلام بمؤقت تنازلي حي ثانية بثانية. عالم السينما الآن بين يديك!</p>
+                <p class="subtitle" data-lang="tr">🇹🇷 Bulunduğunuz konumdan en yakın sinemaya olan mesafeyi anında ölçün ve canlı sayaç sayesinde seans başlangıç zamanını saniyesi saniyesine öğrenin.</p>
+                <p class="subtitle" data-lang="uz_cyr">🇺🇿 Сиз турган нуқтадан энг яқин кинотеатргача бўлган масофани ўлчанг ва сеанс бошланиш вақтини сонияма-сония жонли ҳисоблагич ёрдамида аниқланг.</p>
+            </div>
+
+            <div class="lang-dots">
+                <span class="dot active-dot" onclick="switchSub(0)"></span>
+                <span class="dot" onclick="switchSub(1)"></span>
+                <span class="dot" onclick="switchSub(2)"></span>
+                <span class="dot" onclick="switchSub(3)"></span>
+                <span class="dot" onclick="switchSub(4)"></span>
+                <span class="dot" onclick="switchSub(5)"></span>
+            </div>
+
+            <button id="locBtn" class="pulse-btn" onclick="initSmartLocator()">
+                <span id="btnText">Joylashuvimni Aniqlash</span>
+                <div class="loader" id="mainLoader"></div>
+            </button>
+        </div>
+    </header>
+
+    <main class="results-container" id="resultsArea">
+        <h2 class="sec-title">Sizga Eng Yaqin Kinoteatrlar Ketma-ketligi</h2>
+        
+        <div class="app-layout">
+            <div class="cinema-list" id="cinemaHtmlList"></div>
+
+            <div class="details-panel" id="detailsPanel">
+                <div class="empty-state">Batafsil ma'lumot va soniyali taymerni ko'rish uchun chap tomondan xohlagan kinoteatringizni tanlang.</div>
+            </div>
+        </div>
+    </main>
+
+    <script src="TIME.js"></script>
+    <script>
+    
+        let currentSub = 0;
+        const subs = document.querySelectorAll('.subtitle');
+        const dots = document.querySelectorAll('.dot');
+        
+        function switchSub(index) {
+            subs[currentSub].classList.remove('active-sub');
+            dots[currentSub].classList.remove('active-dot');
+            currentSub = index;
+            subs[currentSub].classList.add('active-sub');
+            dots[currentSub].classList.add('active-dot');
+        }
+
+        setInterval(() => {
+            let next = (currentSub + 1) % subs.length;
+            switchSub(next);
+        }, 5000);
+    </script>
+    <style>
+
+    </style>
+</body>
+</html>
