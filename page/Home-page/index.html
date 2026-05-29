@@ -10,11 +10,41 @@
 <body class="dark-theme">
     <div class="app-container">
         <header class="site-header">
+            
             <h1 class="logo" id="logoHome" style="cursor: pointer;">UZ<span>XTECH</span></h1>
+                <header class="tmdb-custom-navbar">
+      <div class="tmdb-custom-navbar__container">
+        <div class="tmdb-custom-navbar__left-section">
+          
+
+          <nav class="tmdb-custom-navbar__main-menu">
+            <a href="#" class="tmdb-custom-navbar__menu-link">Filmlar</a>
+            <a href="#" class="tmdb-custom-navbar__menu-link">Serialar</a>
+            <a href="#" class="tmdb-custom-navbar__menu-link">Odamlar</a>
+            <a href="#" class="tmdb-custom-navbar__menu-link">Mukofotlar</a>
+            <a href="#" class="tmdb-custom-navbar__menu-link">Ko'proq</a>
+          </nav>
+        </div>
+
+        <div class="tmdb-custom-navbar__right-section">
+          
+
+          <div class="tmdb-custom-navbar__lang-badge">RU</div>
+           
+
+            <button id="rendon" data-holat="bosh">Tizimga kirish</button>
+          <a
+            href="#"
+            class="tmdb-custom-navbaruser-link tmdb-custom-navbaruser-link--join"
+             id="rendon" data-holat="bosh">TMDBga qo'shiling</a
+          >  <button id="themeToggleBtn" class="theme-toggle-btn" title="Rejimni almashtirish">🌙</button>
+        </div>
+      </div>
+    </header>
             <div class="header-action-group">
-                <button id="themeToggleBtn" class="theme-toggle-btn" title="Rejimni almashtirish">🌙</button>
+             
                 <button id="homeBtnFromProfile" class="hidden-home-btn hidden">Home</button>
-                <button id="rendon" data-holat="bosh">Tizimga kirish</button>
+              
             </div>
         </header><br>
 
@@ -180,7 +210,11 @@
                 </div>
             </section>
 
-      
+   
+
+
+ 
+
 
             <div class="map-container">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d47942.029806947385!2d69.240562!3d41.311081!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae8b0cc379e9f3%3A0x40d905923e263f0!2sToshkent%2C%20O%CA%BBzbekiston!5e0!3m2!1suz!2s!4v1716900000000!5m2!1suz!2s" width="100%" height="450" style="border:0; border-radius: 24px; filter: invert(90%) hue-rotate(180deg) grayscale(10%);" allowfullscreen="" loading="lazy"></iframe>
@@ -222,7 +256,7 @@
                 </div>
                 <button type="submit" id="authSubmitBtn" class="auth-main-btn">Kirish</button>
             </form>
-            <br>
+          
         </div>
     </div>
 
@@ -271,7 +305,7 @@
             innerPage.style.borderRadius = `${borderRadiusValue}px`;
         });
     </script>
-    <br>
+
           <section class="leaderboard-section">
                 <div class="leaderboard-container">
                     <div class="leaderboard-header">
@@ -284,6 +318,28 @@
                     <div class="leaderboard-grid" id="leaderboardGrid"></div>
                 </div>
             </section>
+            <section class="letterboxd-section-wrapper">
+  
+  <div class="letterboxd-movie-grid" id="letterboxdGridContainer"></div>
+
+  <div class="letterboxd-detail-panel" id="letterboxdDetailPanel">
+    <button class="letterboxd-close-panel-btn" id="letterboxdCloseBtn">&times;</button>
+    <div class="letterboxd-panel-flex">
+      <img src="" id="letterboxdPanelPoster" alt="Kino posteri">
+      <div class="letterboxd-panel-body">
+        <h2 id="letterboxdPanelTitle">Film Nomi</h2>
+        <div class="letterboxd-panel-meta">
+          <span id="letterboxdPanelYear">Yil</span> 
+          <span class="letterboxd-divider">|</span> 
+          <i class="fa-solid fa-star"></i> <span id="letterboxdPanelRating">0.0</span>
+        </div>
+        <p id="letterboxdPanelOverview">Film haqida qisqacha syujet va batafsil ma'lumotlar shu yerda taqdim etiladi...</p>
+      </div>
+    </div>
+  </div>
+
+</section>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="./script.js"></script>
 </body>
 </html>

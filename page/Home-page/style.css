@@ -992,16 +992,16 @@ header.site-header {
   animation: formSlideUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 .leaderboard-section {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  background-image: linear-gradient(rgba(11, 21, 35, 0.397), rgba(6, 11, 19, 0.425)), url("../../Assets/filmfoto.jpg");
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  color: #ffffff;
-  overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-image: linear-gradient(rgba(11, 21, 35, 0.397), rgb(6 11 19 / 94%)), url(../../Assets/filmfoto.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #ffffff;
+    overflow-x: hidden;
 }
 .leaderboard-container {
   max-width: 100%;
@@ -1149,7 +1149,7 @@ body {
 .apple-tv-slider {
   position: relative;
   margin: 30px 0%;
-  height: 450px;
+  height: 1250px;
   border-radius: 18px;
   overflow: hidden;
   background: #000;
@@ -1428,7 +1428,7 @@ body {
 .text-block p {
   font-size: 16px;
   line-height: 1.4;
-  color: #0066ff;
+  color: #ffffffd0;
 }
 .color-red {
   color: #008cff;
@@ -1448,6 +1448,350 @@ body {
 .qr {
   width: 170px;
   height: 200px;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.tmdb-custom-navbar {
+    width: 100%;
+    font-family: "Source Sans Pro", Arial, sans-serif;
+    box-sizing: border-box;
+    padding: 12px 0;
+}
+
+.tmdb-custom-navbar__container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tmdb-custom-navbar__left-section {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+/* --- LETTERBOXD DESIGN SYSTEM --- */
+.letterboxd-section-wrapper {
+  max-width: 1240px;
+  margin: 40px auto;
+  padding: 0 20px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* 10 ta kino uchun Grid konfiguratsiyasi */
+.letterboxd-movie-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 18px;
+  margin-bottom: 35px;
+}
+
+/* Har bir kino kartasi */
+.letterboxd-item-card {
+  position: relative;
+  aspect-ratio: 2 / 3;
+  border: 3px solid transparent;
+  border-radius: 5px;
+  overflow: visible;
+  cursor: pointer;
+  transition: border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), transform 0.2s ease;
+}
+
+.letterboxd-item-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 2px;
+  display: block;
+}
+
+/* SICHQONCHA USTIGA BORILGANDA (Hover) */
+.letterboxd-item-card:hover {
+  border-color: #00e054; /* Letterboxd o'ziga xos yashil rangi */
+  transform: translateY(-4px);
+}
+
+/* Ustiga kelganda chiqadigan qora parda va statistika */
+.letterboxd-card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(12, 14, 18, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  border-radius: 2px;
+  transition: opacity 0.2s ease;
+}
+
+.letterboxd-item-card:hover .letterboxd-card-overlay {
+  opacity: 1;
+}
+
+.letterboxd-views-count {
+  color: #ffffff;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.letterboxd-views-count i {
+  color: #00e054;
+  font-size: 1.6rem;
+}
+
+/* Tepada chiquvchi kichik Tooltip */
+.letterboxd-mini-tooltip {
+  position: absolute;
+  top: -38px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #445566;
+  color: #ffffff;
+  padding: 5px 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 4px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  z-index: 5;
+  transition: opacity 0.15s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.letterboxd-mini-tooltip::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 4px 4px 0;
+  border-style: solid;
+  border-color: #445566 transparent;
+}
+
+.letterboxd-item-card:hover .letterboxd-mini-tooltip {
+  opacity: 1;
+}
+
+/* BOSILGANDA OCHILADIGAN PANEL (Detail View) */
+.letterboxd-detail-panel {
+  background-color: #1c252d;
+  border: 1px solid #2c3440;
+  border-radius: 6px;
+  padding: 24px;
+  position: relative;
+  display: none;
+  margin-top: 20px;
+  animation: letterboxdSlideUp 0.35s ease-out;
+}
+
+@keyframes letterboxdSlideUp {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.letterboxd-detail-panel.active-panel {
+  display: block;
+}
+
+.letterboxd-close-panel-btn {
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  background: none;
+  border: none;
+  color: #9ab;
+  font-size: 1.8rem;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.letterboxd-close-panel-btn:hover {
+  color: #ffffff;
+}
+
+.letterboxd-panel-flex {
+  display: flex;
+  gap: 25px;
+}
+
+.letterboxd-panel-flex img {
+  width: 140px;
+  height: 210px;
+  object-fit: cover;
+  border-radius: 4px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+}
+
+.letterboxd-panel-body {
+  color: #9ab;
+}
+
+#letterboxdPanelTitle {
+  color: #ffffff;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.letterboxd-panel-meta {
+  font-size: 1rem;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.letterboxd-divider {
+  color: #2c3440;
+}
+
+.letterboxd-panel-meta i {
+  color: #ffb020;
+}
+
+#letterboxdPanelRating {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+#letterboxdPanelOverview {
+  line-height: 1.6;
+  font-size: 1rem;
+  color: #9ab;
+}
+
+/* Responsive moslashuvchanlik */
+@media (max-width: 992px) {
+  .letterboxd-movie-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 600px) {
+  .letterboxd-movie-grid { grid-template-columns: repeat(2, 1fr); }
+  .letterboxd-panel-flex { flex-direction: column; align-items: center; text-align: center; }
+}
+.tmdb-custom-navbar__logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.tmdb-custom-navbar__logo-img {
+  height: 20px;
+  object-fit: contain;
+}
+
+.tmdb-custom-navbar__main-menu {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.tmdb-custom-navbar__menu-link {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.tmdb-custom-navbar__menu-link {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 6px;
+  display: inline-block;
+}
+
+.tmdb-custom-navbar__menu-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: #01b4e4;
+
+  transition: width 0.3s ease-in-out;
+}
+
+.tmdb-custom-navbar__menu-link:hover::after {
+  width: 100%;
+}
+
+.tmdb-custom-navbar__right-section {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.tmdb-custom-navbar__action-btn {
+  background: none;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 22px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.tmdb-custom-navbar__lang-badge {
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 5px;
+  border-radius: 3px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
+}
+
+.tmdb-custom-navbar__lang-badge:hover {
+  background-color: #ffffff;
+  color: #0087ff;
+}
+
+.tmdb-custom-navbar__user-link {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.tmdb-custom-navbar__user-link:hover {
+  color: #01b4e4;
+}
+
+.tmdb-custom-navbar *,
+.tmdb-custom-navbar *::before,
+.tmdb-custom-navbar *::after {
+  box-sizing: border-box;
+}
+.tmdb-custom-navbaruser-link {
+  text-decoration: none;
+  color: #ffffff;
 }
 .cinema-finder {
   background-image: url("../../Assets/GIT.png");
@@ -1488,6 +1832,7 @@ body {
 }
 .cinema-finder__btn {
     border: none;
+    border-radius: 30px;
     /* outline: none; */
     padding: 14px 32px;
     font-size: 16px;
