@@ -1474,13 +1474,13 @@ function loadCinemaDetails(index) {
         ${moviesHTML}
     `;
     
-    // Telefonlarda tanlanganda panelga avtomatik silliq siljitish (UX yaxshilash)
+ 
     if(window.innerWidth <= 968) {
         panel.scrollIntoView({ behavior: 'smooth' });
     }
 }
 
-// Live Countdown
+
 function startCountdown(timeStr, elementId) {
     function update() {
         const now = new Date();
