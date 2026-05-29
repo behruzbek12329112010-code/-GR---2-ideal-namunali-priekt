@@ -1,223 +1,202 @@
-    /* --- SHAFFOFLIK (GLASSMORPHISM) ASOSIY STILLARI --- */
 :root {
-    --glass-bg: rgba(255, 255, 255, 0.06);
-    --glass-bg-hover: rgba(255, 255, 255, 0.12);
-    --glass-border: rgba(255, 255, 255, 0.08);
-    --glass-blur: blur(16px);
-    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  --glass-bg: rgba(255, 255, 255, 0.06);
+  --glass-bg-hover: rgba(255, 255, 255, 0.12);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-blur: blur(16px);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 }
-
-/* Light theme uchun alohida shaffoflik variantlari */
 body.light-theme {
-    --glass-bg: rgba(0, 0, 0, 0.04);
-    --glass-bg-hover: rgba(0, 0, 0, 0.08);
-    --glass-border: rgba(0, 0, 0, 0.08);
-    --glass-blur: blur(16px);
-    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.08);
+  --glass-bg: rgba(0, 0, 0, 0.04);
+  --glass-bg-hover: rgba(0, 0, 0, 0.08);
+  --glass-border: rgba(0, 0, 0, 0.08);
+  --glass-blur: blur(16px);
+  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.08);
 }
-
-/* Orqa fonga chiroyli dinamik rangli doiralar berish (shaffoflik ajralib turishi uchun) */
-body::before, body::after {
-    content: "";
-    position: fixed;
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    background: radial-gradient(circle, var(--accent-color, #e50914) 0%, transparent 70%);
-    opacity: 0.15;
-    z-index: -1;
-    pointer-events: none;
-    animation: floatCircles 12s ease-in-out infinite alternate;
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--accent-color, #e50914) 0%, transparent 70%);
+  opacity: 0.15;
+  z-index: -1;
+  pointer-events: none;
+  animation: floatCircles 12s ease-in-out infinite alternate;
 }
-body::before { top: 10%; left: 5%; }
-body::after { bottom: 15%; right: 5%; animation-delay: -6s; }
-
-/* Header elementini shaffof qilish */
+body::before {
+  top: 10%;
+  left: 5%;
+}
+body::after {
+  bottom: 15%;
+  right: 5%;
+  animation-delay: -6s;
+}
 .site-header {
-    background: var(--glass-bg) !important;
-    backdrop-filter: var(--glass-blur);
-    -webkit-backdrop-filter: var(--glass-blur);
-    border-bottom: 1px solid var(--glass-border);
-    box-shadow: var(--glass-shadow);
+  border-radius: 10px;
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border-bottom: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
 }
-
-/* Kino kartochkalarini shaffof qilish */
-.movie-card, .sidebar-card, .live-search-dropdown, .story-card {
-    background: var(--glass-bg) !important;
-    backdrop-filter: var(--glass-blur);
-    -webkit-backdrop-filter: var(--glass-blur);
-    border: 1px solid var(--glass-border) !important;
-    box-shadow: var(--glass-shadow);
-    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important;
+.movie-card,
+.sidebar-card,
+.live-search-dropdown,
+.story-card {
+  background: var(--glass-bg) !important;
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border) !important;
+  box-shadow: var(--glass-shadow);
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important;
 }
-
-/* Modallarni shaffof oyna ko'rinishiga keltirish */
 .login-card {
-    background: rgba(20, 20, 20, 0.65) !important;
-    backdrop-filter: blur(25px) !important;
-    -webkit-backdrop-filter: blur(25px) !important;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  background: rgba(20, 20, 20, 0.65) !important;
+  backdrop-filter: blur(25px) !important;
+  -webkit-backdrop-filter: blur(25px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
 }
 body.light-theme .login-card {
-    background: rgba(255, 255, 255, 0.75) !important;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.75) !important;
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
-
-/* Janr tugmalarini shaffof qilish */
 .genre-btn {
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    backdrop-filter: var(--glass-blur);
-    transition: all 0.3s ease;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: var(--glass-blur);
+  transition: all 0.3s ease;
 }
 .genre-btn:hover {
-    background: var(--glass-bg-hover);
-    transform: translateY(-2px);
+  background: var(--glass-bg-hover);
+  transform: translateY(-2px);
 }
 .genre-btn.active {
-    background: var(--accent-color, #e50914) !important;
-    box-shadow: 0 0 15px var(--accent-color, #e50914);
+  background: var(--accent-color, #0099ff9d) !important;
+  box-shadow: 0 0 15px var(--accent-color, #e50914);
 }
-
-/* --- YANGI INTERAKTIV ANIMATSIYALAR --- */
-
-/* Kartochkalar ustiga sichqoncha kelganda chiroyli masshtab va nur effekti */
-.movie-card:hover, .story-card:hover {
-    transform: translateY(-8px) scale(1.03);
-    border-color: rgba(255, 255, 255, 0.25) !important;
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5), 0 0 15px rgba(255, 255, 255, 0.05);
+.movie-card:hover,
+.story-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  border-color: rgba(255, 255, 255, 0.25) !important;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5), 0 0 15px rgba(255, 255, 255, 0.05);
 }
-
-/* Sahifalar yoki elementlar ochilganda silliq paydo bo'lish animatsiyasi */
 @keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-
-/* Bloklar yuklanganda qo'llaniladigan klass */
-#boshSahifaBloki, #kinoIchkiSahifa, #profilSahifaBloki {
-    animation: fadeInUp 0.6s cubic-bezier(0.25, 1, 0.5, 1) both;
+#boshSahifaBloki,
+#kinoIchkiSahifa,
+#profilSahifaBloki {
+  animation: fadeInUp 0.6s cubic-bezier(0.25, 1, 0.5, 1) both;
 }
-
-/* Orqa fondagi doiralarning sekin harakatlanishi */
 @keyframes floatCircles {
-    0% { transform: translateY(0) scale(1); }
-    100% { transform: translateY(30px) scale(1.1); }
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    transform: translateY(30px) scale(1.1);
+  }
 }
-
-/* Like (Yurakcha) bosilganda pop-effekt animatsiyasi */
 .card-like-icon {
-    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 .card-like-icon:active {
-    transform: scale(1.4);
+  transform: scale(1.4);
 }
-    /* ================= CSS VARIABLES (4-FUNKSIYA UCHUN) ================= */
 .dark-theme {
-    --bg-main: #0b0f19;
-    --bg-card: #151f32;
-    --bg-input: #0b0f19;
-    --bg-hover: #1e293b;
-    --text-primary: #ffffff;
-    --text-secondary: #94a3b8;
-    --text-muted: #64748b;
-    --border-color: rgba(255, 255, 255, 0.05);
-    --shadow-color: rgba(0, 0, 0, 0.5);
+  --bg-main: #0b0f19;
+  --bg-card: #151f32;
+  --bg-input: #0b0f19;
+  --bg-hover: #1e293b;
+  --text-primary: #ffffff;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --border-color: rgba(255, 255, 255, 0.05);
+  --shadow-color: rgba(0, 0, 0, 0.5);
 }
-
 .light-theme {
-    --bg-main: #f8fafc;
-    --bg-card: #ffffff;
-    --bg-input: #f1f5f9;
-    --bg-hover: #e2e8f0;
-    --text-primary: #0f172a;
-    --text-secondary: #475569;
-    --text-muted: #64748b;
-    --border-color: rgba(0, 0, 0, 0.08);
-    --shadow-color: rgba(15, 23, 42, 0.08);
+  --bg-main: #f8fafc;
+  --bg-card: #ffffff;
+  --bg-input: #f1f5f9;
+  --bg-hover: #e2e8f0;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --border-color: rgba(0, 0, 0, 0.08);
+  --shadow-color: rgba(15, 23, 42, 0.08);
 }
-
-/* ================= ASOSIY ELEMENTLARNI O'ZGARUVCHILARGA BOG'LASH ================= */
 body {
-    background-color: var(--bg-main) !important;
-    color: var(--text-primary) !important;
-    transition: background-color 0.3s ease, color 0.3s ease; /* Silliq almashish */
+  background-color: var(--bg-main) !important;
+  color: var(--text-primary) !important;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
-
-/* App konteyner va asosiy sahifalar foni */
-.app-container, .main-content-area, #boshSahifaBloki, #kinoIchkiSahifa, #profilSahifaBloki {
-    background-color: var(--bg-main);
-    color: var(--text-primary);
+.app-container,
+.main-content-area,
+#boshSahifaBloki,
+#kinoIchkiSahifa,
+#profilSahifaBloki {
+      background: linear-gradient(rgba(10, 10, 14, 0.88), rgba(15, 15, 25, 0.94)), url(../../Assets/filmfoto.jpg) center center / cover no-repeat;
+  background-color: var(--bg-main);
+  color: var(--text-primary);
 }
-
-/* Kino kartochkalari (Movie Cards) foni */
-.movie-card, .watched-detail-card, .live-search-item {
-    background-color: var(--bg-card) !important;
-    border: 1px solid var(--border-color) !important;
-    color: var(--text-primary) !important;
+.movie-card,
+.watched-detail-card,
+.live-search-item {
+  background-color: var(--bg-card) !important;
+  border: 1px solid var(--border-color) !important;
+  color: var(--text-primary) !important;
 }
-
-/* Matnlar ranglari */
 h1, h2, h3, h4, h5, h6, span, p {
-    /* Agar matn muayyan klass ichida bo'lsa, o'zgaruvchidan olsin */
-    color: var(--text-primary);
+  color: var(--text-primary);
 }
-
-.movie-info-layer h4, .user-name {
-    color: var(--text-primary) !important;
+.movie-info-layer h4,
+.user-name {
+  color: var(--text-primary) !important;
 }
-
-/* Ikkinchi darajali kichik matnlar */
-.movie-views-count, .login-subtitle, .auth-toggle-text, .empty-message, .count-text {
-    color: var(--text-secondary) !important;
+.movie-views-count,
+.login-subtitle,
+.auth-toggle-text,
+.empty-message,
+.count-text {
+  color: var(--text-secondary) !important;
 }
-
-/* Input (Qidiruv paneli va Login maydonlari) */
-input, textarea {
-    background-color: var(--bg-input) !important;
-    color: var(--text-primary) !important;
-    border: 1px solid var(--border-color) !important;
+input,
+textarea {
+  background-color: var(--bg-input) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border-color) !important;
 }
-
-/* Leaderboard va profil tab panellari */
-.leaderboard-container, .profile-sidebar, .tab-panel-item {
-    background-color: #151f3200 !important;
-   
+.leaderboard-container,
+.profile-sidebar,
+.tab-panel-item {
+  background-color: #151f3200 !important;
 }
-
-/* Slayder ostidagi navigatsiya paneli */
 .slider-navigation-bar {
-    background: linear-gradient(to top, var(--bg-main), transparent) !important;
+  background: linear-gradient(to top, var(--bg-main), transparent) !important;
 }
-
-/* ================= ASOSIY GLOBAL STILLAR ================= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
-
-
-
 .app-container {
   max-width: 100%;
   margin: 0 auto;
   padding: 0 10px;
 }
-
 .hidden {
   display: none !important;
 }
-
-/* ================= SITE HEADER ================= */
 header.site-header {
   display: flex;
   justify-content: space-between;
@@ -227,7 +206,6 @@ header.site-header {
   border-bottom: 1px solid var(--border-color);
   width: 100%;
 }
-
 .logo {
   font-size: 2.2rem;
   font-weight: 800;
@@ -237,22 +215,17 @@ header.site-header {
   transition: transform 0.2s ease;
   color: var(--text-primary);
 }
-
 .logo:hover {
   transform: scale(1.02);
 }
-
 .logo span {
   color: #0284c7;
 }
-
 .header-action-group {
   display: flex;
   align-items: center;
   gap: 15px;
 }
-
-/* Theme Toggle Button Stili */
 .theme-toggle-btn {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
@@ -266,11 +239,9 @@ header.site-header {
   justify-content: center;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
-
 .theme-toggle-btn:hover {
   transform: scale(1.1);
 }
-
 .hidden-home-btn {
   padding: 10px 22px;
   color: var(--text-primary);
@@ -282,13 +253,11 @@ header.site-header {
   cursor: pointer;
   transition: all 0.3s ease;
 }
-
 .hidden-home-btn:hover {
   background: var(--text-muted);
   color: #fff;
   transform: translateY(-2px);
 }
-
 #rendon {
   padding: 10px 22px;
   color: #ffffff;
@@ -301,25 +270,20 @@ header.site-header {
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(2, 132, 199, 0.2);
 }
-
 #rendon:hover {
   background: #0284c7;
   box-shadow: 0 4px 20px rgba(2, 132, 199, 0.4);
   transform: translateY(-2px);
 }
-
 #rendon.exit-mode {
   border-color: #ef4444;
   background: rgba(239, 68, 68, 0.1);
   color: #ef4444;
 }
-
 #rendon.exit-mode:hover {
   background: #ef4444;
   color: #fff;
 }
-
-/* ================= STORIES KARUSEL ================= */
 .story-carousel-container {
   width: 100%;
   overflow-x: auto;
@@ -329,13 +293,11 @@ header.site-header {
   margin-bottom: 25px;
   border: 1px solid var(--border-color);
 }
-
 .story-carousel {
   display: flex;
   gap: 15px;
   align-items: center;
 }
-
 .story-card {
   flex: 0 0 auto;
   width: 75px;
@@ -346,13 +308,11 @@ header.site-header {
   position: relative;
   cursor: pointer;
 }
-
 .story-card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-
 .card-like-icon {
   position: absolute;
   top: 8px;
@@ -372,13 +332,11 @@ header.site-header {
   transition: all 0.2s ease;
   backdrop-filter: blur(4px);
 }
-
 .card-like-icon:hover,
 .card-like-icon.active {
   transform: scale(1.15);
   color: #ef4444;
 }
-
 .movie-views-count {
   display: block;
   font-size: 0.75rem;
@@ -386,8 +344,6 @@ header.site-header {
   margin-top: 5px;
   font-weight: 500;
 }
-
-/* ================= JONLI QIDIRUV VA DROP-DOWN (2-FUNKSIYA) ================= */
 .search-banner-container {
   position: relative;
   width: 100%;
@@ -397,38 +353,29 @@ header.site-header {
   background-size: cover;
   background-position: center 25%;
   display: flex;
-
   padding: 40px;
   margin-bottom: 25px;
-  overflow: visible; /* Dropdown ko'rinishi uchun */
+  overflow: visible;
   transition: background-image 0.8s ease-in-out;
 }
-
 .banner-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    to right,
-    rgba(11, 15, 25, 0.9),
-    rgba(11, 15, 25, 0.4)
-  );
+  background: linear-gradient(to right, rgba(11, 15, 25, 0.9), rgba(11, 15, 25, 0.4));
   z-index: 1;
 }
-
 .banner-content {
   position: relative;
   z-index: 10;
   width: 100%;
 }
-
 .main-search-wrapper {
   position: relative;
   width: 100%;
 }
-
 .main-search-box {
   display: flex;
   background: rgba(15, 23, 42, 0);
@@ -438,7 +385,6 @@ header.site-header {
   overflow: hidden;
   width: 100%;
 }
-
 #kinoInput {
   flex: 1;
   background: transparent;
@@ -448,7 +394,6 @@ header.site-header {
   color: #ffffff;
   font-size: 1rem;
 }
-
 #qidirishTugmasi {
   background: #0285c700;
   color: white;
@@ -458,8 +403,6 @@ header.site-header {
   font-weight: 700;
   transition: background 0.2s;
 }
-
-/* Live Search Dropdown Paneli */
 .live-search-dropdown {
   position: absolute;
   top: calc(100% + 8px);
@@ -473,7 +416,6 @@ header.site-header {
   z-index: 999;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
-
 .live-search-item {
   display: flex;
   align-items: center;
@@ -483,30 +425,24 @@ header.site-header {
   transition: background 0.2s;
   border-bottom: 1px solid var(--border-color);
 }
-
 .live-search-item:hover {
   background: var(--bg-hover);
 }
-
 .live-search-poster {
   width: 45px;
   height: 65px;
   object-fit: cover;
   border-radius: 4px;
 }
-
 .live-search-meta h5 {
   font-size: 0.95rem;
   font-weight: 600;
   color: var(--text-primary);
 }
-
 .live-search-meta p {
   font-size: 0.8rem;
   color: var(--text-secondary);
 }
-
-/* ================= 1-FUNKSIYA: JANRLAR FILTERI STILLARI ================= */
 .genre-filter-container {
   display: flex;
   gap: 10px;
@@ -514,29 +450,25 @@ header.site-header {
   padding-bottom: 10px;
   margin-bottom: 30px;
 }
-
 .genre-filter-container::-webkit-scrollbar {
   height: 4px;
 }
-
 .genre-filter-container::-webkit-scrollbar-thumb {
   background: #0285c731;
   border-radius: 10px;
 }
-
 .genre-btn {
-     background: #00000000;
-    color: var(--text-secondary);
-    border: 1px solid var(--border-color);
-    padding: 8px 20px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    white-space: nowrap;
+  background: #00000000;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+  padding: 8px 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
 }
-
 .genre-btn:hover,
 .genre-btn.active {
   background: #0285c700;
@@ -544,14 +476,11 @@ header.site-header {
   border-color: #0284c7;
   box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
 }
-
-/* ================= GRID LAYER VE KARTALAR ================= */
 .main-layout {
   display: grid;
   grid-template-columns: 3fr 1fr;
   gap: 30px;
 }
-
 .section-title {
   font-size: 1.4rem;
   margin-bottom: 20px;
@@ -559,7 +488,6 @@ header.site-header {
   padding-left: 12px;
   color: var(--text-primary);
 }
-
 .section-title::before {
   content: "";
   position: absolute;
@@ -570,13 +498,11 @@ header.site-header {
   background: #0284c7;
   border-radius: 2px;
 }
-
 .kino-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   gap: 20px;
 }
-
 .movie-card {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
@@ -587,24 +513,20 @@ header.site-header {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
-
 .movie-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 15px 30px rgba(2, 132, 199, 0.2);
 }
-
 .poster-box {
   width: 100%;
   height: 270px;
   position: relative;
 }
-
 .poster-box img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-
 .card-rating {
   position: absolute;
   top: 8px;
@@ -616,13 +538,11 @@ header.site-header {
   border-radius: 4px;
   font-weight: 700;
 }
-
 .movie-info-layer {
   padding: 12px;
   background: var(--bg-card);
   text-align: center;
 }
-
 .movie-info-layer h4 {
   font-size: 0.95rem;
   font-weight: 600;
@@ -631,35 +551,28 @@ header.site-header {
   text-overflow: ellipsis;
   color: var(--text-primary);
 }
-
-/* Sidebar */
 .sidebar-card {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: 8px;
   padding: 15px;
 }
-
 .sidebar-title {
   font-size: 1rem;
   color: #0284c7;
   margin-bottom: 15px;
   text-align: center;
 }
-
 .random-reklama-box img {
   width: 100%;
   border-radius: 6px;
 }
-
-/* ================= ICHKI SAHIFA PLAYERI VE 3-FUNKSIYA (IZOHLAR) ================= */
 .movie-detail-main {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: 12px;
   padding: 25px;
 }
-
 .movie-detail-header {
   font-size: 1.3rem;
   font-weight: 600;
@@ -674,37 +587,31 @@ header.site-header {
   align-items: center;
   border: 1px solid var(--border-color);
 }
-
 .movie-detail-flex {
   display: flex;
   gap: 30px;
 }
-
 .detail-poster {
   flex: 1;
   max-width: 260px;
   border-radius: 8px;
   overflow: hidden;
 }
-
 .detail-poster img {
   width: 100%;
   display: block;
 }
-
 .detail-info-table {
   flex: 1.5;
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
-
 .info-row {
   display: flex;
   background: var(--bg-hover);
   border-radius: 6px;
 }
-
 .info-label {
   width: 130px;
   background: rgba(255, 255, 255, 0.03);
@@ -713,13 +620,11 @@ header.site-header {
   font-size: 0.8rem;
   font-weight: 600;
 }
-
 .info-value {
   padding: 10px;
   color: var(--text-primary);
   font-size: 0.9rem;
 }
-
 .detail-plot-box {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
@@ -729,7 +634,6 @@ header.site-header {
   border-left: 4px solid #0284c7;
   color: var(--text-secondary);
 }
-
 .video-wrapper {
   position: relative;
   padding-bottom: 56.25%;
@@ -739,7 +643,6 @@ header.site-header {
   background: #000;
   margin-top: 20px;
 }
-
 .video-wrapper iframe {
   position: absolute;
   top: 0;
@@ -748,13 +651,11 @@ header.site-header {
   height: 100%;
   border: none;
 }
-
 .interaction-panel {
   display: flex;
   gap: 10px;
   margin-top: 15px;
 }
-
 .action-toggle-btn {
   background: var(--bg-hover);
   color: var(--text-primary);
@@ -765,17 +666,14 @@ header.site-header {
   font-size: 0.85rem;
   transition: 0.2s;
 }
-
 .action-toggle-btn:hover {
   background: #0284c7;
   color: white;
 }
-
 .action-toggle-btn.active {
   background: #ef4444;
   color: white;
 }
-
 #btnWatchlist.active {
   background: #0284c7;
   color: white;
@@ -784,8 +682,6 @@ header.site-header {
   background: #10b981;
   color: white;
 }
-
-/* 3-FUNKSIYA: Reyting va Izoh qoldirish bo'limi */
 .reviews-section-wrapper {
   margin-top: 30px;
   background: var(--bg-card);
@@ -793,24 +689,20 @@ header.site-header {
   border-radius: 12px;
   padding: 25px;
 }
-
 .star-rating-select {
   display: flex;
   gap: 5px;
   font-size: 1.5rem;
   margin: 15px 0;
 }
-
 .star-select-item {
   cursor: pointer;
   color: var(--text-muted);
   transition: color 0.1s;
 }
-
 .star-select-item.selected {
   color: #ffc107;
 }
-
 .review-input-box textarea {
   width: 100%;
   height: 90px;
@@ -823,7 +715,6 @@ header.site-header {
   resize: none;
   font-size: 0.9rem;
 }
-
 .submit-review-btn {
   background: #0284c7;
   color: white;
@@ -834,21 +725,18 @@ header.site-header {
   font-weight: 600;
   margin-top: 10px;
 }
-
 .user-reviews-list {
   margin-top: 25px;
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
-
 .single-review-card {
   background: var(--bg-hover);
   padding: 15px;
   border-radius: 8px;
   border: 1px solid var(--border-color);
 }
-
 .review-author-meta {
   display: flex;
   justify-content: space-between;
@@ -857,54 +745,53 @@ header.site-header {
   margin-bottom: 5px;
   font-weight: 600;
 }
-
-/* ================= PROFIL BLOKI STILLARI ================= */
 .profile-page-wrapper {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
   padding: 30px;
   border-radius: 16px;
 }
-
 .user-hero-card {
+  height: 300px;
   display: flex;
   align-items: center;
   gap: 25px;
-  background: var(--bg-hover);
+  background-image: url("https://static.vecteezy.com/system/resources/thumbnails/056/058/377/small_2x/city-black-iron-photo.jpg");
+ 
+
+
+    background-repeat: no-repeat;  /* Takrorlanishni o'chiradi */
+    background-position: center;   /* Rasmni markazga tekislaydi */
+    background-size: cover;        /* Rasmni blok o'lchamiga to'liq moslab cho'zadi */
   padding: 25px;
   border-radius: 12px;
   margin-bottom: 30px;
 }
-
 .avatar-zone {
   width: 85px;
   height: 85px;
-  background: #10b981;
+  background: #0084ff;
   border-radius: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 2.5rem;
   font-weight: 700;
-  box-shadow: 0 8px 20px rgba(16, 185, 129, 0.2);
+  box-shadow: 0 8px 20px rgba(0, 183, 255, 0.2);
   color: white;
   overflow: hidden;
 }
-
 .avatar-zone img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-
-/* 5-FUNKSIYA: Avatar tanlash griddi */
 .avatar-selection-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 15px;
   padding: 15px 0;
 }
-
 .avatar-option-item {
   width: 90px;
   height: 90px;
@@ -914,21 +801,17 @@ header.site-header {
   border: 3px solid transparent;
   transition: transform 0.2s;
 }
-
 .avatar-option-item:hover {
   transform: scale(1.05);
 }
-
 .avatar-option-item.selected {
   border-color: #0284c7;
 }
-
 .avatar-option-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-
 .username {
   font-size: 1.6rem;
   font-weight: 700;
@@ -937,27 +820,23 @@ header.site-header {
   gap: 10px;
   color: var(--text-primary);
 }
-
 .edit-icon {
   font-size: 1.1rem;
   cursor: pointer;
   opacity: 0.6;
 }
-
 .uid-text {
   color: var(--text-muted);
   font-size: 0.9rem;
   text-transform: uppercase;
   margin-top: 2px;
 }
-
 .letterboxd-tabs {
   display: flex;
   gap: 10px;
   border-bottom: 2px solid var(--border-color);
   margin-bottom: 25px;
 }
-
 .tab-btn {
   background: transparent;
   border: none;
@@ -969,14 +848,12 @@ header.site-header {
   transition: all 0.2s;
   position: relative;
 }
-
 .tab-btn:hover {
   color: var(--text-primary);
 }
 .tab-btn.active {
   color: #38bdf8;
 }
-
 .tab-btn.active::after {
   content: "";
   position: absolute;
@@ -986,33 +863,27 @@ header.site-header {
   height: 2px;
   background-color: #0284c7;
 }
-
 .panel-title {
   font-size: 1.2rem;
   color: var(--text-secondary);
   margin-bottom: 20px;
 }
-
 .movies-flex-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
   gap: 20px;
 }
-
 .empty-message {
   color: var(--text-muted);
   text-align: center;
   grid-column: 1/-1;
   padding: 30px 0;
 }
-
-/* WATCHED DETAILED GRID */
 .movies-watched-detailed-grid {
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
-
 .watched-detail-card {
   display: flex;
   gap: 20px;
@@ -1024,12 +895,10 @@ header.site-header {
   cursor: pointer;
   transition: 0.2s;
 }
-
 .watched-detail-card:hover {
   border-color: rgba(2, 132, 199, 0.3);
   background: var(--bg-hover);
 }
-
 .watched-card-poster {
   width: 90px;
   height: 130px;
@@ -1037,30 +906,25 @@ header.site-header {
   object-fit: cover;
   flex-shrink: 0;
 }
-
 .watched-card-info {
   display: flex;
   flex-direction: column;
   gap: 6px;
 }
-
 .watched-card-info h4 {
   font-size: 1.1rem;
   color: #38bdf8;
   font-weight: 600;
 }
-
 .profile-review-badge {
   background: rgba(255, 193, 7, 0.15);
-  color: #ffc107;
+  color: #0077ff;
   padding: 2px 8px;
   border-radius: 4px;
   font-size: 0.8rem;
   font-weight: bold;
   width: fit-content;
 }
-
-/* ================= MODAL OYNALAR STILLARI ================= */
 .login-modal-wrapper {
   position: fixed;
   top: 0;
@@ -1074,18 +938,16 @@ header.site-header {
   justify-content: center;
   z-index: 9999;
 }
-
 .login-card {
-    background: #0000004c;
-    border: 1px solid var(--border-color);
-    border-radius: 16px;
-    padding: 40px;
-    width: 100%;
-    max-width: 420px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-    position: relative;
+  background: #0000004c;
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 40px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  position: relative;
 }
-
 .close-modal-btn {
   position: absolute;
   top: 15px;
@@ -1094,23 +956,19 @@ header.site-header {
   color: var(--text-muted);
   cursor: pointer;
 }
-
 .close-modal-btn:hover {
-  color: #ef4444;
+  color: #006eff;
 }
-
 .input-group {
   display: flex;
   flex-direction: column;
   gap: 8px;
   margin-bottom: 20px;
 }
-
 .input-group label {
   font-size: 0.85rem;
   color: var(--text-secondary);
 }
-
 .input-group input {
   background: var(--bg-input);
   border: 1px solid var(--border-color);
@@ -1120,7 +978,6 @@ header.site-header {
   font-size: 0.95rem;
   outline: none;
 }
-
 .auth-main-btn {
   width: 100%;
   background: #0284c7;
@@ -1131,341 +988,305 @@ header.site-header {
   font-weight: 600;
   cursor: pointer;
 }
-
 .animate-form {
   animation: formSlideUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
-/* Leaderboard Styles */
 .leaderboard-section {
-    background-color: #0b152300;
-    padding: 40px 20px;
-    margin-top: 40px;
-    border-top: 1px solid rgba(255, 255, 255, 0);
-    font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-image: linear-gradient(rgba(11, 21, 35, 0.397), rgba(6, 11, 19, 0.425)), url("../../Assets/filmfoto.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: #ffffff;
+  overflow-x: hidden;
 }
-
 .leaderboard-container {
-    max-width: 100%;
-    margin: 0 auto;
+  max-width: 100%;
+  margin: 0 auto;
 }
-
 .leaderboard-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 30px;
-    flex-wrap: wrap;
-    gap: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  gap: 15px;
 }
-
 .leaderboard-header h2 {
-    color: #ffffff;
-    font-size: 24px;
-    font-weight: 600;
-    margin: 0;
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0;
 }
-
 .leaderboard-header h2 i {
-    color: #00a8ff;
-    margin-right: 10px;
+  color: #00a8ff;
+  margin-right: 10px;
 }
-
 .leaderboard-badges {
-    display: flex;
-    gap: 15px;
+  display: flex;
+  gap: 15px;
 }
-
 .badge {
-    font-size: 13px;
-    padding: 6px 14px;
-    border-radius: 20px;
-    font-weight: 500;
+  font-size: 13px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-weight: 500;
 }
-
 .badge-total {
-    background-color: rgba(0, 210, 190, 0.15);
-    color: #00d2be;
+  background-color: rgba(0, 210, 190, 0.15);
+  color: #00d2be;
 }
-
 .badge-week {
-    background-color: rgba(255, 99, 132, 0.15);
-    color: #ff6384;
+  background-color: rgba(255, 99, 132, 0.15);
+  color: #ff6384;
 }
-
-/* Grid Tizimi */
 .leaderboard-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(45%, 1fr));
-    gap: 25px 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(45%, 1fr));
+  gap: 25px 40px;
 }
-
 .user-row {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    background: rgba(255, 255, 255, 0.02);
-    padding: 12px;
-    border-radius: 12px;
-    transition: transform 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: rgba(255, 255, 255, 0.02);
+  padding: 12px;
+  border-radius: 12px;
+  transition: transform 0.2s;
 }
-
 .user-row:hover {
-    transform: translateX(5px);
-    background: rgba(255, 255, 255, 0.04);
+  transform: translateX(5px);
+  background: rgba(255, 255, 255, 0.04);
 }
-
 .user-avatar {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid rgba(255, 255, 255, 0.1);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.1);
 }
-
-/* Harf shaklidagi avatar (agar rasm bo'lmasa) */
 .user-avatar-text {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #00d2be, #00a8ff);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 600;
-    font-size: 18px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #00d2be, #00a8ff);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 18px;
 }
-
 .user-info {
-    flex-grow: 1;
+  flex-grow: 1;
 }
-
 .user-name {
-    color: #ffffff;
-    font-weight: 600;
-    font-size: 16px;
-    margin-bottom: 5px;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 5px;
 }
-
-/* Progress Barlar */
 .progress-container {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
-
 .progress-bar-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
 }
-
 .progress-track {
-    width: 100%;
-    height: 8px;
-    background: rgba(255, 255, 255, 0);
-    border-radius: 4px;
-    overflow: hidden;
-    position: relative;
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
 }
-
 .progress-fill {
-    height: 100%;
-    border-radius: 4px;
+  height: 100%;
+  border-radius: 4px;
 }
-
 .fill-total {
-    background: linear-gradient(90deg, #00d2be, #00aaff3d);
+  background: linear-gradient(90deg, #00d2be, #00aaff3d);
 }
-
 .fill-week {
-    background: linear-gradient(90deg, #ffffff3d, #ffffff);
+  background: linear-gradient(90deg, #ffffff3d, #ffffff);
 }
-
 .count-text {
-    color: #a5b1c2;
-    font-size: 12px;
-    font-weight: 500;
-    min-width: 50px;
-    text-align: right;
+  color: #a5b1c2;
+  font-size: 12px;
+  font-weight: 500;
+  min-width: 50px;
+  text-align: right;
 }
-
-/* Mobil moslashuvchanlik */
 @media (max-width: 768px) {
-    .leaderboard-grid {
-        grid-template-columns: 1fr;
-    }
-    .leaderboard-header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
+  .leaderboard-grid {
+    grid-template-columns: 1fr;
+  }
+  .leaderboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
-/* SAYTNING ASOSIY FONIGA KINOZAL RASMI */
 body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    background-image: linear-gradient(rgba(11, 21, 35, 0.85), rgba(6, 11, 19, 0.95)), url('5880754923920624827.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    color: #ffffff;
-    overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-image: linear-gradient(rgba(11, 21, 35, 0.85), rgba(6, 11, 19, 0.95)), url("5880754923920624827.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: #ffffff;
+  overflow-x: hidden;
 }
-
-/* APPLE TV SLIDER CONTAINER */
 .apple-tv-slider {
-    position: relative;
-    margin: 30px 0%;
-    height: 950px;
-    border-radius: 18px;
-    overflow: hidden;
-    background: #000;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+  position: relative;
+  margin: 30px 0%;
+  height: 450px;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
 }
-
 .slider-wrapper {
-    position: relative;
-    width: 100%;
-    height: 100%;
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
-
-/* HAR BIR SLAYD */
 .slide-item {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), visibility 0.8s;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), visibility 0.8s;
 }
-
 .slide-item.active {
-    opacity: 1;
-    visibility: visible;
+  opacity: 1;
+  visibility: visible;
 }
-
-/* GORIZONTAL 16:9 FORMATDAGI RASM */
 .slide-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 20%;
-    transform: scale(1.05);
-    transition: transform 6s cubic-bezier(0.25, 1, 0.5, 1);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  transform: scale(1.05);
+  transition: transform 6s cubic-bezier(0.25, 1, 0.5, 1);
 }
-
-/* Slayd aktiv bo'lganda rasm sekin yaqinlashadi (Apple effekti) */
 .slide-item.active .slide-img {
-    transform: scale(1);
+  transform: scale(1);
 }
-
-/* GRADIET OVERLAY (Matnlar oson o'qilishi va chetlari qorayishi uchun) */
 .slide-overlay {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.9) 25%, rgba(0, 0, 0, 0.4) 60%, transparent 100%),
-                linear-gradient(to top, rgba(0, 0, 0, 0.95) 20%, transparent 50%);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.9) 25%, rgba(0, 0, 0, 0.4) 60%, transparent 100%), linear-gradient(to top, rgba(0, 0, 0, 0.95) 20%, transparent 50%);
 }
-
-/* PASTKI MATN VA NAVIGATSIYA BLOKI */
 .slider-navigation-bar {
-    position: absolute;
-    bottom: 0; left: 0;
-    width: 100%;
-    padding: 40px 5%;
-    box-sizing: border-box;
-    z-index: 10;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 40px 5%;
+  box-sizing: border-box;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
 }
-
 .slider-meta-info {
-    max-width: 600px;
+  max-width: 600px;
 }
-
-/* Matnlarning pastdan tepaga chiroyli chiqish animatsiyasi */
 .slider-meta-info h2 {
-    font-size: 38px;
-    font-weight: 700;
-    margin: 0 0 10px 0;
-    color: #ffffff;
-    animation: fadeInUp 0.6s cubic-bezier(0.25, 1, 0.5, 1) both;
+  font-size: 38px;
+  font-weight: 700;
+  margin: 0 0 10px 0;
+  color: #ffffff;
+  animation: fadeInUp 0.6s cubic-bezier(0.25, 1, 0.5, 1) both;
 }
-
 .slider-meta-info p {
-    font-size: 16px;
-    color: #e2e8f0;
-    line-height: 1.5;
-    margin: 0 0 20px 0;
-    opacity: 0.9;
-    animation: fadeInUp 0.6s cubic-bezier(0.25, 1, 0.5, 1) 0.1s both;
+  font-size: 16px;
+  color: #e2e8f0;
+  line-height: 1.5;
+  margin: 0 0 20px 0;
+  opacity: 0.9;
+  animation: fadeInUp 0.6s cubic-bezier(0.25, 1, 0.5, 1) 0.1s both;
 }
-
 .apple-trial-btn {
-    background: #ffffff;
-    color: #000000;
-    border: none;
-    padding: 12px 28px;
-    font-size: 15px;
-    font-weight: 600;
-    border-radius: 24px;
-    cursor: pointer;
-    transition: transform 0.2s, background-color 0.2s;
-    animation: fadeInUp 0.6s cubic-bezier(0.25, 1, 0.5, 1) 0.2s both;
+  background: #ffffff;
+  color: #000000;
+  border: none;
+  padding: 12px 28px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 24px;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s;
+  animation: fadeInUp 0.6s cubic-bezier(0.25, 1, 0.5, 1) 0.2s both;
 }
-
 .apple-trial-btn:hover {
-    transform: scale(1.04);
-    background-color: #f1f5f9;
+  transform: scale(1.04);
+  background-color: #f1f5f9;
 }
-
-/* NUQTACHALAR (DOTS INDICATOR) */
 .slider-dots {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 15px;
+  display: flex;
+  gap: 12px;
+  margin-bottom: 15px;
 }
-
 .dot {
-    width: 8px;
-    height: 8px;
-    background: rgba(255, 255, 255, 0.35);
-    border-radius: 50%;
-    cursor: pointer;
-    transition: all 0.3s ease;
+  width: 8px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.35);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
-
 .dot.active {
-    background: #ffffff;
-    transform: scale(1.25);
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  background: #ffffff;
+  transform: scale(1.25);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
 }
-
-
 @keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-
-/* Ekran o'lchamiga moslashuvchanlik */
 @media (max-width: 900px) {
-    .apple-tv-slider { height: 400px; }
-    .slider-navigation-bar { flex-direction: column; align-items: flex-start; gap: 20px; padding: 20px 5%; }
-    .slider-meta-info h2 { font-size: 26px; }
-    .slider-meta-info p { font-size: 14px; }
-    .slider-dots { margin-bottom: 0; }
+  .apple-tv-slider {
+    height: 400px;
+  }
+  .slider-navigation-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px 5%;
+  }
+  .slider-meta-info h2 {
+    font-size: 26px;
+  }
+  .slider-meta-info p {
+    font-size: 14px;
+  }
+  .slider-dots {
+    margin-bottom: 0;
+  }
 }
 @keyframes formSlideUp {
   from {
@@ -1476,4 +1297,250 @@ body {
     transform: translateY(0);
     opacity: 1;
   }
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: #000000;
+  color: #f5f5f7;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+.spacer {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(#000000, #161617);
+}
+.spacer h1 {
+  font-size: 40px;
+  font-weight: 700;
+  color: #86868b;
+}
+.scroll-zone {
+  height: 350vh;
+  position: relative;
+  background-color: #000000;
+}
+.zoom-container {
+  background: linear-gradient(rgba(10, 10, 14, 0.88), rgba(15, 15, 25, 0.94)), url(https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?q=80&w=1400) center center / cover no-repeat;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.inner-page {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  background-color: #141427;
+  border-radius: 40px;
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  overflow-y: auto;
+  transform: scale(0.82);
+  opacity: 0.4;
+  will-change: transform, opacity, border-radius;
+  transition: transform 0.1s linear, opacity 0.1s linear, border-radius 0.1s linear;
+}
+.top-intro {
+  max-width: 600px;
+  text-align: center;
+  font-size: 17px;
+  line-height: 1.5;
+  color: #f5f5f7;
+  margin-bottom: 25px;
+  font-weight: 500;
+}
+.blue-btn {
+  background-color: #0071e3;
+  color: white;
+  padding: 12px 22px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  margin-bottom: 15px;
+  display: inline-block;
+}
+.link-text {
+  color: #2997ff;
+  font-size: 15px;
+  text-decoration: none;
+  margin-bottom: 70px;
+}
+.link-text:hover {
+  text-decoration: underline;
+}
+.main-title {
+  font-size: 56px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin-bottom: 80px;
+  color: #f5f5f7;
+  text-align: center;
+}
+.features-grid {
+  width: 100%;
+  max-width: 850px;
+  display: block;
+}
+.feature-row {
+  display: table;
+  width: 100%;
+  margin-bottom: 80px;
+}
+.feature-col {
+  display: table-cell;
+  vertical-align: middle;
+  width: 50%;
+}
+.icon-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.icon-svg {
+  width: 110px;
+  height: auto;
+}
+.text-block {
+  padding: 0 20px;
+}
+.text-block h3 {
+  font-size: 19px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.text-block p {
+  font-size: 16px;
+  line-height: 1.4;
+  color: #0066ff;
+}
+.color-red {
+  color: #008cff;
+}
+.color-green {
+  color: #00b7ff;
+}
+.color-orange {
+  color: #0099ff;
+}
+.color-blue {
+  color: #008cff;
+}
+.inner-page::-webkit-scrollbar {
+  display: none;
+}
+.qr {
+  width: 170px;
+  height: 200px;
+}
+.cinema-finder {
+  background-image: url("../../Assets/GIT.png");
+  width: 100%;
+  padding: 60px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+.cinema-finder__container {
+  max-width: 900px;
+  width: 100%;
+  text-align: center;
+}
+.cinema-finder__header {
+  margin-bottom: 35px;
+}
+.cinema-finder__title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #00a2ff;
+  margin: 0 0 12px 0;
+  letter-spacing: -0.5px;
+}
+.cinema-finder__subtitle {
+  font-size: 16px;
+  color: #a0a0a5;
+  line-height: 1.5;
+  margin: 0;
+}
+.cinema-finder__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+.cinema-finder__btn {
+    border: none;
+    /* outline: none; */
+    padding: 14px 32px;
+    font-size: 16px;
+    font-weight: 600;
+    /* border-radius: 50px; */
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 4px 15px rgb(10 153 255 / 72%);
+    position: relative;
+    overflow: hidden;
+}
+.cinema-finder__btn--primary {
+  background-color: #e5091400;
+  color: #ffffff;
+}
+.cinema-finder__btn--primary:hover {
+  background-color: #0b8bf4;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 162, 255, 0.664);
+}
+.cinema-finder__btn--primary:active {
+  transform: translateY(1px);
+}
+.cinema-finder__status {
+  font-size: 15px;
+  font-weight: 500;
+  color: #00b7ff;
+  transition: color 0.3s ease;
+}
+.cinema-finder__status--success {
+  color: #008cff;
+}
+.cinema-finder__status--error {
+  color: #ff453a;
+}
+.cinema-finder__map-box {
+  width: 100%;
+  height: 0;
+  opacity: 0;
+  background-color: #1c1c1e;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+  border: 1px solid #2c2c2e;
+  transition: height 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.6s ease;
+}
+.cinema-finder__map-box--active {
+  height: 500px;
+  opacity: 1;
+  margin-top: 20px;
+}
+.cinema-finder__iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
 }

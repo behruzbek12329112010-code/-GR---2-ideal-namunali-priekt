@@ -3,113 +3,113 @@ const BASE_URL = "https://www.omdbapi.com";
 
 ///Hozirgi default kinolarimizga "Genre" (Janr) xususiyati biriktirildi (1-FUNKSIYA UCHUN)
 const defaultMovies = [
-    // === Sci-Fi / Fantastika ===
-    { title: "Inception", genre: "Sci-Fi" }, 
-    { title: "Avatar", genre: "Sci-Fi" }, 
-    { title: "Interstellar", genre: "Sci-Fi" }, 
-    { title: "The Matrix", genre: "Sci-Fi" }, 
-    { title: "Dune", genre: "Sci-Fi" },
-    { title: "Tenet", genre: "Sci-Fi" },
-    { title: "The Martian", genre: "Sci-Fi" },
-    { title: "Arrival", genre: "Sci-Fi" },
-    { title: "Blade Runner 2049", genre: "Sci-Fi" },
-    { title: "The Avengers", genre: "Sci-Fi" },
-    { title: "Guardians of the Galaxy", genre: "Sci-Fi" },
-    { title: "Ready Player One", genre: "Sci-Fi" },
-    { title: "The Mandalorian", genre: "Sci-Fi" },
-    { title: "Transformers", genre: "Sci-Fi" },
-    { title: "Westworld", genre: "Sci-Fi" },
-    { title: "Pacific Rim", genre: "Sci-Fi" },
-    { title: "Altered Carbon", genre: "Sci-Fi" },
-    { title: "Love, Death & Robots", genre: "Sci-Fi" },
+    // // === Sci-Fi / Fantastika ===
+    // { title: "Inception", genre: "Sci-Fi" }, 
+    // { title: "Avatar", genre: "Sci-Fi" }, 
+    // { title: "Interstellar", genre: "Sci-Fi" }, 
+    // { title: "The Matrix", genre: "Sci-Fi" }, 
+    // { title: "Dune", genre: "Sci-Fi" },
+    // { title: "Tenet", genre: "Sci-Fi" },
+    // { title: "The Martian", genre: "Sci-Fi" },
+    // { title: "Arrival", genre: "Sci-Fi" },
+    // { title: "Blade Runner 2049", genre: "Sci-Fi" },
+    // { title: "The Avengers", genre: "Sci-Fi" },
+    // { title: "Guardians of the Galaxy", genre: "Sci-Fi" },
+    // { title: "Ready Player One", genre: "Sci-Fi" },
+    // { title: "The Mandalorian", genre: "Sci-Fi" },
+    // { title: "Transformers", genre: "Sci-Fi" },
+    // { title: "Westworld", genre: "Sci-Fi" },
+    // { title: "Pacific Rim", genre: "Sci-Fi" },
+    // { title: "Altered Carbon", genre: "Sci-Fi" },
+    // { title: "Love, Death & Robots", genre: "Sci-Fi" },
 
-    // === Action / Jangovar ===
-    { title: "Gladiator", genre: "Action" }, 
-    { title: "The Dark Knight", genre: "Action" }, 
-    { title: "Spider-Man", genre: "Action" }, 
-    { title: "Avengers", genre: "Action" }, 
-    { title: "John Wick", genre: "Action" },
-    { title: "The Batman", genre: "Action" },
-    { title: "Mad Max: Fury Road", genre: "Action" },
-    { title: "Top Gun: Maverick", genre: "Action" },
-    { title: "Extraction", genre: "Action" },
-    { title: "Spider-Man: No Way Home", genre: "Action" }, 
-    { title: "John Wick: Chapter 4", genre: "Action" },
-    { title: "The Witcher", genre: "Action" },
-    { title: "Vikings", genre: "Action" },
-    { title: "The Boys", genre: "Action" },
-    { title: "Nobody", genre: "Action" },
-    { title: "Greyhound", genre: "Action" },
-    { title: "Sisu", genre: "Action" },
+    // // === Action / Jangovar ===
+    // { title: "Gladiator", genre: "Action" }, 
+    // { title: "The Dark Knight", genre: "Action" }, 
+    // { title: "Spider-Man", genre: "Action" }, 
+    // { title: "Avengers", genre: "Action" }, 
+    // { title: "John Wick", genre: "Action" },
+    // { title: "The Batman", genre: "Action" },
+    // { title: "Mad Max: Fury Road", genre: "Action" },
+    // { title: "Top Gun: Maverick", genre: "Action" },
+    // { title: "Extraction", genre: "Action" },
+    // { title: "Spider-Man: No Way Home", genre: "Action" }, 
+    // { title: "John Wick: Chapter 4", genre: "Action" },
+    // { title: "The Witcher", genre: "Action" },
+    // { title: "Vikings", genre: "Action" },
+    // { title: "The Boys", genre: "Action" },
+    // { title: "Nobody", genre: "Action" },
+    // { title: "Greyhound", genre: "Action" },
+    // { title: "Sisu", genre: "Action" },
 
-    // === Drama ===
-    { title: "Titanic", genre: "Drama" }, 
-    { title: "The Sopranos", genre: "Drama" }, 
-    { title: "Joker", genre: "Drama" }, 
-    { title: "Whiplash", genre: "Drama" }, 
-    { title: "Chernobyl", genre: "Drama" }, 
-    { title: "The Pianist", genre: "Drama" }, 
-    { title: "The Shawshank Redemption", genre: "Drama" },
-    { title: "Forrest Gump", genre: "Drama" },
-    { title: "The Godfather", genre: "Drama" },
-    { title: "Oppenheimer", genre: "Drama" },
-    { title: "The Wolf of Wall Street", genre: "Drama" },
-    { title: "Peaky Blinders", genre: "Drama" },
-    { title: "The Queen's Gambit", genre: "Drama" },
-    { title: "Fight Club", genre: "Drama" },
-    { title: "Succession", genre: "Drama" },
-    { title: "The Crown", genre: "Drama" },
-    { title: "A Beautiful Mind", genre: "Drama" },
-    { title: "The Last of Us", genre: "Drama" },
+    // // === Drama ===
+    // { title: "Titanic", genre: "Drama" }, 
+    // { title: "The Sopranos", genre: "Drama" }, 
+    // { title: "Joker", genre: "Drama" }, 
+    // { title: "Whiplash", genre: "Drama" }, 
+    // { title: "Chernobyl", genre: "Drama" }, 
+    // { title: "The Pianist", genre: "Drama" }, 
+    // { title: "The Shawshank Redemption", genre: "Drama" },
+    // { title: "Forrest Gump", genre: "Drama" },
+    // { title: "The Godfather", genre: "Drama" },
+    // { title: "Oppenheimer", genre: "Drama" },
+    // { title: "The Wolf of Wall Street", genre: "Drama" },
+    // { title: "Peaky Blinders", genre: "Drama" },
+    // { title: "The Queen's Gambit", genre: "Drama" },
+    // { title: "Fight Club", genre: "Drama" },
+    // { title: "Succession", genre: "Drama" },
+    // { title: "The Crown", genre: "Drama" },
+    // { title: "A Beautiful Mind", genre: "Drama" },
+    // { title: "The Last of Us", genre: "Drama" },
 
-    // === Comedy / Komediya ===
-    { title: "Wednesday", genre: "Comedy" }, 
-    { title: "Friends", genre: "Comedy" }, 
-    { title: "Deadpool", genre: "Comedy" },
-    { title: "The Office", genre: "Comedy" },
-    { title: "Free Guy", genre: "Comedy" },
-    { title: "Home Alone", genre: "Comedy" },
-    { title: "The Hangover", genre: "Comedy" },
-    { title: "Ted Lasso", genre: "Comedy" },
-    { title: "Rick and Morty", genre: "Comedy" },
-    { title: "Barbie", genre: "Comedy" },
-    { title: "Brooklyn Nine-Nine", genre: "Comedy" },
-    { title: "Kung Fu Panda", genre: "Comedy" },
-    { title: "The Mask", genre: "Comedy" },
+    // // === Comedy / Komediya ===
+    // { title: "Wednesday", genre: "Comedy" }, 
+    // { title: "Friends", genre: "Comedy" }, 
+    // { title: "Deadpool", genre: "Comedy" },
+    // { title: "The Office", genre: "Comedy" },
+    // { title: "Free Guy", genre: "Comedy" },
+    // { title: "Home Alone", genre: "Comedy" },
+    // { title: "The Hangover", genre: "Comedy" },
+    // { title: "Ted Lasso", genre: "Comedy" },
+    // { title: "Rick and Morty", genre: "Comedy" },
+    // { title: "Barbie", genre: "Comedy" },
+    // { title: "Brooklyn Nine-Nine", genre: "Comedy" },
+    // { title: "Kung Fu Panda", genre: "Comedy" },
+    // { title: "The Mask", genre: "Comedy" },
 
-    // === Thriller & Detective / Triller va Detektiv ===
-    { title: "Breaking Bad", genre: "Thriller" }, 
-    { title: "Narcos", genre: "Thriller" }, 
-    { title: "Sherlock", genre: "Thriller" }, 
-    { title: "The Prestige", genre: "Thriller" }, 
-    { title: "Parasite", genre: "Thriller" }, 
-    { title: "Dexter", genre: "Thriller" }, 
-    { title: "Hannibal", genre: "Thriller" }, 
-    { title: "Shutter Island", genre: "Thriller" },
-    { title: "Prison Break", genre: "Thriller" },
-    { title: "True Detective", genre: "Thriller" },
-    { title: "Mindhunter", genre: "Thriller" },
-    { title: "Money Heist", genre: "Thriller" },
-    { title: "Black Mirror", genre: "Thriller" },
-    { title: "Nightcrawler", genre: "Thriller" },
-    { title: "The Invisible Guest", genre: "Thriller" },
+    // // === Thriller & Detective / Triller va Detektiv ===
+    // { title: "Breaking Bad", genre: "Thriller" }, 
+    // { title: "Narcos", genre: "Thriller" }, 
+    // { title: "Sherlock", genre: "Thriller" }, 
+    // { title: "The Prestige", genre: "Thriller" }, 
+    // { title: "Parasite", genre: "Thriller" }, 
+    // { title: "Dexter", genre: "Thriller" }, 
+    // { title: "Hannibal", genre: "Thriller" }, 
+    // { title: "Shutter Island", genre: "Thriller" },
+    // { title: "Prison Break", genre: "Thriller" },
+    // { title: "True Detective", genre: "Thriller" },
+    // { title: "Mindhunter", genre: "Thriller" },
+    // { title: "Money Heist", genre: "Thriller" },
+    // { title: "Black Mirror", genre: "Thriller" },
+    // { title: "Nightcrawler", genre: "Thriller" },
+    // { title: "The Invisible Guest", genre: "Thriller" },
 
-    // === Horror & Mystery / Dahshat va Sirli ===
-    { title: "The Walking Dead", genre: "Horror" },
-    { title: "Resident Evil", genre: "Horror" },
-    { title: "The Haunting of Hill House", genre: "Horror" },
+    // // === Horror & Mystery / Dahshat va Sirli ===
+    // { title: "The Walking Dead", genre: "Horror" },
+    // { title: "Resident Evil", genre: "Horror" },
+    // { title: "The Haunting of Hill House", genre: "Horror" },
 
 ];
 
 // 5-FUNKSIYA UCHUN: Chiroyli kino qahramonlari avatarlari ro'yxati
 const avatarOptions = [
-    { name: "Batman", url: "https://i.pinimg.com/236x/82/80/75/828075727339f4e2467d51025078f44d.jpg" },
-    { name: "Joker", url: "https://i.pinimg.com/236x/cb/13/27/cb132711867b36f787f0b5d1f8876c22.jpg" },
-    { name: "Wednesday", url: "https://i.pinimg.com/236x/a9/37/10/a937107f91856b3e8e1da4ecf972b22b.jpg" },
+    { name: "Batman", url: "https://i.pinimg.com/474x/2d/a9/01/2da9017b0fe7b001e54a88c3b05860f2.jpg?nii=t" },
+    { name: "Joker", url: "https://i.pinimg.com/736x/99/f6/4d/99f64dcb61bb72be1bc4b1c21300e3d0.jpg" },
+    { name: "Wednesday", url: "https://i.pinimg.com/originals/df/cd/45/dfcd453776ac0ac07be2f2be5e89d5af.png?nii=t" },
     { name: "Spider-Man", url: "https://i.pinimg.com/236x/1a/05/92/1a0592966141386760fb26392095690b.jpg" },
-    { name: "Iron Man", url: "https://i.pinimg.com/236x/43/d3/18/43d31804f326503cbfb168972ec222b0.jpg" },
-    { name: "Jack Sparrow", url: "https://i.pinimg.com/236x/91/97/81/9197818e578c7fa7b9f33bf9e9cfa4d4.jpg" },
-    { name: "Tyler Durden", url: "https://i.pinimg.com/236x/b2/f0/a8/b2f0a8c25345710609383617be33fcf4.jpg" },
+    { name: "Iron Man", url: "https://i.pinimg.com/originals/b2/a3/ef/b2a3efca86da39df379c030be2784942.jpg" },
+    { name: "Jack Sparrow", url: "https://masterpiecer-images.s3.yandex.net/5f9fc7bf2267cb3:upscaled" },
+    { name: "Tyler Durden", url: "" },
     { name: "Walter White", url: "https://i.pinimg.com/236x/55/80/81/558081f9b3cf02b9e6e408ec27918a24.jpg" }
 ];
 
@@ -802,7 +802,7 @@ function tekshirishURLParametrlari() {
         ochishIchkiSahifa(qidirilayotganKino);
     }
 }
-// === LEADERBOARD (FAOL FOYDALANUVCHILAR) DATA ===
+
 const leaderboardUsers = [
     { name: "behruzbek12329112010", totalMovies: 2871308, weekMovies: 23676, hasAvatar: false },
     { name: "Lucas", totalMovies: 136226, weekMovies: 22058, hasAvatar: false },
@@ -813,28 +813,28 @@ const leaderboardUsers = [
     { name: "TUZHENNING", totalMovies: 11829, weekMovies: 11829, hasAvatar: false },
     { name: "enterpr1se", totalMovies: 2813771, weekMovies: 11023, hasAvatar: false },
     { name: "Samara", totalMovies: 4682689, weekMovies: 7755, hasAvatar: false },
-    { name: "Kreegarn", totalMovies: 141366, weekMovies: 7638, hasAvatar: false }
+    { name: "Kreegarn", totalMovies: 141366, weekMovies: 7638, hasAvatar: false },
+    { name: "老李", totalMovies: 14271, weekMovies: 13008, hasAvatar: false },
 ];
 
 function yuklashLeaderboard() {
     const gridContainer = document.getElementById("leaderboardGrid");
     if (!gridContainer) return;
 
-    // Eng yuqori qiymatlarni aniqlaymiz (Foiz barini to'g'ri chizish uchun)
+
     const maxTotal = Math.max(...leaderboardUsers.map(u => u.totalMovies));
     const maxWeek = Math.max(...leaderboardUsers.map(u => u.weekMovies));
 
     gridContainer.innerHTML = ""; // Tozalash
 
     leaderboardUsers.forEach(user => {
-        // Foizlarni hisoblash
+     
         const totalPercent = (user.totalMovies / maxTotal) * 100;
         const weekPercent = (user.weekMovies / maxWeek) * 100;
 
-        // Avatar uchun birinchi harfni olish
+ 
         const firstLetter = user.name.charAt(0).toUpperCase();
 
-        // Sonlarni chiroyli formatda chiqarish (masalan: 2,871,308)
         const formattedTotal = user.totalMovies.toLocaleString();
         const formattedWeek = user.weekMovies.toLocaleString();
 
@@ -866,7 +866,7 @@ function yuklashLeaderboard() {
         gridContainer.insertAdjacentHTML("beforeend", userRowHTML);
     });
 }
-// APPLE TV USLUBIDAGI PREMIUM SLAYDER MA'LUMOTLARI
+
 const appleTvSlides = [
     {
         title: "The New Home of Formula 1",
@@ -902,7 +902,7 @@ document.addEventListener("DOMContentLoaded", () => {
     startTimer();
 });
 
-// Slayder interfeysini xatosiz qurish
+
 function generateAppleSlider() {
     const wrapper = document.getElementById("appleTvWrapper");
     const dotsContainer = document.getElementById("sliderDots");
@@ -913,7 +913,7 @@ function generateAppleSlider() {
     dotsContainer.innerHTML = "";
 
     appleTvSlides.forEach((slide, idx) => {
-        // Slayd rasm bloki
+      
         const slideHtml = `
             <div class="slide-item ${idx === 0 ? 'active' : ''}" data-index="${idx}">
                 <img src="${slide.image}" class="slide-img" alt="${slide.title}">
@@ -922,18 +922,18 @@ function generateAppleSlider() {
         `;
         wrapper.insertAdjacentHTML("beforeend", slideHtml);
 
-        // Navigatsiya nuqtachasi
+     
         const dotHtml = `
             <div class="dot ${idx === 0 ? 'active' : ''}" onclick="selectSlide(${idx})"></div>
         `;
         dotsContainer.insertAdjacentHTML("beforeend", dotHtml);
     });
 
-    // Birinchi slayd matnlarini o'rnatish
+
     updateTextContent(0);
 }
 
-// Matnlar va tugmalarni yangilash (Animatsiyani qayta ishga tushirish bilan)
+
 function updateTextContent(idx) {
     const titleEl = document.getElementById("activeSlideTitle");
     const descEl = document.getElementById("activeSlideDesc");
@@ -941,12 +941,11 @@ function updateTextContent(idx) {
     
     const data = appleTvSlides[idx];
 
-    // Animatsiya qaytadan ishlashi uchun eski elementlarni o'chirib-yoqamiz
     titleEl.style.animation = 'none';
     descEl.style.animation = 'none';
     btnEl.style.animation = 'none';
     
-    titleEl.offsetHeight; // Reflow effekt (animatsiyani reset qilish uchun yordam beradi)
+    titleEl.offsetHeight; 
 
     titleEl.textContent = data.title;
     descEl.textContent = data.desc;
@@ -957,56 +956,56 @@ function updateTextContent(idx) {
     btnEl.style.animation = '';
 }
 
-// Slaydlarni o'zgartirish mexanizmi
+
 function changeSlide(nextIdx) {
     const slides = document.querySelectorAll(".slide-item");
     const dots = document.querySelectorAll(".dot");
 
     if (slides.length === 0) return;
 
-    // Indeks chegarasini boshqarish
+  
     if (nextIdx >= slides.length) activeIndex = 0;
     else if (nextIdx < 0) activeIndex = slides.length - 1;
     else activeIndex = nextIdx;
 
-    // Klasslarni yangilash
+
     slides.forEach(s => s.classList.remove("active"));
     dots.forEach(d => d.classList.remove("active"));
 
     slides[activeIndex].classList.add("active");
     dots[activeIndex].activeIndex = activeIndex;
 
-    // Matnlarni rasmga mos almashtirish
+  
     updateTextContent(activeIndex);
 }
 
-// Avtomatik almashtirish taymeri (Har 6 soniyada - Apple TV standarti)
+
 function startTimer() {
     autoTimer = setInterval(() => {
         changeSlide(activeIndex + 1);
     }, 6000);
 }
 
-// Nuqtacha bosilganda ishlaydigan funksiya
+
 function selectSlide(idx) {
-    clearInterval(autoTimer); // Foydalanuvchi bosganda taymerni vaqtincha to'xtatamiz
+    clearInterval(autoTimer); 
     changeSlide(idx);
-    startTimer(); // Taymerni noldan qayta yoqamiz
+    startTimer(); 
 }
 
-// AUTH MODAL ORQA FONINI KINO BANNERI BILAN ZAMONAVIY VA JAZZOBADOR QILISH CSS-IN-JS EFFEKTI
+
 function initAuthDynamicUIStyle() {
     const modalBloki = document.getElementById("loginModalBloki");
     if (!modalBloki) return;
 
-    // Modal tashqi konteyneriga chiroyli blur va zamonaviy kino orqa foni beramiz
+   
     modalBloki.style.background = "linear-gradient(rgba(10, 10, 14, 0.88), rgba(15, 15, 25, 0.94)), url('https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?q=80&w=1400') no-repeat center/cover";
     modalBloki.style.backdropFilter = "blur(12px)";
     modalBloki.style.display = "flex";
     modalBloki.style.alignItems = "center";
     modalBloki.style.justifyContent = "center";
 
-    // CSS qoidalarini dinamik inject qilamiz (Sizda profil bormi? qismi juda jozibador ko'rinishi uchun)
+    
     const styleId = "uzmovi-auth-dynamic-styles";
     if (!document.getElementById(styleId)) {
         const styleSheet = document.createElement("style");
@@ -1046,19 +1045,19 @@ function initAuthDynamicUIStyle() {
     }
 }
 
-// Sahifa to'liq yuklanganda reyting paneli ishga tushadi
+
 window.addEventListener("DOMContentLoaded", () => {
     yuklashLeaderboard();
 });
 
-// Sahifa yuklanganda parametrlarni tekshirish funksiyasini ishga tushiramiz
+
 window.addEventListener("DOMContentLoaded", () => {
     tekshirishURLParametrlari();
 });
-// ================= UNIVERSAL UI CLICK TOVUSH GENERATORI (Web Audio API) =================
+
 function chalishUiClickTovushi() {
     try {
-        // Brauzer ovoz tizimini yaratamiz
+
         const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
         const oscillator = audioCtx.createOscillator();
         const gainNode = audioCtx.createGain();
@@ -1066,16 +1065,15 @@ function chalishUiClickTovushi() {
         oscillator.connect(gainNode);
         gainNode.connect(audioCtx.destination);
 
-        // Tovush turi: 'sine' (silliq), 'square', 'sawtooth', 'triangle' (elektron)
         oscillator.type = 'sine'; 
         
-        // Chastota (Ovoz balandligi/tonalligi): 600Hz - qisqa va yoqimli UI chertish ovozi
+      
         oscillator.frequency.setValueAtTime(580, audioCtx.currentTime);
-        // Ovoz pasayib borishi (Exponensial pasayish effekti)
+  
         gainNode.gain.setValueAtTime(0.12, audioCtx.currentTime);
         gainNode.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.08);
 
-        // Tovushni boshlash va 0.08 soniyadan keyin o'chirish (juda qisqa chertish)
+     
         oscillator.start(audioCtx.currentTime);
         oscillator.stop(audioCtx.currentTime + 0.08);
     } catch (e) {
@@ -1083,11 +1081,11 @@ function chalishUiClickTovushi() {
     }
 }
 
-// ================= DASTURDAGI HAR QANDAY TUGMAGA TOVUSHNI AVTOMAT BOG'LASH =================
+
 document.addEventListener("DOMContentLoaded", () => {
-    // Event Delegation orqali butun sahifadagi tugmalarni klikini tutib olamiz
+
     document.body.addEventListener("click", (event) => {
-        // Agar bosilgan element button bo'lsa yoki button ichidagi element bo'lsa
+
         const button = event.target.closest("button") || 
                        event.target.closest(".genre-btn") || 
                        event.target.closest(".star-select-item") ||
@@ -1099,9 +1097,8 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
-// === SCRIPT.JS FAILINGIZNING ENG OXIRIGA SHUNDOQLIGICHA TASHLA_VERING ===
 
-// 1. Ovoz eshittirish funksiyasi
+
 function chalishUiClickTovushi() {
     try {
         const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -1120,7 +1117,7 @@ function chalishUiClickTovushi() {
     }
 }
 
-// 2. Event Delegation orqali har qanday tugmaga ovoz berish va Den/Noch mantiqini tekshirish
+
 document.addEventListener("DOMContentLoaded", () => {
     // Butun ekran bo'ylab tugmalar bosilishini eshitish
     document.body.addEventListener("click", (event) => {
@@ -1140,7 +1137,7 @@ function ochishAniqBlok(blokId) {
         const blok = document.getElementById(id);
         if (blok) {
             blok.classList.add("hidden");
-            // Animatsiyani qayta tiklash uchun CSS trigger
+    
             blok.style.animation = 'none';
             blok.offsetHeight; /* reflow */
             blok.style.animation = null;
@@ -1153,4 +1150,52 @@ function ochishAniqBlok(blokId) {
     }
     tekshirishJoriyFoydalanuvchi();
 }
- 
+  const CinemaModule = {
+    init: function() {
+      const status = document.getElementById('cinemaStatus');
+      const mapBox = document.getElementById('cinemaMapBox');
+      const iframe = document.getElementById('cinemaIframe');
+
+      status.className = "cinema-finder__status"; 
+      status.textContent = "Joylashuv aniqlanmoqda, iltimos kuting...";
+
+      if (!navigator.geolocation) {
+        status.classList.add("cinema-finder__status--error");
+        status.textContent = "Kechirasiz, brauzeringiz geolokatsiyani qo'llab-quvvatlamaydi.";
+        return;
+      }
+
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const lat = position.coords.latitude;
+          const lng = position.coords.longitude;
+
+
+          status.classList.add("cinema-finder__status--success");
+          status.textContent = "Joylashuvingiz muvaffaqiyatli aniqlandi!";
+
+          const googleMapsUrl = `http://googleusercontent.com/maps.google.com/3`;
+
+      
+          iframe.src = googleMapsUrl;
+          mapBox.classList.add("cinema-finder__map-box--active");
+        },
+        (error) => {
+          status.classList.add("cinema-finder__status--error");
+          switch(error.code) {
+            case error.PERMISSION_DENIED:
+              status.textContent = "Xaritani ko'rish uchun joylashuvni aniqlashga ruxsat bering.";
+              break;
+            case error.POSITION_UNAVAILABLE:
+              status.textContent = "Joylashuv ma'lumotlarini olib bo'lmadi.";
+              break;
+            case error.TIMEOUT:
+              status.textContent = "So'rov vaqti tugadi.";
+              break;
+            default:
+              status.textContent = "Noma'lum xatolik yuz berdi.";
+          }
+        }
+      );
+    }
+  };
