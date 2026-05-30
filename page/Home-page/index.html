@@ -9,41 +9,69 @@
 </head>
 <body class="dark-theme">
     <div class="app-container">
-        <header class="site-header">
-            
-            <h1 class="logo" id="logoHome" style="cursor: pointer;">UZ<span>XTECH</span></h1>
-             <nav class="tmdb-custom-navbar__main-menu">
-            <a href="#" class="tmdb-custom-navbar__menu-link">Filmlar</a>
-            <a href="#" class="tmdb-custom-navbar__menu-link">Serialar</a>
-            <a href="#" class="tmdb-custom-navbar__menu-link">Odamlar</a>
-            <a href="#" class="tmdb-custom-navbar__menu-link">Mukofotlar</a>
-            <a href="#" class="tmdb-custom-navbar__menu-link">Ko'proq</a>
-          </nav>
-                <header class="tmdb-custom-navbar">
-      <div class="tmdb-custom-navbar__container">
-        <div class="tmdb-custom-navbar__left-section">
-          
-
-          <nav class="tmdb-custom-navbar__main-menu">
-            
-          </nav>
+        <!doctype html>
+<html lang="en">
+ 
+  <body>
+<nav class="navbar">
+       <a href="../../page/others/UZxtech.html"><h1 class="logo" id="logoHome" style="cursor: pointer;">UZ<span>XTECH</span></h1></a>
+      <section class="link">
+        <div class="dropdown">
+          <button class="dropbtn">Filmlar</button>
+          <div class="dropdown-content">
+            <a href="../../page/others/popular.html" onclick="filtrlaKinolar('popular')">Ommabop filmlar</a>
+            <a href="../../page/others/now_playing.html" onclick="filtrlaKinolar('now_playing')">Kinoteatrlarda</a>
+            <a href="../../page/others/upcoming.html" onclick="filtrlaKinolar('upcoming')">Kutilayotgan premyeralar</a>
+            <a href="../../page/others/top_rated.html" onclick="filtrlaKinolar('top_rated')">Eng yuqori reytingli</a>
+          </div>
         </div>
 
-        <div class="tmdb-custom-navbar__right-section">
-          
-
-       
-           
-
-            <button id="rendon" data-holat="bosh">Tizimga kirish</button>
-          <a
-            href="#"
-            class="tmdb-custom-navbaruser-link tmdb-custom-navbaruser-link--join"
-             id="rendon" data-holat="bosh">TMDBga qo'shiling</a
-          >  <button id="themeToggleBtn" class="theme-toggle-btn" title="Rejimni almashtirish">🌙</button>
+        <div class="dropdown">
+          <button class="dropbtn">Telekoʻrsatuvlar</button>
+          <div class="dropdown-content">
+            <a href="../../page/others/popular_series.html" onclick="filtrlaSeriallar('popular')">Ommabop seriallar</a>
+            <a href="../../page/others/airing_today.html" onclick="filtrlaSeriallar('airing_today')">Bugun efirda</a>
+            <a href="../../page/others/on_tv.html" onclick="filtrlaSeriallar('on_tv')">Televideniyeda</a>
+            <a href="../../page/others/top_rated_series.html" onclick="filtrlaSeriallar('top_rated')">Top seriallar</a>
+          </div>
         </div>
-      </div>
-    </header>
+
+        <div class="dropdown">
+          <button class="dropbtn">Ijodkorlar / Aktyorlar</button>
+          <div class="dropdown-content">
+            <a href="../../page/others/actors.html" onclick="yuklaAktyorlar()">Mashhur aktyorlar</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <button class="dropbtn">Mukofotlar</button>
+          <div class="dropdown-content">
+            <a href="../../page/others/oscar.html" onclick="filtrlaMukofotlar('oscar')">Oskar sovrindorlari</a>
+            <a href="../../page/others/festivals.html" onclick="filtrlaMukofotlar('festival')">Kino festivallar</a>
+          </div>
+        </div>
+<button class="dropbtn">Yana</button>
+        <div class="dropdown">
+        
+          <div class="dropdown-content">
+            <a href="../../page/others/forum.html" onclick="ochForum()">Munozaralar / Forum</a>
+            <a href="../../page/others/leaderboard.html">Peshqadamlar roʻyxati</a>
+            <a href="../../page/others/help.html" onclick="ochYordam()">Yordam / Qoʻllab-quvvatlash</a>
+            <a href="../../page/others/api.html" onclick="ochApiDocs()">API Hujjatlari</a>
+            <a href="" onclick="ochApiBusiness()">Biznes uchun API</a>
+            <a href="../../page/others/Xarita.html" onclick="ochApiBusiness()">Xarita</a>
+          </div>
+           <div class="login-join-search">
+        <button id="rendon" data-holat="bosh">Tizimga kirish</button>
+        
+                <button id="homeBtnFromProfile" class="hidden-home-btn hidden">Bosh sahifa</button>
+         <button id="themeToggleBtn" class="theme-toggle-btn" title="Rejimni almashtirish">🌙</button>
+         
+        </div>
+        </div>
+      </section>
+      
+      </nav>
             <div class="header-action-group">
              
                 <button id="homeBtnFromProfile" class="hidden-home-btn hidden">Home</button>
@@ -130,23 +158,13 @@
             </div>
 
 
-        <section class="apple-tv-slider">
-                <div class="slider-wrapper" id="appleTvWrapper"></div>
-                <div class="slider-navigation-bar">
-                    <div class="slider-meta-info">
-                        <h2 id="activeSlideTitle">Yuklanmoqda...</h2>
-                        <p id="activeSlideDesc">Iltimos kuting...</p>
-                        <button class="apple-trial-btn" id="activeSlideBtn">Bepul sinab ko'rish</button>
-                    </div>
-                    <div class="slider-dots" id="sliderDots"></div>
-                </div>
-            </section>
+        
 
-<hr>
+
 
     <header class="hero-section">
         <div class="main-card">
-            <h1 class="main-title">Smart Cinema Locator</h1>
+            <h1 class="main-title">Kinoteatrlarni intellektual xaritasi va qidiruvi </h1>
             
             <div class="subtitle-container">
                 <p class="subtitle active-sub" data-lang="uz_lat">🇺🇿 O'zbekiston bo'ylab yoningizdagi eng yaqin kinoteatrlarni va filmlar boshlanish vaqtini soniyalarigacha real vaqt rejimida aniqlang , Siz turgan nuqtadan eng yaqin kinoteatrgacha bo'lgan masofani o'lchang va seans boshlanish vaqtini soniyama-soniya jonli hisoblagich yordamida aniqlang. Kino olami endi sizga har qachongidan ham yaqin</p>
@@ -172,8 +190,7 @@
             </button>
         </div>
     </header>
-    <hr>
-
+<hr>
     <main class="results-container" id="resultsArea">
         <h2 class="sec-title">Sizga Eng Yaqin Kinoteatrlar Ketma-ketligi</h2>
         
@@ -185,7 +202,7 @@
             </div>
         </div>
     </main>
-<hr>
+
     <script src="TIME.js"></script>
     <script>
     
@@ -213,12 +230,9 @@
                 <div class="zoom-container">
                     <div class="inner-page">
                         <p class="top-intro">
-                            With your ID in Wallet, there's no need to reach for your physical ID. Simply add your eligible ID to the Wallet app and use it to show proof of age or identity at select businesses, venues, online, and in-app. Or, travel with it at TSA checkpoints. Presenting your ID just got much easier.
-                        </p>
-                        <a href="#" class="blue-btn">Learn how to add your ID</a>
-                        <a href="#" class="link-text">See the full list of states supporting ID in Wallet ></a>
+                            Platformamiz kino olamini sizga yanada yaqinroq qilish maqsadida yaratildi. Bizning rasmiy sahifalarimiz va dasturchilarimizning ijtimoiy tarmoqdagi profillarini kuzatib borish orqali yangi premyeralar, eksklyuziv yangiliklar va tizimdagi eng so'nggi texnologik yangilanishlardan birinchilardan bo'lib xabardor bo'ling!
 
-                        <h2 class="main-title">Easy. Secure. Private.</h2>
+                        <h4 class="main-title">Bizning Jamiyatga Qo'shiling</h4>
 
                         <div class="features-grid">
                             <div class="feature-row">
@@ -229,8 +243,8 @@
                                 </div>
                                 <div class="feature-col">
                                     <div class="text-block">
-                                        <h3 class="color-red">Present your ID in seconds.</h3>
-                                        <p>Driver's license and state ID make it simple to prove your age and identity in person at select businesses, venues, Apple stores, and more.</p>
+                                        <h3 class="color-red">Bizni Instagram'da kuzating.</h3>
+                                        <p>Eng so'nggi premyeralar treylerlari, eng yuqori reytingli filmlar ro'yxati va kino olamidagi eng qiziqarli faktlar haftalik ravishda bizning Instagram sahifamizda e'lon qilib boriladi.</p>
                                     </div>
                                 </div>
                             </div>
@@ -238,8 +252,8 @@
                             <div class="feature-row">
                                 <div class="feature-col" style="display: table-cell;">
                                     <div class="text-block">
-                                        <h3 class="color-green">Easily verify your age or identity in apps.</h3>
-                                        <p>When you add a driver's license or state ID in Wallet, apps that require age or identity verification are a snap. Whether renting a car or booking a hotel, it's all that much easier.</p>
+                                        <h3 class="color-green">Telegram Kanalimizga Qo'shiling</h3>
+                                        <p> Filmlar sifati, yangi seans vaqtlarining jonli bildirishnomalari va foydalanuvchilar o'rtasidagi qizg'in muhokamalar bizning rasmiy hamjamiyatimizda. Kino olamiga oid eng qaynoq xabarlar shu yerda.</p>
                                     </div>
                                 </div>
                                 <div class="feature-col">
@@ -257,8 +271,8 @@
                                 </div>
                                 <div class="feature-col">
                                     <div class="text-block">
-                                        <h3 class="color-orange">Breeze through airport security.</h3>
-                                        <p>Add an eligible driver's license or state ID to Wallet, or create an ID with your U.S. passport, and present it at TSA checkpoints for domestic flights by using your iPhone or Apple Watch.</p>
+                                        <h3 class="color-orange">Ochiq Kodlar va Loyiha Arxitekturasi.</h3>
+                                        <p>Dasturning ishlash tizimi, uning aqlli lokator funksiyalari va mukammal JavaScript algoritmlari qanday yozilganiga qiziqasizmi? Loyihaning to'liq kod bazasi va GitHub profilimiz bilan tanishing</p>
                                     </div>
                                 </div>
                             </div>
@@ -266,8 +280,8 @@
                             <div class="feature-row">
                                 <div class="feature-col">
                                     <div class="text-block">
-                                        <h3 class="color-blue">Private and transparent.</h3>
-                                        <p>You'll always see which data you're sharing, and your information will only be shared after you authorize with Face ID or Touch ID. Neither Apple nor your state issuing authority can see when or where you share your information.</p>
+                                        <h3 class="color-blue">Xavfsiz va Shaxsiy Maxfiylik.</h3>
+                                        <p>izning geo-joylashuvingiz hamda shaxsiy ma'lumotlaringiz xavfsizligi biz uchun birinchi o'rinda turadi. Tizim sizning ruxsatingizsiz hech qanday ma'lumotni saqlamaydi yoki uchinchi shaxslarga uzatmaydi</p>
                                     </div>
                                 </div>
                                 <div class="feature-col">
@@ -283,16 +297,6 @@
 
     
 
-   
-
-
- 
-
-<hr>
-            <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d47942.029806947385!2d69.240562!3d41.311081!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae8b0cc379e9f3%3A0x40d905923e263f0!2sToshkent%2C%20O%CA%BBzbekiston!5e0!3m2!1suz!2s!4v1716900000000!5m2!1suz!2s" width="100%" height="450" style="border:0; border-radius: 24px; filter: invert(90%) hue-rotate(180deg) grayscale(10%);" allowfullscreen="" loading="lazy"></iframe>
-            </div>
-<hr>
             
         </main>
     </div>
@@ -363,18 +367,7 @@
         });
     </script>
 
-          <section class="leaderboard-section">
-                <div class="leaderboard-container">
-                    <div class="leaderboard-header">
-                        <h2><i class="fas fa-trophy"></i> Eng Faol Foydalanuvchilar</h2>
-                        <div class="leaderboard-badges">
-                            <span class="badge badge-total">Jami ko'rilganlar</span>
-                            <span class="badge badge-week">Haftalik faollik</span>
-                        </div>
-                    </div>
-                    <div class="leaderboard-grid" id="leaderboardGrid"></div>
-                </div>
-            </section>
+         
             <section class="letterboxd-section-wrapper">
   
   <div class="letterboxd-movie-grid" id="letterboxdGridContainer"></div>
@@ -397,6 +390,7 @@
 
 </section>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <script src="./script.js"></script>
 </body>
 </html>

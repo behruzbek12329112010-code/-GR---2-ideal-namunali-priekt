@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mashhur Aktyorlar - UZXTECH</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght=300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="actors.css">
+</head>
+<body>
+    <div class="bg-glow glow-1"></div>
+    <div class="bg-glow glow-2"></div>
+
+    <div class="page-container">
+        <header class="page-header">
+            <a href="../../page/Home-page/index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Bosh sahifa</a>
+            <h1 class="page-title">Dunyo Bo'ylab <span class="highlight">Mashhur Aktyorlar</span></h1>
+            <p class="page-subtitle">Aktyor ustiga bosing va u rol ijro etgan eng mashhur filmlar galereyasi hamda batafsil ma'lumotlarni ko'ring.</p>
+        </header>
+
+        <main class="actors-grid" id="actorsGrid"></main>
+    </div>
+
+    <div class="actor-modal" id="actorModal">
+        <div class="modal-content">
+            <button class="close-modal" id="closeModalBtn">&times;</button>
+            
+            <div class="modal-header-info">
+                <h2 id="modalActorName">Aktyor Nomi</h2>
+                <p id="modalActorBio">Aktyor haqida qisqacha ma'lumot...</p>
+            </div>
+
+            <h3 class="movies-section-title"><i class="fas fa-film"></i> Eng Sara Filmlari va Rollari</h3>
+            
+            <div class="actor-movies-grid" id="modalMoviesGrid"></div>
+        </div>
+    </div>
+
+    <script src="actors.js"></script>
+</body>
+</html>

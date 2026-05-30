@@ -1,0 +1,28 @@
+:root {
+    --bg-color: #07090e;
+    --card-bg: rgba(255, 255, 255, 0.04);
+    --border-color: rgba(255, 255, 255, 0.06);
+    --accent: #f1c40f;
+    --text: #000000;
+    --text-muted: #94a3b8;
+}
+body { margin: 0; padding: 0; background-color: #ffffff; font-family: 'Poppins', sans-serif; color: var(--text); }
+.page-container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+.page-header { text-align: center; margin-bottom: 50px; position: relative; }
+.back-btn {
+    position: absolute; left: 0; top: 10px; color: var(--text); text-decoration: none; font-size: 0.95rem;
+    background: var(--card-bg); padding: 8px 16px; border-radius: 20px; border: 1px solid var(--border-color);
+}
+.back-btn:hover { background: var(--accent); color: #111; }
+.page-title { font-size: 2.2rem; }
+.page-title .highlight { color: var(--accent); }
+.top-rated-container { display: flex; flex-direction: column; gap: 25px; }
+.movie-rank-card { display: flex; align-items: center; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 16px; padding: 20px; gap: 25px; }
+.rank-number { font-size: 2.5rem; font-weight: 800; color: var(--accent); min-width: 60px; text-align: center; border-right: 2px solid var(--border-color); padding-right: 15px; }
+.movie-flex-box { display: flex; gap: 20px; align-items: center; flex: 1; }
+.mini-poster { width: 100px; height: 140px; border-radius: 8px; overflow: hidden; flex-shrink: 0; }
+.mini-poster img { width: 100%; height: 100%; object-fit: cover; }
+.rank-details h2 { margin: 0 0 6px 0; font-size: 1.25rem; }
+.rating-info { color: var(--accent); font-weight: bold; font-size: 0.9rem; display: block; margin-bottom: 10px; }
+.rank-details p { margin: 0; color: var(--text-muted); font-size: 0.9rem; line-height: 1.5; }
+@media (max-width: 768px) { .movie-rank-card { flex-direction: column; align-items: flex-start; } .rank-number { border-right: none; border-bottom: 2px solid var(--border-color); width: 100%; text-align: left; } .movie-flex-box { flex-direction: column; align-items: flex-start; } }

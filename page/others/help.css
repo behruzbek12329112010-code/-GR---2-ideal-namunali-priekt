@@ -1,0 +1,13 @@
+body.help-body { background: #07070a; font-family: 'Poppins', sans-serif; color: #fff; margin:0; }
+.container { max-width: 800px; margin: 0 auto; padding: 50px 20px; }
+.help-header { text-align: center; margin-bottom: 40px; position: relative; }
+.back-btn { position: absolute; left: 0; top: 5px; color: #fff; text-decoration: none; background: rgba(255,255,255,0.05); padding: 8px 18px; border-radius: 20px; }
+.red-text { color: #e50914; }
+.help-grid { display: flex; flex-direction: column; gap: 15px; }
+.help-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; padding: 20px; cursor: pointer; transition: 0.3s; }
+.help-card h3 { margin: 0; font-size: 1.05rem; display: flex; justify-content: space-between; align-items: center; }
+.help-card h3 i { color: #e50914; }
+.help-card .arrow { font-size: 0.8rem; transition: 0.3s; color: #fff; }
+.answer { display: none; margin-top: 15px; font-size: 0.9rem; color: #94a3b8; line-height: 1.6; }
+.help-card.active .answer { display: block; }
+.help-card.active .arrow { transform: rotate(180px); }

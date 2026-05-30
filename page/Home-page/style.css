@@ -210,6 +210,7 @@ header.site-header {
   width: 100%;
 }
 .logo {
+  text-decoration: none;
   font-size: 2.2rem;
   font-weight: 800;
   letter-spacing: 2px;
@@ -348,6 +349,7 @@ header.site-header {
   font-weight: 500;
 }
 .search-banner-container {
+ background: linear-gradient(rgba(5, 11, 20, 0.603), rgba(5, 11, 20, 0.548));
   position: relative;
   width: 100%;
   min-height: 100px;
@@ -1002,14 +1004,14 @@ header.site-header {
     justify-content: center;
     text-align: center;
     padding: 2px;
-    background: linear-gradient(rgba(5, 11, 20, 0.887), rgba(5, 11, 20, 0.85)), url(https://cdn.gracza.pl/i_gp/h/22/498396621.jpg);
+    background: linear-gradient(rgba(5, 11, 20, 0.887), rgba(5, 11, 20, 0.85)), url(https://m.media-amazon.com/images/S/vcaws-image-intake-bucket-prod/1db6d34a3444421dd02ff9c52b5a2091._SX2160_FMjpg_.jpg);
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
 }
 .leaderboard-container {
-  max-width: 100%;
-  margin: 0 auto;
+  width: 200vh;
+
 }
 .leaderboard-header {
   display: flex;
@@ -1142,7 +1144,7 @@ header.site-header {
 .apple-tv-slider {
   position: relative;
   margin: 30px 1%;
-  height: 1250px;
+  height: 1000px;
   border-radius: 18px;
   overflow: hidden;
   background: #000;
@@ -1332,7 +1334,7 @@ header.site-header {
     justify-content: center;
     text-align: center;
     padding: 24px;
-    background: linear-gradient(rgba(5, 11, 20, 0.883), rgba(5, 11, 20, 0.85)), url(https://www.startpage.com/av/proxy-image?piurl=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2Foz4U9eA6ilYf1tyiVuGmkftdLac.jpg&sp=1780073052T7e2d2bc3404a0bdfaf105f2d6d08ea5cce0721b7949e692d3e4650b131dc00d6);
+    background: linear-gradient(rgba(5, 11, 20, 0.88), rgba(5, 11, 20, 0.85)), url(https://i.ytimg.com/vi/yApIWRtP8-c/maxresdefault.jpg);
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -1951,16 +1953,16 @@ body::after { background: #00f2fe; bottom: 10%; right: 10%; animation-delay: 5s;
     to { transform: translateY(0); opacity: 1; }
 }
 
+
 .main-title {
-    font-size: 3.2rem;
-    background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+    font-size: 200%;
+    background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 25px;
     font-weight: 800;
     letter-spacing: -1px;
 }
-
 /* Tillar chiroyli chiqishi uchun konteyner */
 .subtitle-container {
     position: relative;
@@ -2280,3 +2282,177 @@ p.subtitle.active-sub {
 }
 
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.navbar {
+  background-color: rgba(11, 24, 34, 0.164);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding-top: 15px;
+  padding-bottom: 15px;
+
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+
+}
+
+.dropbtn {
+  background-color: transparent;
+  color: white;
+  font-size: 14.5px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  padding: 10px 0;
+}
+
+.dropdown-content {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  min-width: 170px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin-top: 5px;
+  padding: 8px 0;
+  z-index: 10000;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(5px);
+  transition:
+    opacity 0.2s ease,
+    visibility 0.2s ease,
+    transform 0.2s ease;
+  transition-delay: 0.2s;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 10px 20px;
+  text-decoration: none;
+  display: block;
+  font-size: 15px;
+}
+
+.dropdown-content a:hover {
+  background-color: #d1d1d1;
+}
+
+.dropdown:hover .dropdown-content {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition-delay: 0s;
+}
+
+.dropdown-content::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 0;
+  width: 100%;
+  height: 10px;
+}
+.plus {
+  color: white;
+  text-decoration: none;
+  font-size: 30px;
+  font-weight: bold;
+}
+.langbtn {
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 4px 5px;
+  border-radius: 5px;
+}
+.langbtn:hover {
+  color: rgb(3 37 65);
+  background-color: white;
+  transition: 0.3s;
+}
+.login {
+  background-color: transparent;
+  border-color: transparent;
+  color: white;
+  font-size: 16px;
+}
+.join {
+  background-color: transparent;
+  border-color: transparent;
+  color: white;
+  font-size: 16px;
+}
+.searchbtn {
+  background-color: transparent;
+  border-color: transparent;
+  color: white;
+  font-size: 16px;
+}
+.login-join-search {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.reg {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+}
+.pastroqi {
+  position: sticky;
+  top: 0px;
+  z-index: 9999;
+  width: 100%;
+  background-color: #ffffff;
+}
+.search-box {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 12px 25px;
+  width: 100%;
+  padding-left: 131px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+.search-icon {
+  font-size: 1.1rem;
+  color: #757575;
+  margin-right: 15px;
+  user-select: none;
+}
+.search-field {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 1.1rem;
+  color: #333333;
+  font-family: "Segoe UI", sans-serif;
+  background: transparent;
+}
+.search-field::placeholder {
+  color: #b0bec5;
+  font-style: italic;
+}
+.result-img {
+  display: block;
+  margin: 50px auto;
+  max-width: 80%;
+  max-height: 50vh;
+}

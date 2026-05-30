@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yordam markazi - UZXTECH</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght=300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="help.css">
+</head>
+<body class="help-body">
+    <div class="container">
+        <header class="help-header">
+            <a href="../../page/Home-page/index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Orqaga</a>
+            <h1>Yordam & <span class="red-text">Qo'llab-quvvatlash</span></h1>
+            <p>Savollaringiz bormi? Mutaxassislarimiz yordam berishga tayyor.</p>
+        </header>
+
+        <div class="help-grid">
+            <div class="help-card" onclick="toggleFaq(this)">
+                <h3><i class="far fa-question-circle"></i> Kinolarni qanday yuklab olsam bo'ladi? <i class="fas fa-chevron-down arrow"></i></h3>
+                <p class="answer">Bizning platformamiz faqat onlayn striming xizmatini taklif qiladi. Mualliflik huquqlari tufayli videolarni yuklab olish imkoniyati mavjud emas.</p>
+            </div>
+            <div class="help-card" onclick="toggleFaq(this)">
+                <h3><i class="far fa-question-circle"></i> Sifatni o'zgartirish qayerda? <i class="fas fa-chevron-down arrow"></i></h3>
+                <p class="answer">Pleyer ichidagi sozlamalar (gabarit) belgisini bosish orqali sifatni 480p dan 4K gacha o'zgartirishingiz mumkin.</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        function toggleFaq(card) {
+            card.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
