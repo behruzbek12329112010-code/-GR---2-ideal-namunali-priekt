@@ -4,3 +4,63 @@ Saytning asosiy sahifalari joylashadigan joy.
 home page: Bu saytning bosh sahifasi (ya'ni asosiy qismi). Ichida index.html fayli turadi. (Eslatma: Papka nomida joy tashlangan home page, buni home-page yoki shunchaki home deb yozgan ma'qul).
 
 others: Saytning boshqa qo'shimcha sahifalari. Masalan: "Biz haqimizda", "Bog'lanish" yoki "Galereya" sahifalarining HTML fayllari shu papka ichiga ochiladi.
+
+
+
+
+
+
+
+
+
+ <main class="results-container" id="resultsArea">
+        <h2 class="sec-title">Sizga Eng Yaqin Kinoteatrlar Ketma-ketligi</h2>
+        
+        <div class="app-layout">
+            <div class="cinema-list" id="cinemaHtmlList"></div>
+
+            <div class="details-panel" id="detailsPanel">
+                <div class="empty-state">Batafsil ma'lumot va soniyali taymerni ko'rish uchun chap tomondan xohlagan kinoteatringizni tanlang.</div>
+            </div>
+        </div>
+    </main>
+
+
+
+
+
+
+
+
+
+
+
+
+     <header class="hero-section">
+        <div class="main-card">
+            <h1 class="main-title">Kinoteatrlarni intellektual xaritasi va qidiruvi </h1>
+            
+            <div class="subtitle-container">
+                <p class="subtitle active-sub" data-lang="uz_lat">🇺🇿 O'zbekiston bo'ylab yoningizdagi eng yaqin kinoteatrlarni va filmlar boshlanish vaqtini soniyalarigacha real vaqt rejimida aniqlang , Siz turgan nuqtadan eng yaqin kinoteatrgacha bo'lgan masofani o'lchang va seans boshlanish vaqtini soniyama-soniya jonli hisoblagich yordamida aniqlang. Kino olami endi sizga har qachongidan ham yaqin</p>
+                <p class="subtitle" data-lang="en">🇬🇧 Find cinemas near you instantly and track movie starting times with a live second-by-second countdown timer. Explore the world of cinema right where you are.</p>
+                <p class="subtitle" data-lang="ru">🇷🇺 Мгновенно определяйте расстояние до ближайших кинотеатров и узнавайте время начала сеансов с точностью до секунды благодаря живому таймеру.</p>
+                <p class="subtitle" data-lang="ar">🇦🇪 اعثر على دور السينما القريبة منك على الفور وتابع مواعيد بدء الأفلام بمؤقت تنازلي حي ثانية بثانية. عالم السينما الآن بين يديك!</p>
+                <p class="subtitle" data-lang="tr">🇹🇷 Bulunduğunuz konumdan en yakın sinemaya olan mesafeyi anında ölçün ve canlı sayaç sayesinde seans başlangıç zamanını saniyesi saniyesine öğrenin.</p>
+                <p class="subtitle" data-lang="uz_cyr">🇺🇿 Сиз турган нуқтадан энг яқин кинотеатргача бўлган масофани ўлчанг ва сеанс бошланиш вақтини сонияма-сония жонли ҳисоблагич ёрдамида аниқланг.</p>
+            </div>
+
+            <div class="lang-dots">
+                <span class="dot active-dot" onclick="switchSub(0)"></span>
+                <span class="dot" onclick="switchSub(1)"></span>
+                <span class="dot" onclick="switchSub(2)"></span>
+                <span class="dot" onclick="switchSub(3)"></span>
+                <span class="dot" onclick="switchSub(4)"></span>
+                <span class="dot" onclick="switchSub(5)"></span>
+            </div>
+
+            <button id="locBtn" class="pulse-btn" onclick="initSmartLocator()">
+                <span id="btnText">Joylashuvimni Aniqlash</span>
+                <div class="loader" id="mainLoader"></div>
+            </button>
+        </div>
+    </header>

@@ -14,8 +14,16 @@
  
   <body>
 <nav class="navbar">
-       <a href="../../page/others/UZxtech.html"><h1 class="logo" id="logoHome" style="cursor: pointer;">UZ<span>XTECH</span></h1></a>
+      <h1 class="logo" id="logoHome" style="cursor: pointer;">UZ<span>XTECH</span></h1>
       <section class="link">
+        <div class="dropdown">
+          <button class="dropbtn">Kinoteatrlar</button>
+          <div class="dropdown-content">
+            <a href="../../page/others/location.html" onclick="filtrlaKinolar('popular')">Smart Cinema Locator</a>
+            
+          </div>
+        </div>
+
         <div class="dropdown">
           <button class="dropbtn">Filmlar</button>
           <div class="dropdown-content">
@@ -50,9 +58,9 @@
             <a href="../../page/others/festivals.html" onclick="filtrlaMukofotlar('festival')">Kino festivallar</a>
           </div>
         </div>
-<button class="dropbtn">Yana</button>
+
         <div class="dropdown">
-        
+        <button class="dropbtn">Yana</button>
           <div class="dropdown-content">
             <a href="../../page/others/forum.html" onclick="ochForum()">Munozaralar / Forum</a>
             <a href="../../page/others/leaderboard.html">Peshqadamlar roʻyxati</a>
@@ -62,13 +70,12 @@
             <a href="../../page/others/Xarita.html" onclick="ochApiBusiness()">Xarita</a>
           </div>
            <div class="login-join-search">
-        <button id="rendon" data-holat="bosh">Tizimga kirish</button>
-        
-                <button id="homeBtnFromProfile" class="hidden-home-btn hidden">Bosh sahifa</button>
-         <button id="themeToggleBtn" class="theme-toggle-btn" title="Rejimni almashtirish">🌙</button>
          
         </div>
         </div>
+        <button id="rendon" data-holat="bosh">Tizimga kirish</button>
+                <button id="homeBtnFromProfile" class="hidden-home-btn hidden">Bosh sahifa</button>
+
       </section>
       
       </nav>
@@ -161,35 +168,6 @@
         
 
 
-
-    <header class="hero-section">
-        <div class="main-card">
-            <h1 class="main-title">Kinoteatrlarni intellektual xaritasi va qidiruvi </h1>
-            
-            <div class="subtitle-container">
-                <p class="subtitle active-sub" data-lang="uz_lat">🇺🇿 O'zbekiston bo'ylab yoningizdagi eng yaqin kinoteatrlarni va filmlar boshlanish vaqtini soniyalarigacha real vaqt rejimida aniqlang , Siz turgan nuqtadan eng yaqin kinoteatrgacha bo'lgan masofani o'lchang va seans boshlanish vaqtini soniyama-soniya jonli hisoblagich yordamida aniqlang. Kino olami endi sizga har qachongidan ham yaqin</p>
-                <p class="subtitle" data-lang="en">🇬🇧 Find cinemas near you instantly and track movie starting times with a live second-by-second countdown timer. Explore the world of cinema right where you are.</p>
-                <p class="subtitle" data-lang="ru">🇷🇺 Мгновенно определяйте расстояние до ближайших кинотеатров и узнавайте время начала сеансов с точностью до секунды благодаря живому таймеру.</p>
-                <p class="subtitle" data-lang="ar">🇦🇪 اعثر على دور السينما القريبة منك على الفور وتابع مواعيد بدء الأفلام بمؤقت تنازلي حي ثانية بثانية. عالم السينما الآن بين يديك!</p>
-                <p class="subtitle" data-lang="tr">🇹🇷 Bulunduğunuz konumdan en yakın sinemaya olan mesafeyi anında ölçün ve canlı sayaç sayesinde seans başlangıç zamanını saniyesi saniyesine öğrenin.</p>
-                <p class="subtitle" data-lang="uz_cyr">🇺🇿 Сиз турган нуқтадан энг яқин кинотеатргача бўлган масофани ўлчанг ва сеанс бошланиш вақтини сонияма-сония жонли ҳисоблагич ёрдамида аниқланг.</p>
-            </div>
-
-            <div class="lang-dots">
-                <span class="dot active-dot" onclick="switchSub(0)"></span>
-                <span class="dot" onclick="switchSub(1)"></span>
-                <span class="dot" onclick="switchSub(2)"></span>
-                <span class="dot" onclick="switchSub(3)"></span>
-                <span class="dot" onclick="switchSub(4)"></span>
-                <span class="dot" onclick="switchSub(5)"></span>
-            </div>
-
-            <button id="locBtn" class="pulse-btn" onclick="initSmartLocator()">
-                <span id="btnText">Joylashuvimni Aniqlash</span>
-                <div class="loader" id="mainLoader"></div>
-            </button>
-        </div>
-    </header>
 <hr>
     <main class="results-container" id="resultsArea">
         <h2 class="sec-title">Sizga Eng Yaqin Kinoteatrlar Ketma-ketligi</h2>
@@ -223,7 +201,62 @@
             switchSub(next);
         }, 5000);
     </script>
-  
+            <section class="apple-tv-slider">
+                <div class="slider-wrapper" id="appleTvWrapper"></div>
+                <div class="slider-navigation-bar">
+                    <div class="slider-meta-info">
+                        <h2 id="activeSlideTitle">Yuklanmoqda...</h2>
+                        <p id="activeSlideDesc">Iltimos kuting...</p>
+                        <button class="apple-trial-btn" id="activeSlideBtn">Bepul sinab ko'rish</button>
+                    </div>
+                    <div class="slider-dots" id="sliderDots"></div>
+                </div>
+            </section>
+<section class="tmdb-trending-section">
+  <div class="tmdb-container">
+    
+    <div class="tmdb-header">
+      <h2>Trendda</h2>
+      <div class="tmdb-selector">
+        <button class="time-btn active" data-time="day">Bugun</button>
+        <button class="time-btn" data-time="week">Bu hafta</button>
+      </div>
+    </div>
+
+    <div class="tmdb-slider" id="trending-slider">
+      </div>
+
+  </div>
+</section>
+<section class="join-today-section">
+  <div class="join-container">
+    
+    <div class="join-left">
+      <h2 class="join-title">Bugun qo‘shiling</h2>
+      <p class="join-description">
+        Get access to maintain your own <em>custom personal lists</em>, 
+        track what you’ve seen and search and filter for 
+        <em>what to watch next</em> — regardless if it’s in theatres or on TV.
+      </p>
+      <button class="register-btn" id="rendon" data-holat="bosh">Ro‘yxatdan o‘tish</button>
+    </div>
+
+    <div class="join-right">
+      <ul class="features-list">
+        <li>Maintain a personal watchlist</li>
+        <li>Filter by your subscribed streaming services and find something to watch</li>
+        <li>Log the movies and TV shows you’ve seen</li>
+        <li>Build custom lists</li>
+        <li>Ma'lumotlar bazamizga hissa qo'shing va yaxshilang</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+ 
+
+
+    <div class="cinema-main-wrapper">
 
 
             <section class="scroll-zone">

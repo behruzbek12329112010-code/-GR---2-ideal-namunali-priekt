@@ -1514,3 +1514,167 @@ function startCountdown(timeStr, elementId) {
     const interval = setInterval(update, 1000);
     activeTimers.push(interval);
 }
+
+const OMDB_API_KEY = 'Sizning_OMDB_API_KEY'; // Bu yerga o'zingizni API kalitingizni qo'ying
+const slider = document.getElementById('trending-slider');
+const buttons = document.querySelectorAll('.toggle-btn');
+
+// Bugun va Shu haftada eng ko'p ko'rilgan kinolarning real IMDb ID-lari
+const topMoviesData = {
+    day: [
+        'tt16366836', // Spider-Noir (2025/2026)
+        'tt21415214', // Obsession
+        'tt32341416', // Backrooms
+        'tt15438246', // Fuze (2025)
+        'tt6718170',  // The Super Mario Movie
+        'tt22111244'  // Propeller One Way Night Coach
+    ],
+    week: [
+        'tt11389872', // Batman (Top ko'rilgan)
+        'tt4154664',  // Avengers: Infinity War
+        'tt0120737',  // Lord of the Rings
+        'tt1375666',  // Inception
+        'tt0944947',  // Game of Thrones
+        'tt1877830'   // Interstellar
+    ]
+};
+
+// Kinolarni API'dan olish va skrolga chiqarish
+async function loadMostViewed(timePeriod) {
+    slider.innerHTML = '<p style="color: white; padding-left: 20px;">Yuklanmoqda...</p>';
+    const idList = topMoviesData[timePeriod];
+    let cardsHTML = '';
+
+    // ID'lar bo'yicha sikl aylanib ma'lumot olamiz
+    for (let id of idList) {
+        try {
+            const res = await fetch(`https://www.omdbapi.com/?apikey=${OMDB_API_KEY}&i=${id}`);
+            const movie = await res.json();
+
+            if (movie.Response === "True") {
+                // Skrinshotdagi sana formatini chiqarish (masalan: May 25, 2026)
+                let releaseDate = movie.Released !== "N/A" ? movie.Released : movie.Year;
+
+                cardsHTML += `
+                    <div class="movie-card">
+                        <div class="poster-box">
+                            <img src="${movie.Poster !== 'N/A' ? movie.Poster : 'https://via.placeholder.com/150x225?text=No+Poster'}" alt="${movie.Title}">
+                            <button class="menu-dots">•••</button>
+                        </div>
+                        <div class="movie-meta">
+                            <h3 onclick="openMovie('${movie.imdbID}')">${movie.Title}</h3>
+                            <p>${releaseDate}</p>
+                        </div>
+                    </div>
+                `;
+            }
+        } catch (err) {
+            console.error("Kino yuklashda xato:", err);
+        }
+    }
+    slider.innerHTML = cardsHTML;
+}
+
+// Tugmalar bosilganda almashish mantiqi
+buttons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        buttons.forEach(b => b.classList.remove('active'));
+        e.target.classList.add('active');
+
+        const period = e.target.getAttribute('data-time');
+        loadMostViewed(period);
+    });
+});
+
+// Kinoga bosilganda ishlaydigan funksiya (ID ni tutib beradi)
+function openMovie(id) {
+    alert("Kino sahifasiga o'tish ID: " + id);
+    // Bu yerda o'zingizni ichki sahifaga yo'naltirsangiz bo'ladi
+}
+
+// Sayt ochilganda srazu bugungi eng ko'p ko'rilganlarni yuklaydi
+document.addEventListener("DOMContentLoaded", () => {
+    loadMostViewed('day');
+});
+
+const sliderContainer = document.getElementById('trending-slider');
+const filterButtons = document.querySelectorAll('.time-btn');
+
+// Bugun va Bu hafta eng ko'p ko'rilgan filmlar ID ro'yxati (Aniq ma'lumot kelishi uchun)
+const movieLists = {
+    day: [
+        'tt16366836', // Spider-Noir
+        'tt21415214', // Obsession
+        'tt32341416', // Backrooms
+        'tt15438246', // Fuze
+        'tt6718170',  // The Super Mario Movie
+        'tt22111244'  // Propeller One Way Night Coach
+    ],
+    week: [
+        'tt11389872', // The Batman
+        'tt4154664',  // Avengers: Infinity War
+        'tt1375666',  // Inception
+        'tt1877830',  // Interstellar
+        'tt0120737',  // Lord of the Rings
+        'tt0944947'   // Game of Thrones
+    ]
+};
+
+// Ma'lumotlarni yuklash funksiyasi
+async function fetchTrending(timeOption) {
+    sliderContainer.innerHTML = '<p style="padding-left: 20px; color: #333;">Yuklanmoqda...</p>';
+    const currentIDs = movieLists[timeOption];
+    let htmlContent = '';
+
+    for (let id of currentIDs) {
+        try {
+            const response = await fetch(`https://www.omdbapi.com/?apikey=${API_KEY}&i=${id}`);
+            const data = await response.json();
+
+            if (data.Response === "True") {
+                // Rasmdagi kabi reliz sanasi (agar to'liq sana bo'lsa chiqadi, bo'lmasa yilini qo'yadi)
+                let movieDate = data.Released !== "N/A" ? data.Released : data.Year;
+
+                htmlContent += `
+                    <div class="movie-card">
+                        <div class="poster-container">
+                            <img src="${data.Poster !== 'N/A' ? data.Poster : 'https://via.placeholder.com/150x225?text=No+Poster'}" alt="${data.Title}">
+                            <button class="options-dot">•••</button>
+                        </div>
+                        <div class="movie-details">
+                            <h3 onclick="goToMovie('${data.imdbID}')">${data.Title}</h3>
+                            <p>${movieDate}</p>
+                        </div>
+                    </div>
+                `;
+            }
+        } catch (error) {
+            console.error("Xatolik:", error);
+        }
+    }
+    sliderContainer.innerHTML = htmlContent;
+}
+
+// Tugmalarni boshqarish
+filterButtons.forEach(button => {
+    button.addEventListener('click', (event) => {
+        // Eski aktiv klassni o'chirish
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        // Yangi bosilganni aktiv qilish
+        event.target.classList.add('active');
+
+        // Qaysi vaqt bosilganini aniqlash (day yoki week)
+        const selectedTime = event.target.getAttribute('data-time');
+        fetchTrending(selectedTime);
+    });
+});
+
+// Kinoga bosilganda ishlaydigan feyk funksiya
+function goToMovie(id) {
+    console.log("Kino ID:", id);
+}
+
+// Sahifa yuklanganda srazu "Bugun" ro'yxati chiqadi
+document.addEventListener("DOMContentLoaded", () => {
+    fetchTrending('day');
+});
