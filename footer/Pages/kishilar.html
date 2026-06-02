@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TMDB Kishilar bo'limi</title>
+    <link rel="stylesheet" href="/footer/css/kishilar.css">
+</head>
+<body>
+    <header>
+        <h1>TMDB Kishilar Olami</h1>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Aktyor yoki ijodkorni qidiring...">
+            <button id="searchBtn">Qidirish</button>
+        </div>
+    </header>
+    <main>
+        <section class="people-container" id="peopleGrid"></section>
+    </main>
+    <div id="personModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+    <script src="/footer/js/kishilar.js"></script>
+</body>
+</html>

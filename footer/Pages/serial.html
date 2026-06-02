@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/footer/css/serial.css">
+</head>
+<body>
+    
+  <div class="container">
+    <aside class="sidebar">
+      <div class="logo">
+        <i class="fa-solid fa-clapperboard"></i>
+        <span>Cine<span>Wave</span></span>
+      </div>
+      
+      <nav class="menu-group">
+        <p class="menu-title">Kashf etish</p>
+        <button class="active" onclick="getMovies('popular')">
+          <i class="fa-solid fa-fire"></i> Popular
+        </button>
+        <button onclick="getMovies('top_rated')">
+          <i class="fa-solid fa-star"></i> Top Rated
+        </button>
+        <button onclick="getMovies('upcoming')">
+          <i class="fa-solid fa-calendar-days"></i> Upcoming
+        </button>
+        <button onclick="getMovies('now_playing')">
+          <i class="fa-solid fa-play"></i> Now Playing
+        </button>
+      </nav>
+    </aside>
+    <main>
+      <header class="main-header">
+        <h1>Popular Movies</h1>
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" placeholder="Kinolarni qidirish...">
+        </div>
+      </header>
+
+      <div id="movies">
+        <div class="card">
+          <div class="card-img-wrapper">
+            <img src="https://unsplash.com" alt="Movie Poster">
+            <div class="card-badge">HD</div>
+            <div class="card-overlay">
+              <button class="play-btn"><i class="fa-solid fa-play"></i></button>
+            </div>
+          </div>
+          <div class="card-info">
+            <h2>The Matrix Resurrections</h2>
+            <div class="card-meta">
+              <span class="rating"><i class="fa-solid fa-star"></i> 7.8</span>
+              <span class="year">2024</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+  </div>
+
+
+  <button class="active" onclick="getMovies('popular', this)">
+  <i class="fa-solid fa-fire"></i> Popular
+</button>
+<button onclick="getMovies('top_rated', this)">
+  <i class="fa-solid fa-star"></i> Top Rated
+</button>
+<button onclick="getMovies('upcoming', this)">
+  <i class="fa-solid fa-calendar-days"></i> Upcoming
+</button>
+<button onclick="getMovies('now_playing', this)">
+  <i class="fa-solid fa-play"></i> Now Playing
+</button>
+    <script src="/footer/js/serial.js"></script>
+</body>
+</html>
