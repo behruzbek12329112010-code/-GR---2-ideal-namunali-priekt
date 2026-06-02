@@ -1,0 +1,31 @@
+:root {
+    --bg-color: #0d0f14;
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --border-color: rgba(255, 255, 255, 0.08);
+    --accent: #e50914;
+    --text: #000000;
+    --text-muted: #aaa;
+}
+body { margin: 0; padding: 0; background-color: #ffffff; font-family: 'Poppins', sans-serif; color: var(--text); }
+.page-container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+.page-header { text-align: center; margin-bottom: 50px; position: relative; }
+.back-btn {
+    position: absolute; left: 0; top: 10px; color: var(--text); text-decoration: none; font-size: 0.95rem;
+    background: var(--card-bg); padding: 8px 16px; border-radius: 20px; border: 1px solid var(--border-color); transition: 0.3s;
+}
+.back-btn:hover { background: var(--accent); border-color: var(--accent); }
+.page-title { font-size: 2.2rem; margin: 0 0 10px 0; }
+.page-title .highlight { color: var(--accent); }
+.page-subtitle { color: var(--text-muted); max-width: 600px; margin: 0 auto; font-size: 1rem; }
+.series-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; }
+.series-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 16px; overflow: hidden; backdrop-filter: blur(16px); transition: 0.3s; }
+.series-card:hover { transform: translateY(-8px); box-shadow: 0 12px 30px rgba(229, 9, 20, 0.2); }
+.poster-wrapper { position: relative; height: 380px; width: 100%; }
+.poster-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+.rating-badge { position: absolute; top: 15px; left: 15px; background: rgba(0, 0, 0, 0.8); color: #f39c12; padding: 5px 10px; border-radius: 8px; font-weight: bold; }
+.series-info { padding: 20px; }
+.series-title { margin: 0 0 8px 0; font-size: 1.15rem; font-weight: 600; }
+.series-meta { font-size: 0.85rem; color: var(--accent); margin-bottom: 12px; }
+.series-meta span:not(:last-child)::after { content: " • "; color: var(--text-muted); margin: 0 8px; }
+.series-plot { margin: 0; font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; }
+@media (max-width: 768px) { .back-btn { position: static; display: inline-block; margin-bottom: 20px; } }

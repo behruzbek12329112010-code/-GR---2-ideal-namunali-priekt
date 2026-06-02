@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mukofotlar va Festivallar - UZXTECH</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght=300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="awards.css">
+</head>
+<body class="dark-theme">
+    <div class="bg-glow glow-gold"></div>
+    <div class="bg-glow glow-cyan"></div>
+
+    <div class="awards-container">
+        <header class="awards-header">
+            <a href="index.html" class="back-home-btn"><i class="fas fa-arrow-left"></i> Bosh sahifa</a>
+            <h1 class="awards-title">Tarixiy <span class="highlight-gold">Mukofotlar</span> & <span class="highlight-cyan">Festivallar</span></h1>
+            <p class="awards-subtitle">Dunyo kinosini o'zgartirib yuborgan, eng nufuzli mukofotlarga va xalqaro festivallar bosh sovriniga loyiq ko'rilgan eng sara durdona filmlar.</p>
+        </header>
+
+        <div class="filter-navigation">
+            <button class="filter-tab active" onclick="switchTab('oscar', this)">
+                <i class="fas fa-trophy"></i> Oskar Sovrindorlari
+            </button>
+            <button class="filter-tab" onclick="switchTab('festival', this)">
+                <i class="fas fa-ribbon"></i> Kino Festivallari
+            </button>
+        </div>
+
+        <main class="awards-movie-grid" id="awardsGrid"></main>
+    </div>
+
+    <script>
+        // Mukofot va festival filmlari bazasi
+        const awardsData = {
+            oscar: [
+                {
+                    title: "Oppenheimer",
+                    year: "2023",
+                    badge: "7 ta Oscar Egasi",
+                    badgeClass: "oscar-gold-badge",
+                    rating: "8.4",
+                    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=500",
+                    plot: "Dunyodagi birinchi atom bombasining yaratilishi va Robert Oppenheimerning insoniyat taqdirini o'zgartirgan fojiali hayoti."
+                },
+                {
+                    title: "Inception (Muqaddima)",
+                    year: "2010",
+                    badge: "4 ta Oscar Egasi",
+                    badgeClass: "oscar-gold-badge",
+                    rating: "8.8",
+                    image: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=500",
+                    plot: "Tushlar olami ichiga kirib, inson ongining eng tubidagi maxfiy g'oyalarni o'g'irlash yoki yangi g'oya joylash bo'yicha josuslik hikoyasi."
+                },
+                {
+                    title: "The Dark Knight (Betmen)",
+                    year: "2008",
+                    badge: "2 ta Oscar Egasi",
+                    badgeClass: "oscar-gold-badge",
+                    rating: "9.0",
+                    image: "https://images.unsplash.com/photo-1478760329108-5c3ed9d495a0?q=80&w=500",
+                    plot: "Gotem shahrini butunlay tartibsizlikka boshlamoqchi bo'lgan aqldan ozgan daho Jokerga qarshi Betmenning shafqatsiz kurashi."
+                },
+                {
+                    title: "The Shawshank Redemption",
+                    year: "1994",
+                    badge: "7 ta Nominatsiya / IMDb #1",
+                    badgeClass: "oscar-gold-badge",
+                    rating: "9.3",
+                    image: "https://images.unsplash.com/photo-1594909122845-11baa439b7bf?q=80&w=500",
+                    plot: "Adolatsiz ravishda umrbod qamoq jazosiga hukm qilingan bankirning umid va qat'iyat bilan qamoqxonadan qochishi haqidagi eng buyuk asar."
+                },
+                {
+                    title: "Titanic (Titanik)",
+                    year: "1997",
+                    badge: "11 ta Oscar Egasi",
+                    badgeClass: "oscar-gold-badge",
+                    rating: "7.9",
+                    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=500",
+                    plot: "Mudhish halokatga uchragan ulkan kemadagi ikki turli tabaqaga mansub yoshlarning go'zal, fojiali va unutilmas sevgi tarixi."
+                },
+                {
+                    title: "Interstellar (Yulduzlararo)",
+                    year: "2014",
+                    badge: "Eng yaxshi vizual effektlar",
+                    badgeClass: "oscar-gold-badge",
+                    rating: "8.7",
+                    image: "https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?q=80&w=500",
+                    plot: "Insoniyat halokat yoqasida turganda, yangi yashash joyi topish uchun koinotning qora tuynuklari aro sayohatga chiqqan jasur kosmonavtlar."
+                }
+            ],
+            festival: [
+                {
+                    title: "Pulp Fiction (Kriminal Asar)",
+                    year: "1994",
+                    badge: "Kann Oltin Palmasi",
+                    badgeClass: "festival-cyan-badge",
+                    rating: "8.9",
+                    image: "https://images.unsplash.com/photo-1593487568522-746df8894941?q=80&w=500",
+                    plot: "Kventin Tarantino rejissyorligidagi bir-biriga bog'langan jinoyat olami vakillarining falsafiy, daxshatli va qora komediyali hikoyalari."
+                },
+                {
+                    title: "Parasite (Parazitlar)",
+                    year: "2019",
+                    badge: "Kann Bosh Sovrini Egasi",
+                    badgeClass: "festival-cyan-badge",
+                    rating: "8.5",
+                    image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=500",
+                    plot: "Kambag'al va o'ta boy oilaning hayoti kutilmaganda juda g'alati yo'llar bilan to'qnash kelishi ortidan kelib chiqqan daxshatli ijtimoiy drama."
+                },
+                {
+                    title: "Dune: Part Two (Dyuna 2)",
+                    year: "2024",
+                    badge: "Venetsiya Festivali Top",
+                    badgeClass: "festival-cyan-badge",
+                    rating: "8.6",
+                    image: "https://images.unsplash.com/photo-1635805737707-575885ab0820?q=80&w=500",
+                    plot: "Qumli sayyora imperiyasini qaytarib olish va otasining qasosini olish uchun boshlangan muqaddas va shafqatsiz koinot urushi."
+                },
+                {
+                    title: "Spirited Away (Arvohlar olami)",
+                    year: "2001",
+                    badge: "Berlin Oltin Ayig'i",
+                    badgeClass: "festival-cyan-badge",
+                    rating: "8.6",
+                    image: "https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=500",
+                    plot: "Sehrlangan mistik va xavfli arvohlar dunyosiga tushib qolgan yosh qizchaning ota-onasini qutqarish yo'lidagi sarguzashtlari."
+                }
+            ]
+        };
+
+        // Kinolarni ekranga chiqarish funksiyasi
+        function displayMovies(type) {
+            const grid = document.getElementById("awardsGrid");
+            grid.style.opacity = "0"; // Silliq o'tish effekti uchun
+            
+            setTimeout(() => {
+                const movies = awardsData[type];
+                grid.innerHTML = movies.map((movie, index) => `
+                    <div class="award-movie-card" style="animation-delay: ${index * 0.1}s;">
+                        <div class="poster-container">
+                            <img src="${movie.image}" alt="${movie.title}" loading="lazy">
+                            <div class="award-tag ${movie.badgeClass}">
+                                <i class="${type === 'oscar' ? 'fas fa-trophy' : 'fas fa-ribbon'}"></i> ${movie.badge}
+                            </div>
+                        </div>
+                        <div class="movie-details">
+                            <h3 class="movie-title">${movie.title}</h3>
+                            <div class="movie-meta">
+                                <span class="year"><i class="far fa-calendar"></i> ${movie.year}</span>
+                                <span class="rating"><i class="fas fa-star"></i> ${movie.rating} IMDB</span>
+                            </div>
+                            <p class="movie-plot">${movie.plot}</p>
+                        </div>
+                    </div>
+                `).join('');
+                grid.style.opacity = "1";
+            }, 300);
+        }
+
+        // Tab tugmalarni almashtirish
+        function switchTab(type, buttonElement) {
+            // Hamma faol tablarni o'chirish
+            document.querySelectorAll('.filter-tab').forEach(tab => tab.classList.remove('active'));
+            // Bosilgan tugmaga 'active' klassini qo'shish
+            buttonElement.classList.add('active');
+            // Kinolarni yangilash
+            displayMovies(type);
+        }
+
+        // Sahifa ilk bor yuklanganda avtomatik Oskarni ko'rsatish
+        document.addEventListener("DOMContentLoaded", () => {
+            displayMovies('oscar');
+        });
+    </script>
+</body>
+</html>

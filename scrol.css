@@ -1,5 +1,5 @@
 :root {
-  --bg-primary: #031d33; /* Rasmdagi to'q ko'k fon */
+  --bg-primary: #031d33;
   --text-main: #ffffff;
   --text-muted: #94a3b8;
   --accent-cyan: #22d3ee;
@@ -24,7 +24,6 @@ body {
   margin: 0 auto;
 }
 
-/* Sarlavhalar va Tugmalar */
 .section {
   margin-bottom: 40px;
 }
@@ -75,7 +74,6 @@ body {
   border: 1px solid #1e3a5f;
 }
 
-/* Havolalar (Sichqoncha ko'rinishi va matn chizig'ini olib tashlash) */
 a.trailer-card,
 a.movie-card {
   text-decoration: none;
@@ -85,7 +83,6 @@ a.movie-card {
   cursor: pointer;
 }
 
-/* 1-Qism: Treylerlar Grid Tizimi */
 .trailers-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -109,10 +106,9 @@ a.movie-card {
 
 .trailer-card:hover .card-image-wrapper img,
 .movie-card:hover .poster-wrapper img {
-  transform: scale(1.05); /* Ustiga kelganda yaqinlashish effekti */
+  transform: scale(1.05);
 }
 
-/* Pleyer Tugmasi */
 .play-btn {
   position: absolute;
   top: 50%;
@@ -129,10 +125,9 @@ a.movie-card {
   font-size: 16px;
   color: #000;
   transition: transform 0.2s;
-  pointer-events: none; /* Klik kartochkaga o'tishi uchun */
+  pointer-events: none;
 }
 
-/* Tekstlar */
 .card-info {
   margin-top: 12px;
   padding: 0 5px;
@@ -165,16 +160,13 @@ a.movie-card {
   margin: 40px 0;
 }
 
-/* 2-Qism: YANGI GORIZONTAL SCROLL TIZIMI */
 .movies-scroll-container {
   display: flex;
   gap: 20px;
-  overflow-x: auto; /* Yonga scroll qilishni yoqish */
+  overflow-x: auto;
   padding-bottom: 15px;
   scroll-behavior: smooth;
 }
-
-/* Chiroyli skrollbar qilish (Faqat kompyuter brauzerlari uchun) */
 .movies-scroll-container::-webkit-scrollbar {
   height: 6px;
 }
@@ -190,42 +182,6 @@ a.movie-card {
   background: var(--accent-cyan);
 }
 
-/* Har bitta kino kartochkasining eni o'zgarmasligi uchun */
-.movies-scroll-container .movie-card {
-  min-width: 170px;
-  flex-shrink: 0;
-}
-.poster-wrapper {
-  position: relative;
-  border-radius: 8px;
-  overflow: hidden;
-  aspect-ratio: 2 / 3;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-}
-
-.poster-wrapper img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-.movie-info {
-  margin-top: 10px;
-}
-
-/* Mobil ekranlar uchun moslashuv */
-@media (max-width: 768px) {
-  .section-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
-
-  .trailers-grid {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  }
-}
 .movies-scroll-container .movie-card {
   width: 200px;
   flex: 0 0 200px;
@@ -241,4 +197,20 @@ a.movie-card {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.movie-info {
+  margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .trailers-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
 }

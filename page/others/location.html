@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Cinema Locator</title>
+</head>
+<body>
+    <div class="cinema-dashboard-root">
+    
+        <div class="cinema-video-container">
+            <video class="cinema-video-bg" autoplay loop muted playsinline poster="../../Assets/plocation.mp4">
+                <source src="../../Assets/plocation.mp4" type="video/mp4">
+            </video>
+            <div class="cinema-video-overlay"></div>
+        </div>
+
+        <div class="cinema-main-wrapper">
+            
+            <header class="cinema-hero-panel">
+                <h1 class="cinema-main-title">Smart Cinema Locator</h1>
+                
+                <div class="cinema-lang-scroller">
+                    <p class="cinema-subtext cinema-active-lang" data-index="0">🇺🇿 O'zbekiston bo'ylab yoningizdagi eng yaqin kinoteatrlarni va filmlar boshlanish vaqtini soniyalarigacha real vaqt rejimida aniqlang.</p>
+                    <p class="cinema-subtext" data-index="1">🇬🇧 Find cinemas near you instantly and track movie starting times with a live second-by-second countdown timer. Explore the world of cinema right where you are.</p>
+                    <p class="cinema-subtext" data-index="2">🇷🇺 Мгновенно определяйте расстояние до ближайших кинотеатров и узнавайте время начала сеансов с точностью до секунды благодаря живому таймеру.</p>
+                    <p class="cinema-subtext" data-index="3">🇦🇪 اعثر على دور السينما القريبة منك على الفور وتابع مواعيد بدء الأفلام بمؤقت تنازلي حي ثانية بثانية. عالم السينما الآن بين يديك!</p>
+                    <p class="cinema-subtext" data-index="4">🇹🇷 Bulunduğunuz konumdan en yakın sinemaya olan mesafeyi anında ölçün ve canlı sayaç sayesinde seans başlangıç zamanını saniyesi saniyesine öğrenin.</p>
+                    <p class="cinema-subtext" data-index="5">🇺🇿 Сиз турган нуқтадан энг яқин кинотеатргача бўлган масофани ўлчанг ва сеанс бошланиш вақтини сонияма-сония жонли ҳисоблагич ёрдамида аниқланг.</p>
+                </div>
+
+                <div class="cinema-pagination-dots">
+                    <span class="cinema-dot cinema-active-dot" onclick="cinemaJumpToLang(0)"></span>
+                    <span class="cinema-dot" onclick="cinemaJumpToLang(1)"></span>
+                    <span class="cinema-dot" onclick="cinemaJumpToLang(2)"></span>
+                    <span class="cinema-dot" onclick="cinemaJumpToLang(3)"></span>
+                    <span class="cinema-dot" onclick="cinemaJumpToLang(4)"></span>
+                    <span class="cinema-dot" onclick="cinemaJumpToLang(5)"></span>
+                </div>
+
+                <button id="cinemaLocBtn" class="cinema-action-btn" onclick="cinemaStartGeolocate()">
+                    <span id="cinemaBtnTxt">Joylashuvni Tasdiqlash</span>
+                    <div class="cinema-spinner" id="cinemaBtnLoader"></div>
+                </button>
+            </header>
+
+            <main class="cinema-dashboard-grid" id="cinemaGridUI">
+                <div class="cinema-list-container" id="cinemaListFeed"></div>
+
+                <div class="cinema-showcase-panel" id="cinemaShowcaseDeck">
+                    <div class="cinema-fallback-text">Seans jadvali va jonli sekundlik hisoblagichni ko'rish uchun chap paneldagi obyektlardan birini tanlang.</div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+<style>
+    body {
+        background-color: #030712; /* Premium to'q qora fon */
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
+    
+    .cinema-dashboard-root {
+        --primary-glow: #00f2fe;
+        --secondary-glow: #4facfe;
+        --accent-glow: #0072ff;
+        --bg-glass: rgba(10, 20, 38, 0.55); /* Bir oz quyuqlashtirildi, matn ajralishi uchun */
+        --border-glass: rgba(255, 255, 255, 0.1);
+        --border-active: rgba(0, 242, 254, 0.45);
+        --text-main: #ffffff;
+        --text-muted: #94a3b8;
+        
+        position: relative;
+        width: 100%;
+        min-height: 100vh;
+        color: var(--text-main);
+        font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        box-sizing: border-box;
+        background: #030712; 
+    }
+
+    .cinema-dashboard-root *, 
+    .cinema-dashboard-root *::before, 
+    .cinema-dashboard-root *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* --- 🎥 VIDEO FON STULLARI --- */
+    .cinema-video-container {
+        position: fixed; /* To'liq ekran uchun absolute o'rniga fixed qilingani ma'qul */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1; 
+        overflow: hidden;
+        pointer-events: none; 
+    }
+
+    .cinema-video-bg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        height: 100%;
+        object-fit: cover; 
+        transform: translate(-50%, -50%);
+        filter: brightness(0.25) contrast(1.15); /* Video ustidagi matnlar 100% o'qilishi uchun qoraytirish kuchaytirildi */
+    }
+
+    .cinema-video-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+  
+
+    }
+
+    /* --- 📦 INTERFEYS ELEMENTLARI --- */
+    .cinema-main-wrapper {
+    
+        position: relative;
+        width: 100%;
+        max-width: 1400px;
+        z-index: 3; 
+        padding: 250px 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+.cinema-hero-panel {
+    height: 450px;
+    background-color: #0073ff00;
+    border: 1px solid var(--border-glass);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border-radius: 24px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.048);
+    animation: cinemaFadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+    .cinema-main-title {
+        font-size: 3.2rem;
+        font-weight: 800;
+        letter-spacing: -0.04em;
+        background: linear-gradient(135deg, #ffffff 40%, var(--primary-glow) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 20px;
+    }
+
+    .cinema-lang-scroller {
+        position: relative;
+        min-height: 60px;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .cinema-subtext {
+        color: var(--text-muted);
+        font-size: 1.15rem;
+        line-height: 1.6;
+        max-width: 850px;
+        position: absolute;
+        opacity: 0;
+        transform: scale(0.96) translateY(5px);
+        transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        pointer-events: none;
+    }
+
+    .cinema-subtext.cinema-active-lang {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+        pointer-events: auto;
+        position: relative;
+    }
+
+    .cinema-pagination-dots {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin-bottom: 30px;
+    }
+
+    .cinema-dot {
+        width: 8px;
+        height: 8px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .cinema-dot.cinema-active-dot {
+        background: var(--primary-glow);
+        width: 24px;
+        border-radius: 4px;
+        box-shadow: 0 0 12px var(--primary-glow);
+    }
+
+    .cinema-action-btn {
+        position: relative;
+        border: 1px solid var(--border-glass);
+        background-color: #ffffff04;
+        color: #ffffff;
+        border: none;
+      
+        padding: 18px 50px;
+        font-size: 1.1rem;
+        font-weight: 700;
+        border-radius: 20px;
+        cursor: pointer;
+        box-shadow: 0 4px 25px rgba(0, 0, 0, 0);
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .cinema-action-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 0 40px rgb(255, 255, 255);
+    }
+
+    .cinema-action-btn:active { transform: translateY(1px); }
+
+    .cinema-action-btn:disabled {
+        background: #1e293b;
+        box-shadow: none;
+        color: #64748b;
+        cursor: not-allowed;
+    }
+
+    .cinema-spinner {
+        display: none;
+        width: 18px; height: 18px;
+        border: 2.5px solid rgba(255,255,255,0.2);
+        border-top-color: #fff;
+        border-radius: 50%;
+        animation: cinemaSpin 0.8s infinite linear;
+    }
+
+    @keyframes cinemaSpin { to { transform: rotate(360deg); } }
+
+    /* LAYOUT GRID */
+    .cinema-dashboard-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.25fr;
+        gap: 30px;
+        align-items: start;
+        width: 100%;
+        display: none;
+    }
+
+    .cinema-list-container {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .cinema-item-card {
+        background: var(--bg-glass);
+        border: 1px solid var(--border-glass);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        border-radius: 20px;
+        padding: 24px;
+        cursor: pointer;
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        position: relative;
+    }
+
+    .cinema-item-card:hover, .cinema-item-card.cinema-active-item {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: var(--border-active);
+        transform: translateX(6px);
+        box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+    }
+
+    .cinema-item-card.cinema-active-item::before {
+        content: '';
+        position: absolute;
+        left: 0; top: 25%; height: 50%; width: 4px;
+        background: var(--primary-glow);
+        border-radius: 0 4px 4px 0;
+        box-shadow: 0 0 15px var(--primary-glow);
+    }
+
+    .cinema-item-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 12px;
+        gap: 15px;
+    }
+
+    .cinema-item-title {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: #ffffff;
+    }
+
+    .cinema-distance-badge {
+        background: rgba(0, 242, 254, 0.1);
+        border: 1px solid rgba(0, 242, 254, 0.2);
+        color: var(--primary-glow);
+        padding: 6px 14px;
+        border-radius: 30px;
+        font-size: 0.85rem;
+        font-weight: 700;
+        white-space: nowrap;
+    }
+
+    /* RIGHT PANEL */
+    .cinema-showcase-panel {
+        background: var(--bg-glass);
+        border: 1px solid var(--border-glass);
+        backdrop-filter: blur(30px);
+        -webkit-backdrop-filter: blur(30px);
+        border-radius: 24px;
+        padding: 35px;
+        position: sticky;
+        top: 30px;
+        box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+    }
+
+    .cinema-media-banner {
+        width: 100%;
+        height: 240px;
+        border-radius: 18px;
+        object-fit: cover;
+        margin-bottom: 25px;
+        border: 1px solid rgba(255,255,255,0.06);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    }
+
+    .cinema-show-row {
+        background: rgba(15, 23, 42, 0.55);
+        border: 1px solid rgba(255,255,255,0.04);
+        border-radius: 16px;
+        padding: 22px;
+        margin-bottom: 18px;
+    }
+
+    .cinema-timer-flex {
+        display: flex;
+        gap: 10px;
+        margin-top: 15px;
+    }
+
+    .cinema-timer-unit {
+        background: linear-gradient(135deg, rgba(0, 114, 255, 0.15), rgba(0, 242, 254, 0.15));
+        border: 1px solid rgba(0, 242, 254, 0.25);
+        padding: 10px;
+        border-radius: 12px;
+        text-align: center;
+        flex: 1;
+        min-width: 60px;
+    }
+
+    .cinema-timer-val {
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: var(--primary-glow);
+        font-family: monospace;
+    }
+
+    .cinema-timer-lbl {
+        font-size: 0.68rem;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        margin-top: 2px;
+        letter-spacing: 0.05em;
+    }
+
+    .cinema-fallback-text {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 380px;
+        color: var(--text-muted);
+        font-style: italic;
+        text-align: center;
+        font-size: 1.05rem;
+    }
+
+    @keyframes cinemaFadeInUp {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 1200px) {
+        .cinema-main-title { font-size: 2.6rem; }
+    }
+    @media (max-width: 992px) {
+        .cinema-dashboard-grid { grid-template-columns: 1fr; gap: 30px; }
+        .cinema-showcase-panel { position: static; min-height: auto; }
+    }
+    @media (max-width: 576px) {
+        .cinema-main-wrapper { padding: 20px 16px; }
+        .cinema-hero-panel { padding: 32px 16px; border-radius: 20px; }
+        .cinema-main-title { font-size: 1.95rem; }
+        .cinema-subtext { font-size: 0.98rem; }
+        .cinema-action-btn { width: 100%; padding: 16px 24px; font-size: 1.05rem; }
+        .cinema-item-card { padding: 20px; border-radius: 16px; }
+        .cinema-item-title { font-size: 1.18rem; }
+        .cinema-timer-val { font-size: 1.25rem; }
+    }
+</style>
+
+<script>
+    const cinemaDatabase = [
+        {
+            name: "Jizzakh Cinema (Jizzax)",
+            lat: 40.1158, lng: 67.8422,
+            img: "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&q=80&w=800",
+            movies: [
+                { title: "G'aroyib Pul (Premyera)", rating: "⭐ 7.2", days: "Har kuni", targetTime: "18:45:00" },
+                { title: "Koshey: Tirik Suv Siri", rating: "⭐ 8.0", days: "Shanba, Yakshanba", targetTime: "21:30:00" }
+            ]
+        },
+        {
+            name: "Drive Cinema (Samarqand, Family Park)",
+            lat: 39.6542, lng: 66.9597,
+            img: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&q=80&w=800",
+            movies: [
+                { title: "Dune: Ikkinchi Qism", rating: "⭐ 8.9", days: "Dushanba - Juma", targetTime: "19:00:00" },
+                { title: "Yo'lovchi (Daxshatli kino)", rating: "⭐ 6.5", days: "Har kuni", targetTime: "23:15:00" }
+            ]
+        },
+        {
+            name: "Magic Cinema (Toshkent, Magic City)",
+            lat: 41.3015, lng: 69.2644,
+            img: "https://images.unsplash.com/photo-1514306191717-452ec28c7814?auto=format&fit=crop&q=80&w=800",
+            movies: [
+                { title: "O'rgimchak Odam (Uzbek tilida)", rating: "⭐ 8.5", days: "Har kuni", targetTime: "17:30:00" },
+                { title: "Interstellar (Retro Seans)", rating: "⭐ 9.0", days: "Faqat Bugun", targetTime: "22:00:00" }
+            ]
+        },
+        {
+            name: "Asiya Cinema (Farg'ona)",
+            lat: 40.3864, lng: 71.7864,
+            img: "https://images.unsplash.com/photo-1574267432553-4b4628081c31?auto=format&fit=crop&q=80&w=800",
+            movies: [
+                { title: "G'aroyib Pul (Грязные деньги)", rating: "⭐ 6.8", days: "Har kuni", targetTime: "20:00:00" }
+            ]
+        },
+        {
+            name: "Buxoro Cinema (Buxoro)",
+            lat: 39.7747, lng: 64.4286,
+            img: "https://images.unsplash.com/photo-1595769816263-9b910be24d5f?auto=format&fit=crop&q=80&w=800",
+            movies: [
+                { title: "Orzu qilish zarar qilmaydi", rating: "⭐ 7.0", days: "Dush - Shan", targetTime: "19:45:00" }
+            ]
+        }
+    ];
+
+    let cinemaActiveIntervals = [];
+    let cinemaComputedStore = [];
+    let cinemaCurrentLangIdx = 0;
+
+    function cinemaJumpToLang(idx) {
+        const strings = document.querySelectorAll('.cinema-subtext');
+        const indicators = document.querySelectorAll('.cinema-dot');
+        
+        strings[cinemaCurrentLangIdx].classList.remove('cinema-active-lang');
+        indicators[cinemaCurrentLangIdx].classList.remove('cinema-active-dot');
+        
+        cinemaCurrentLangIdx = idx;
+        
+        strings[cinemaCurrentLangIdx].classList.add('cinema-active-lang');
+        indicators[cinemaCurrentLangIdx].classList.add('cinema-active-dot');
+    }
+
+    setInterval(() => {
+        const strings = document.querySelectorAll('.cinema-subtext');
+        if(strings.length > 0) {
+            let nextIdx = (cinemaCurrentLangIdx + 1) % strings.length;
+            cinemaJumpToLang(nextIdx);
+        }
+    }, 5000);
+
+    function calculateHaversineKM(lat1, lon1, lat2, lon2) {
+        const R = 6371;
+        const dLat = (lat2 - lat1) * Math.PI / 180;
+        const dLon = (lon2 - lon1) * Math.PI / 180;
+        const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+                  Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * Math.sin(dLon/2) * Math.sin(dLon/2);
+        return (R * (2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)))).toFixed(1);
+    }
+
+    function cinemaStartGeolocate() {
+        const btn = document.getElementById('cinemaLocBtn');
+        const loader = document.getElementById('cinemaBtnLoader');
+        const txt = document.getElementById('cinemaBtnTxt');
+
+        btn.disabled = true;
+        loader.style.display = 'inline-block';
+        txt.innerText = 'GPS Analiz Qilinmoqda...';
+
+        if (!navigator.geolocation) {
+            alert("Sizning brauzeringiz xavfsiz GPS koordinatalarini olishni qo'llamaydi.");
+            cinemaResetBtn();
+            return;
+        }
+
+        navigator.geolocation.getCurrentPosition(
+            (pos) => {
+                cinemaProcessSorting(pos.coords.latitude, pos.coords.longitude);
+            },
+            () => {
+                alert("GPS ruxsati rad etildi. Standart (Jizzax) markazi bo'yicha masofalar hisoblanadi.");
+                cinemaProcessSorting(40.1158, 67.8422);
+            }, 
+            { enableHighAccuracy: true }
+        );
+    }
+
+    function cinemaResetBtn() {
+        document.getElementById('cinemaLocBtn').disabled = false;
+        document.getElementById('cinemaBtnLoader').style.display = 'none';
+        document.getElementById('cinemaBtnTxt').innerText = 'Joylashuvni Qayta Aniqlash';
+    }
+
+    function cinemaProcessSorting(userLat, userLng) {
+        cinemaComputedStore = cinemaDatabase.map(item => {
+            const distance = calculateHaversineKM(userLat, userLng, item.lat, item.lng);
+            return { ...item, distance: parseFloat(distance) };
+        }).sort((a, b) => a.distance - b.distance);
+
+        const grid = document.getElementById('cinemaGridUI');
+        grid.style.display = 'grid';
+        
+        cinemaRenderList();
+        grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        cinemaResetBtn();
+    }
+
+    function cinemaRenderList() {
+        const container = document.getElementById('cinemaListFeed');
+        container.innerHTML = '';
+
+        cinemaComputedStore.forEach((cinema, idx) => {
+            container.innerHTML += `
+                <div class="cinema-item-card" id="cinema-node-${idx}" onclick="cinemaSelectNode(${idx})">
+                    <div class="cinema-item-header">
+                        <span class="cinema-item-title">${cinema.name}</span>
+                        <span class="cinema-distance-badge">📍 ${cinema.distance} km</span>
+                    </div>
+                    <p style="font-size:0.9rem; color:var(--text-muted); text-align:left;">Mavjud faol seanslar: ${cinema.movies.length} ta premyera</p>
+                </div>
+            `;
+        });
+    }
+
+    function cinemaSelectNode(idx) {
+        document.querySelectorAll('.cinema-item-card').forEach(card => card.classList.remove('cinema-active-item'));
+        document.getElementById(`cinema-node-${idx}`).classList.add('cinema-active-item');
+
+        cinemaActiveIntervals.forEach(clearInterval);
+        cinemaActiveIntervals = [];
+
+        const cinema = cinemaComputedStore[idx];
+        const showcase = document.getElementById('cinemaShowcaseDeck');
+
+        let moviesFeedHTML = '';
+        cinema.movies.forEach((movie, mIdx) => {
+            const componentTimerId = `dashboard-clock-${mIdx}`;
+            moviesFeedHTML += `
+                <div class="cinema-show-row">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px; gap:10px;">
+                        <h4 style="font-size:1.15rem; color:#fff; font-weight:600; text-align:left;">${movie.title}</h4>
+                        <span style="color:#ffbe21; font-weight:700; white-space:nowrap;">${movie.rating}</span>
+                    </div>
+                    <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:12px; text-align:left;">📅 Kunlar: ${movie.days} | ⏰ Vaqti: ${movie.targetTime.substring(0,5)}</p>
+                    
+                    <div class="cinema-timer-flex">
+                        <div class="cinema-timer-unit"><div class="cinema-timer-val" id="${componentTimerId}-hr">00</div><div class="cinema-timer-lbl">Soat</div></div>
+                        <div class="cinema-timer-unit"><div class="cinema-timer-val" id="${componentTimerId}-min">00</div><div class="cinema-timer-lbl">Min</div></div>
+                        <div class="cinema-timer-unit"><div class="cinema-timer-val" id="${componentTimerId}-sec">00</div><div class="cinema-timer-lbl">Sek</div></div>
+                    </div>
+                </div>
+            `;
+            cinemaSetupClock(movie.targetTime, componentTimerId);
+        });
+
+        showcase.innerHTML = `
+            <img src="${cinema.img}" class="cinema-media-banner" alt="Cinema Dynamic Cover">
+            <h2 style="font-size:1.4rem; color:#fff; font-weight:700; margin-bottom:6px; text-align:left;">${cinema.name}</h2>
+            <p style="color:var(--primary-glow); font-size:0.88rem; margin-bottom:20px; font-family:monospace; text-align:left;">GEO: ${cinema.lat}, ${cinema.lng}</p>
+            <h3 style="font-size:1rem; color:#fff; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:15px; padding-bottom:6px; border-bottom:1px solid rgba(255,255,255,0.08); text-align:left;">Seanslar Jadvali</h3>
+            ${moviesFeedHTML}
+        `;
+
+        if (window.innerWidth <= 992) {
+            showcase.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }
+
+    function cinemaSetupClock(timeString, clockElementId) {
+        function updateClock() {
+            const currentInstant = new Date();
+            const executionTarget = new Date();
+            const splitSegments = timeString.split(':');
+            
+            executionTarget.setHours(parseInt(splitSegments[0]), parseInt(splitSegments[1]), parseInt(splitSegments[2]), 0);
+
+            if (executionTarget < currentInstant) {
+                executionTarget.setDate(executionTarget.getDate() + 1);
+            }
+
+            const deltaDistance = executionTarget - currentInstant;
+
+            const computedHours = Math.floor(deltaDistance / (1000 * 60 * 60));
+            const computedMinutes = Math.floor((deltaDistance % (1000 * 60 * 60)) / (1000 * 60));
+            const computedSeconds = Math.floor((deltaDistance % (1000 * 60)) / 1000);
+
+            const domHr = document.getElementById(`${clockElementId}-hr`);
+            const domMin = document.getElementById(`${clockElementId}-min`);
+            const domSec = document.getElementById(`${clockElementId}-sec`);
+
+            if (domHr && domMin && domSec) {
+                domHr.innerText = computedHours < 10 ? '0' + computedHours : computedHours;
+                domMin.innerText = computedMinutes < 10 ? '0' + computedMinutes : computedMinutes;
+                domSec.innerText = computedSeconds < 10 ? '0' + computedSeconds : computedSeconds;
+            }
+        }
+
+        updateClock();
+        const persistentThread = setInterval(updateClock, 1000);
+        cinemaActiveIntervals.push(persistentThread);
+    }
+</script>
+</body>
+</html>

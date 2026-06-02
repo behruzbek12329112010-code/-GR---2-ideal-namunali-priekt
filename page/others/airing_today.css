@@ -1,0 +1,28 @@
+:root {
+    --bg-color: #0a0c10;
+    --card-bg: rgba(255, 255, 255, 0.04);
+    --border-color: rgba(255, 255, 255, 0.06);
+    --accent: #2196f3;
+    --text: #000000;
+    --text-muted: #8b949e;
+}
+body { margin: 0; padding: 0; background-color: #ffffff; font-family: 'Poppins', sans-serif; color: var(--text); }
+.page-container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+.page-header { text-align: center; margin-bottom: 40px; position: relative; }
+.back-btn {
+    position: absolute; left: 0; top: 10px; color: var(--text); text-decoration: none;
+    font-size: 0.95rem; background: var(--card-bg); padding: 8px 16px; border-radius: 20px; border: 1px solid var(--border-color);
+}
+.back-btn:hover { background: var(--accent); color: #fff; }
+.page-title { font-size: 2.2rem; }
+.page-title .highlight { color: var(--accent); }
+.schedule-container { display: flex; flex-direction: column; gap: 20px; }
+.schedule-timeline-card { display: flex; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; overflow: hidden; }
+.time-tag { background: rgba(33, 150, 243, 0.15); color: var(--accent); font-weight: bold; padding: 20px; min-width: 120px; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 0.95rem; border-right: 1px solid var(--border-color); }
+.schedule-details { padding: 20px; flex: 1; }
+.schedule-details h3 { margin: 0 0 5px 0; font-size: 1.2rem; }
+.episode-number { margin: 0 0 5px 0; color: #fff; opacity: 0.8; font-size: 0.95rem; }
+.network { margin: 0 0 12px 0; color: var(--text-muted); font-size: 0.85rem; }
+.live-indicator { display: inline-flex; align-items: center; gap: 8px; font-size: 0.8rem; background: rgba(255,255,255,0.05); padding: 4px 10px; border-radius: 20px; }
+.dot { width: 8px; height: 8px; background: #00bc8c; border-radius: 50%; display: inline-block; box-shadow: 0 0 8px #00bc8c; }
+@media (max-width: 600px) { .schedule-timeline-card { flex-direction: column; } .time-tag { border-right: none; border-bottom: 1px solid var(--border-color); min-width: auto; padding: 10px; } }

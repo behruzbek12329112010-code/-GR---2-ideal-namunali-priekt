@@ -1,0 +1,108 @@
+:root {
+    --bg-color: #06070a;
+    --cyan: #00ecb9;
+    --card-bg: rgba(255, 255, 255, 0.02);
+    --card-border: rgba(0, 236, 185, 0.15);
+    --text-white: #000000;
+    --text-muted: #94a3b8;
+}
+
+body.festival-body {
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-white);
+    overflow-x: hidden;
+}
+
+.ambient-glow-cyan {
+    position: fixed;
+    bottom: -10%;
+    right: 20%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(0, 236, 185, 0.06) 0%, transparent 70%);
+    z-index: -1;
+    filter: blur(80px);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.back-btn {
+    position: absolute; left: 0; top: 10px;
+    color: var(--text-white); text-decoration: none; font-size: 0.9rem;
+    background: var(--card-bg); border: 1px solid rgba(255,255,255,0.1);
+    padding: 8px 20px; border-radius: 30px; transition: 0.3s;
+}
+.back-btn:hover { background: var(--cyan); color: #000; box-shadow: 0 0 15px rgba(0,236,185,0.4); }
+
+.header h1 { font-size: 2.6rem; margin: 0 0 10px 0; font-weight: 700; letter-spacing: 1px; }
+.cyan-text { color: var(--cyan); text-shadow: 0 0 20px rgba(0, 236, 185, 0.3); }
+.cyan-icon { color: var(--cyan); margin-right: 10px; }
+.subtitle { color: var(--text-muted); max-width: 750px; margin: 0 auto; font-size: 1rem; line-height: 1.6; }
+
+/* Grid va Kartochkalar */
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.festival-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    overflow: hidden;
+    backdrop-filter: blur(12px);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.festival-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--cyan);
+    box-shadow: 0 15px 30px rgba(0, 236, 185, 0.15);
+}
+
+.img-container {
+    position: relative;
+    height: 380px;
+    overflow: hidden;
+}
+
+.img-container img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.festival-card:hover .img-container img { transform: scale(1.05); }
+
+.festival-badge {
+    position: absolute; top: 15px; left: 15px;
+    background: rgba(0, 0, 0, 0.85); color: var(--cyan);
+    padding: 6px 14px; border-radius: 30px; font-size: 0.75rem;
+    font-weight: 700; border: 1px solid var(--cyan);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+.info-container { padding: 20px; }
+.movie-title { margin: 0 0 8px 0; font-size: 1.2rem; color: #fff; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.meta-row { display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px; }
+.rating { color: var(--cyan); font-weight: bold; }
+.plot { margin: 0; font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+
+@media (max-width: 768px) {
+    .header { display: flex; flex-direction: column; align-items: center; gap: 15px; }
+    .back-btn { position: static; }
+    .header h1 { font-size: 1.8rem; }
+}
