@@ -122,7 +122,10 @@ body {
 .error {
   color: #ff6b6b;
 }
-
+#termsofuse {
+  text-decoration: none;
+  color: blue;
+}
 @media (max-width: 450px) {
   .signup-box {
     width: 92%;

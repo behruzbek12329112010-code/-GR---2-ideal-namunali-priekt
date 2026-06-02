@@ -1,9 +1,9 @@
-const API_KEY = "ed1c56f1";
+  const API_KEY = "ed1c56f1";
 const BASE_URL = "https://www.omdbapi.com";
 
-///Hozirgi default kinolarimizga "Genre" (Janr) xususiyati biriktirildi (1-FUNKSIYA UCHUN)
+
 const defaultMovies = [
-    // === Sci-Fi / Fantastika ===
+
     { title: "Inception", genre: "Sci-Fi" }, 
     { title: "Avatar", genre: "Sci-Fi" }, 
     { title: "Interstellar", genre: "Sci-Fi" }, 
@@ -23,7 +23,7 @@ const defaultMovies = [
     { title: "Altered Carbon", genre: "Sci-Fi" },
     { title: "Love, Death & Robots", genre: "Sci-Fi" },
 
-    // === Action / Jangovar ===
+
     { title: "Gladiator", genre: "Action" }, 
     { title: "The Dark Knight", genre: "Action" }, 
     { title: "Spider-Man", genre: "Action" }, 
@@ -42,7 +42,7 @@ const defaultMovies = [
     { title: "Greyhound", genre: "Action" },
     { title: "Sisu", genre: "Action" },
 
-    // === Drama ===
+
     { title: "Titanic", genre: "Drama" }, 
     { title: "The Sopranos", genre: "Drama" }, 
     { title: "Joker", genre: "Drama" }, 
@@ -62,7 +62,7 @@ const defaultMovies = [
     { title: "A Beautiful Mind", genre: "Drama" },
     { title: "The Last of Us", genre: "Drama" },
 
-    // === Comedy / Komediya ===
+
     { title: "Wednesday", genre: "Comedy" }, 
     { title: "Friends", genre: "Comedy" }, 
     { title: "Deadpool", genre: "Comedy" },
@@ -77,7 +77,7 @@ const defaultMovies = [
     { title: "Kung Fu Panda", genre: "Comedy" },
     { title: "The Mask", genre: "Comedy" },
 
-    // === Thriller & Detective / Triller va Detektiv ===
+
     { title: "Breaking Bad", genre: "Thriller" }, 
     { title: "Narcos", genre: "Thriller" }, 
     { title: "Sherlock", genre: "Thriller" }, 
@@ -94,31 +94,41 @@ const defaultMovies = [
     { title: "Nightcrawler", genre: "Thriller" },
     { title: "The Invisible Guest", genre: "Thriller" },
 
-    // === Horror & Mystery / Dahshat va Sirli ===
+
     { title: "The Walking Dead", genre: "Horror" },
     { title: "Resident Evil", genre: "Horror" },
     { title: "The Haunting of Hill House", genre: "Horror" },
 
 ];
 
-// 5-FUNKSIYA UCHUN: Chiroyli kino qahramonlari avatarlari ro'yxati
+
 const avatarOptions = [
-    { name: "Batman", url: "https://i.pinimg.com/236x/82/80/75/828075727339f4e2467d51025078f44d.jpg" },
-    { name: "Joker", url: "https://i.pinimg.com/236x/cb/13/27/cb132711867b36f787f0b5d1f8876c22.jpg" },
-    { name: "Wednesday", url: "https://i.pinimg.com/236x/a9/37/10/a937107f91856b3e8e1da4ecf972b22b.jpg" },
-    { name: "Spider-Man", url: "https://i.pinimg.com/236x/1a/05/92/1a0592966141386760fb26392095690b.jpg" },
-    { name: "Iron Man", url: "https://i.pinimg.com/236x/43/d3/18/43d31804f326503cbfb168972ec222b0.jpg" },
-    { name: "Jack Sparrow", url: "https://i.pinimg.com/236x/91/97/81/9197818e578c7fa7b9f33bf9e9cfa4d4.jpg" },
-    { name: "Tyler Durden", url: "https://i.pinimg.com/236x/b2/f0/a8/b2f0a8c25345710609383617be33fcf4.jpg" },
-    { name: "Walter White", url: "https://i.pinimg.com/236x/55/80/81/558081f9b3cf02b9e6e408ec27918a24.jpg" }
+    { name: "Batman", url: "https://i.pinimg.com/474x/2d/a9/01/2da9017b0fe7b001e54a88c3b05860f2.jpg?nii=t" },
+    { name: "Batman", url: "https://i.pinimg.com/474x/2d/a9/01/2da9017b0fe7b001e54a88c3b05860f2.jpg?nii=t" },
+    { name: "Batman", url: "https://i.pinimg.com/474x/2d/a9/01/2da9017b0fe7b001e54a88c3b05860f2.jpg?nii=t" },
+    { name: "Batman", url: "https://i.pinimg.com/474x/2d/a9/01/2da9017b0fe7b001e54a88c3b05860f2.jpg?nii=t" },
+    { name: "Batman", url: "https://i.pinimg.com/474x/2d/a9/01/2da9017b0fe7b001e54a88c3b05860f2.jpg?nii=t" },
+    { name: "Batman", url: "https://i.pinimg.com/474x/2d/a9/01/2da9017b0fe7b001e54a88c3b05860f2.jpg?nii=t" },
+    { name: "Batman", url: "https://i.pinimg.com/474x/2d/a9/01/2da9017b0fe7b001e54a88c3b05860f2.jpg?nii=t" },
+    { name: "Batman", url: "https://i.pinimg.com/474x/2d/a9/01/2da9017b0fe7b001e54a88c3b05860f2.jpg?nii=t" },
+    { name: "Batman", url: "https://i.pinimg.com/474x/2d/a9/01/2da9017b0fe7b001e54a88c3b05860f2.jpg?nii=t" },
+    { name: "Batman", url: "https://i.pinimg.com/474x/2d/a9/01/2da9017b0fe7b001e54a88c3b05860f2.jpg?nii=t" },
+    { name: "Batman", url: "https://i.pinimg.com/474x/2d/a9/01/2da9017b0fe7b001e54a88c3b05860f2.jpg?nii=t" },
+    { name: "Joker", url: "https://i.pinimg.com/736x/99/f6/4d/99f64dcb61bb72be1bc4b1c21300e3d0.jpg" },
+    { name: "Wednesday", url: "https://i.pinimg.com/originals/df/cd/45/dfcd453776ac0ac07be2f2be5e89d5af.png?nii=t" },
+    { name: "Spider-Man", url: "https://i.pinimg.com/originals/49/94/ec/4994ecec19904129111f44456573adbd.jpg?nii=t" },
+    { name: "Iron Man", url: "https://i.pinimg.com/originals/b2/a3/ef/b2a3efca86da39df379c030be2784942.jpg" },
+    { name: "Jack Sparrow", url: "https://masterpiecer-images.s3.yandex.net/5f9fc7bf2267cb3:upscaled" },
+    { name: "Tyler Durden", url: "https://i.pinimg.com/originals/a0/31/a7/a031a7a0ef374e5510ff33f8f299fe2c.jpg?nii=t" },
+    { name: "Walter White", url: "https://i.pinimg.com/originals/49/94/ec/4994ecec19904129111f44456573adbd.jpg?nii=t" }
 ];
 
 const kinoLugat = { "аватар": "Avatar", "начало": "Inception", "интерстеллар": "Interstellar", "гладиатор": "Gladiator" };
 
 let isRegisterMode = false;
 let bannerInterval = null;
-let joriyTanlanganBaho = 5; // 3-Funksiya uchun default star rating
-let joriyFiltrJanr = "all"; // 1-Funksiya uchun active janr
+let joriyTanlanganBaho = 5; 
+let joriyFiltrJanr = "all"; 
 
 function getUserStorageKey(keyName) {
     const joriyUser = localStorage.getItem("tizimgaKirganUser");
@@ -140,19 +150,18 @@ window.addEventListener("DOMContentLoaded", () => {
     initDragScroll();
     yangilaBarchaRoʻyxatlarni();
     startDynamicBanner();
-    initTheme(); // 4-FUNKSIYA init
+    initTheme(); 
 
-    // 1-FUNKSIYA: Janrlar filtr tugmalari hodisasi
     document.querySelectorAll(".genre-btn").forEach(btn => {
         btn.addEventListener("click", (e) => {
             document.querySelectorAll(".genre-btn").forEach(b => b.classList.remove("active"));
             e.target.classList.add("active");
             joriyFiltrJanr = e.target.getAttribute("data-genre");
-            yuklashPremyeralar(); // Filtrlangan holda qayta yuklaydi
+            yuklashPremyeralar(); 
         });
     });
 
-    // 2-FUNKSIYA: Jonli qidiruv (Live Search) hodisasi
+   
     const kinoInput = document.getElementById("kinoInput");
     if(kinoInput) {
         kinoInput.addEventListener("input", (e) => {
@@ -161,7 +170,7 @@ window.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Dropdown tashqarisiga bosilganda yopish
+
     document.addEventListener("click", (e) => {
         const dropdown = document.getElementById("liveSearchDropdown");
         if(dropdown && !e.target.closest(".main-search-wrapper")) {
@@ -169,7 +178,7 @@ window.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // 4-FUNKSIYA: Dark/Light Mode tugmasi bosilishi
+   
     const themeBtn = document.getElementById("themeToggleBtn");
     if(themeBtn) {
         themeBtn.addEventListener("click", () => {
@@ -185,7 +194,7 @@ window.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 5-FUNKSIYA: Avatar bosilganda modalni ochish va yuklash
+
     const avatarZone = document.getElementById("userAvatar");
     if(avatarZone) {
         avatarZone.addEventListener("click", () => {
@@ -198,7 +207,7 @@ window.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Logo va Bosh sahifaga qaytish logikalari
+
     document.getElementById("logoHome").addEventListener("click", () => {
         ochishAniqBlok("boshSahifaBloki");
         tekshirishJoriyFoydalanuvchi();
@@ -212,17 +221,17 @@ window.addEventListener("DOMContentLoaded", () => {
     initAuthButtonLogic();
     tekshirishJoriyFoydalanuvchi();
     
-    // Auth Modal foni va "Sizda profil bormi?" UI elementlarini dastlabki yuklash
+
     initAuthDynamicUIStyle();
 });
 
-// ================= 1-FUNKSIYA: PREMYERALARNI JANR BO'YICHA YUKLASH =================
+
 async function yuklashPremyeralar() {
     const grid = document.getElementById("kinoGrid");
     if (!grid) return;
     grid.innerHTML = "<p style='color:var(--text-secondary); text-align:center; grid-column:1/-1;'>Yuklanmoqda...</p>";
 
-    // Janrga qarab kinolarni filter qilamiz
+ 
     let filtrlanganKinolar = defaultMovies;
     if (joriyFiltrJanr !== "all") {
         filtrlanganKinolar = defaultMovies.filter(m => m.genre === joriyFiltrJanr);
@@ -266,7 +275,7 @@ async function yuklashPremyeralar() {
     }
 }
 
-// ================= 2-FUNKSIYA: JONLI QIDIRUV (LIVE SEARCH) LOGIKASI =================
+
 async function ijroJonliQidiruv(matn) {
     const dropdown = document.getElementById("liveSearchDropdown");
     if(!dropdown) return;
@@ -277,7 +286,7 @@ async function ijroJonliQidiruv(matn) {
     }
 
     try {
-        // OMDb API'dan qidiruv (s=) bo'yicha ma'lumot so'raymiz
+
         const res = await fetch(`${BASE_URL}?apikey=${API_KEY}&s=${encodeURIComponent(matn)}`);
         const data = await res.json();
 
@@ -285,7 +294,7 @@ async function ijroJonliQidiruv(matn) {
             dropdown.innerHTML = "";
             dropdown.classList.remove("hidden");
 
-            // Eng mos kelgan dastlabki 5 ta natijani chiqaramiz
+   
             data.Search.slice(0, 5).forEach(film => {
                 const item = document.createElement("div");
                 item.className = "live-search-item";
@@ -641,7 +650,7 @@ async function yuklashDumaloqKarusel() {
     const carousel = document.getElementById("storyCarousel");
     if (!carousel) return;
     carousel.innerHTML = "";
-    const shuffled = [...defaultMovies].sort(() => 0.5 - Math.random()).slice(0, 50);
+    const shuffled = [...defaultMovies].sort(() => 0.5 - Math.random()).slice(0, 0);
     for (let m of shuffled) {
         try {
             const res = await fetch(`${BASE_URL}?apikey=${API_KEY}&t=${encodeURIComponent(m.title)}`);
@@ -802,7 +811,7 @@ function tekshirishURLParametrlari() {
         ochishIchkiSahifa(qidirilayotganKino);
     }
 }
-// === LEADERBOARD (FAOL FOYDALANUVCHILAR) DATA ===
+
 const leaderboardUsers = [
     { name: "behruzbek12329112010", totalMovies: 2871308, weekMovies: 23676, hasAvatar: false },
     { name: "Lucas", totalMovies: 136226, weekMovies: 22058, hasAvatar: false },
@@ -813,28 +822,28 @@ const leaderboardUsers = [
     { name: "TUZHENNING", totalMovies: 11829, weekMovies: 11829, hasAvatar: false },
     { name: "enterpr1se", totalMovies: 2813771, weekMovies: 11023, hasAvatar: false },
     { name: "Samara", totalMovies: 4682689, weekMovies: 7755, hasAvatar: false },
-    { name: "Kreegarn", totalMovies: 141366, weekMovies: 7638, hasAvatar: false }
+    { name: "Kreegarn", totalMovies: 141366, weekMovies: 7638, hasAvatar: false },
+    { name: "老李", totalMovies: 14271, weekMovies: 13008, hasAvatar: false },
 ];
 
 function yuklashLeaderboard() {
     const gridContainer = document.getElementById("leaderboardGrid");
     if (!gridContainer) return;
 
-    // Eng yuqori qiymatlarni aniqlaymiz (Foiz barini to'g'ri chizish uchun)
+
     const maxTotal = Math.max(...leaderboardUsers.map(u => u.totalMovies));
     const maxWeek = Math.max(...leaderboardUsers.map(u => u.weekMovies));
 
     gridContainer.innerHTML = ""; // Tozalash
 
     leaderboardUsers.forEach(user => {
-        // Foizlarni hisoblash
+     
         const totalPercent = (user.totalMovies / maxTotal) * 100;
         const weekPercent = (user.weekMovies / maxWeek) * 100;
 
-        // Avatar uchun birinchi harfni olish
+ 
         const firstLetter = user.name.charAt(0).toUpperCase();
 
-        // Sonlarni chiroyli formatda chiqarish (masalan: 2,871,308)
         const formattedTotal = user.totalMovies.toLocaleString();
         const formattedWeek = user.weekMovies.toLocaleString();
 
@@ -866,7 +875,7 @@ function yuklashLeaderboard() {
         gridContainer.insertAdjacentHTML("beforeend", userRowHTML);
     });
 }
-// APPLE TV USLUBIDAGI PREMIUM SLAYDER MA'LUMOTLARI
+
 const appleTvSlides = [
     {
         title: "The New Home of Formula 1",
@@ -902,7 +911,7 @@ document.addEventListener("DOMContentLoaded", () => {
     startTimer();
 });
 
-// Slayder interfeysini xatosiz qurish
+
 function generateAppleSlider() {
     const wrapper = document.getElementById("appleTvWrapper");
     const dotsContainer = document.getElementById("sliderDots");
@@ -913,7 +922,7 @@ function generateAppleSlider() {
     dotsContainer.innerHTML = "";
 
     appleTvSlides.forEach((slide, idx) => {
-        // Slayd rasm bloki
+      
         const slideHtml = `
             <div class="slide-item ${idx === 0 ? 'active' : ''}" data-index="${idx}">
                 <img src="${slide.image}" class="slide-img" alt="${slide.title}">
@@ -922,18 +931,18 @@ function generateAppleSlider() {
         `;
         wrapper.insertAdjacentHTML("beforeend", slideHtml);
 
-        // Navigatsiya nuqtachasi
+     
         const dotHtml = `
             <div class="dot ${idx === 0 ? 'active' : ''}" onclick="selectSlide(${idx})"></div>
         `;
         dotsContainer.insertAdjacentHTML("beforeend", dotHtml);
     });
 
-    // Birinchi slayd matnlarini o'rnatish
+
     updateTextContent(0);
 }
 
-// Matnlar va tugmalarni yangilash (Animatsiyani qayta ishga tushirish bilan)
+
 function updateTextContent(idx) {
     const titleEl = document.getElementById("activeSlideTitle");
     const descEl = document.getElementById("activeSlideDesc");
@@ -941,12 +950,11 @@ function updateTextContent(idx) {
     
     const data = appleTvSlides[idx];
 
-    // Animatsiya qaytadan ishlashi uchun eski elementlarni o'chirib-yoqamiz
     titleEl.style.animation = 'none';
     descEl.style.animation = 'none';
     btnEl.style.animation = 'none';
     
-    titleEl.offsetHeight; // Reflow effekt (animatsiyani reset qilish uchun yordam beradi)
+    titleEl.offsetHeight; 
 
     titleEl.textContent = data.title;
     descEl.textContent = data.desc;
@@ -957,56 +965,56 @@ function updateTextContent(idx) {
     btnEl.style.animation = '';
 }
 
-// Slaydlarni o'zgartirish mexanizmi
+
 function changeSlide(nextIdx) {
     const slides = document.querySelectorAll(".slide-item");
     const dots = document.querySelectorAll(".dot");
 
     if (slides.length === 0) return;
 
-    // Indeks chegarasini boshqarish
+  
     if (nextIdx >= slides.length) activeIndex = 0;
     else if (nextIdx < 0) activeIndex = slides.length - 1;
     else activeIndex = nextIdx;
 
-    // Klasslarni yangilash
+
     slides.forEach(s => s.classList.remove("active"));
     dots.forEach(d => d.classList.remove("active"));
 
     slides[activeIndex].classList.add("active");
     dots[activeIndex].activeIndex = activeIndex;
 
-    // Matnlarni rasmga mos almashtirish
+  
     updateTextContent(activeIndex);
 }
 
-// Avtomatik almashtirish taymeri (Har 6 soniyada - Apple TV standarti)
+
 function startTimer() {
     autoTimer = setInterval(() => {
         changeSlide(activeIndex + 1);
     }, 6000);
 }
 
-// Nuqtacha bosilganda ishlaydigan funksiya
+
 function selectSlide(idx) {
-    clearInterval(autoTimer); // Foydalanuvchi bosganda taymerni vaqtincha to'xtatamiz
+    clearInterval(autoTimer); 
     changeSlide(idx);
-    startTimer(); // Taymerni noldan qayta yoqamiz
+    startTimer(); 
 }
 
-// AUTH MODAL ORQA FONINI KINO BANNERI BILAN ZAMONAVIY VA JAZZOBADOR QILISH CSS-IN-JS EFFEKTI
+
 function initAuthDynamicUIStyle() {
     const modalBloki = document.getElementById("loginModalBloki");
     if (!modalBloki) return;
 
-    // Modal tashqi konteyneriga chiroyli blur va zamonaviy kino orqa foni beramiz
+   
     modalBloki.style.background = "linear-gradient(rgba(10, 10, 14, 0.88), rgba(15, 15, 25, 0.94)), url('https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?q=80&w=1400') no-repeat center/cover";
     modalBloki.style.backdropFilter = "blur(12px)";
     modalBloki.style.display = "flex";
     modalBloki.style.alignItems = "center";
     modalBloki.style.justifyContent = "center";
 
-    // CSS qoidalarini dinamik inject qilamiz (Sizda profil bormi? qismi juda jozibador ko'rinishi uchun)
+    
     const styleId = "uzmovi-auth-dynamic-styles";
     if (!document.getElementById(styleId)) {
         const styleSheet = document.createElement("style");
@@ -1046,19 +1054,19 @@ function initAuthDynamicUIStyle() {
     }
 }
 
-// Sahifa to'liq yuklanganda reyting paneli ishga tushadi
+
 window.addEventListener("DOMContentLoaded", () => {
     yuklashLeaderboard();
 });
 
-// Sahifa yuklanganda parametrlarni tekshirish funksiyasini ishga tushiramiz
+
 window.addEventListener("DOMContentLoaded", () => {
     tekshirishURLParametrlari();
 });
-// ================= UNIVERSAL UI CLICK TOVUSH GENERATORI (Web Audio API) =================
+
 function chalishUiClickTovushi() {
     try {
-        // Brauzer ovoz tizimini yaratamiz
+
         const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
         const oscillator = audioCtx.createOscillator();
         const gainNode = audioCtx.createGain();
@@ -1066,16 +1074,15 @@ function chalishUiClickTovushi() {
         oscillator.connect(gainNode);
         gainNode.connect(audioCtx.destination);
 
-        // Tovush turi: 'sine' (silliq), 'square', 'sawtooth', 'triangle' (elektron)
         oscillator.type = 'sine'; 
         
-        // Chastota (Ovoz balandligi/tonalligi): 600Hz - qisqa va yoqimli UI chertish ovozi
+      
         oscillator.frequency.setValueAtTime(580, audioCtx.currentTime);
-        // Ovoz pasayib borishi (Exponensial pasayish effekti)
+  
         gainNode.gain.setValueAtTime(0.12, audioCtx.currentTime);
         gainNode.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.08);
 
-        // Tovushni boshlash va 0.08 soniyadan keyin o'chirish (juda qisqa chertish)
+     
         oscillator.start(audioCtx.currentTime);
         oscillator.stop(audioCtx.currentTime + 0.08);
     } catch (e) {
@@ -1083,11 +1090,11 @@ function chalishUiClickTovushi() {
     }
 }
 
-// ================= DASTURDAGI HAR QANDAY TUGMAGA TOVUSHNI AVTOMAT BOG'LASH =================
+
 document.addEventListener("DOMContentLoaded", () => {
-    // Event Delegation orqali butun sahifadagi tugmalarni klikini tutib olamiz
+
     document.body.addEventListener("click", (event) => {
-        // Agar bosilgan element button bo'lsa yoki button ichidagi element bo'lsa
+
         const button = event.target.closest("button") || 
                        event.target.closest(".genre-btn") || 
                        event.target.closest(".star-select-item") ||
@@ -1099,9 +1106,8 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
-// === SCRIPT.JS FAILINGIZNING ENG OXIRIGA SHUNDOQLIGICHA TASHLA_VERING ===
 
-// 1. Ovoz eshittirish funksiyasi
+
 function chalishUiClickTovushi() {
     try {
         const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -1120,7 +1126,7 @@ function chalishUiClickTovushi() {
     }
 }
 
-// 2. Event Delegation orqali har qanday tugmaga ovoz berish va Den/Noch mantiqini tekshirish
+
 document.addEventListener("DOMContentLoaded", () => {
     // Butun ekran bo'ylab tugmalar bosilishini eshitish
     document.body.addEventListener("click", (event) => {
@@ -1135,3 +1141,376 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+function ochishAniqBlok(blokId) {
+    ["boshSahifaBloki", "kinoIchkiSahifa", "profilSahifaBloki"].forEach(id => {
+        const blok = document.getElementById(id);
+        if (blok) {
+            blok.classList.add("hidden");
+    
+            blok.style.animation = 'none';
+            blok.offsetHeight; /* reflow */
+            blok.style.animation = null;
+        }
+    });
+    
+    const faolBlok = document.getElementById(blokId);
+    if (faolBlok) {
+        faolBlok.classList.remove("hidden");
+    }
+    tekshirishJoriyFoydalanuvchi();
+}
+  const CinemaModule = {
+    init: function() {
+      const status = document.getElementById('cinemaStatus');
+      const mapBox = document.getElementById('cinemaMapBox');
+      const iframe = document.getElementById('cinemaIframe');
+
+      status.className = "cinema-finder__status"; 
+      status.textContent = "Joylashuv aniqlanmoqda, iltimos kuting...";
+
+      if (!navigator.geolocation) {
+        status.classList.add("cinema-finder__status--error");
+        status.textContent = "Kechirasiz, brauzeringiz geolokatsiyani qo'llab-quvvatlamaydi.";
+        return;
+      }
+
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const lat = position.coords.latitude;
+          const lng = position.coords.longitude;
+
+
+          status.classList.add("cinema-finder__status--success");
+          status.textContent = "Joylashuvingiz muvaffaqiyatli aniqlandi!";
+
+          const googleMapsUrl = `http://googleusercontent.com/maps.google.com/3`;
+
+      
+          iframe.src = googleMapsUrl;
+          mapBox.classList.add("cinema-finder__map-box--active");
+        },
+        (error) => {
+          status.classList.add("cinema-finder__status--error");
+          switch(error.code) {
+            case error.PERMISSION_DENIED:
+              status.textContent = "Xaritani ko'rish uchun joylashuvni aniqlashga ruxsat bering.";
+              break;
+            case error.POSITION_UNAVAILABLE:
+              status.textContent = "Joylashuv ma'lumotlarini olib bo'lmadi.";
+              break;
+            case error.TIMEOUT:
+              status.textContent = "So'rov vaqti tugadi.";
+              break;
+            default:
+              status.textContent = "Noma'lum xatolik yuz berdi.";
+          }
+        }
+      );
+    }
+  };
+
+  // --- LETTERBOXD MOVIES SCRIPT LOGIC ---
+(function() {
+const API_KEY = "ed1c56f1";
+const BASE_URL = "https://www.omdbapi.com";
+const LB_FETCH_URL = `https://api.themoviedb.org/3/discover/movie?api_key=${LB_API_KEY}&sort_by=vote_count.desc&language=en-US&page=1`;
+
+  const gridContainer = document.getElementById('letterboxdGridContainer');
+  const detailPanel = document.getElementById('letterboxdDetailPanel');
+  const closePanelBtn = document.getElementById('letterboxdCloseBtn');
+
+  // Ovozlar soniga qarab taxminiy "Million marta ko'rilgan" formatiga o'tkazish
+  function calculateMillions(votes) {
+    const formattedViews = (votes * 1.4) / 1000;
+    return formattedViews.toFixed(1) + 'M marta';
+  }
+
+  // TMDB'dan 10 ta eng ko'p ovoz olgan (ko'rilgan) filmlarni yuklash
+  async function loadLetterboxdContent() {
+    try {
+      const response = await fetch(LB_FETCH_URL);
+      const payload = await response.json();
+
+      if (payload.results && payload.results.length > 0) {
+        // Faqatgina dastlabki 10 ta top kinolarni qirqib olamiz
+        const topTenMovies = payload.results.slice(0, 10);
+        buildMovieGrid(topTenMovies);
+      } else {
+        gridContainer.innerHTML = `<p style="color: #ff4a4a; grid-column: span 5; text-align: center;">Kinolarni yuklab bo'lmadi. API kalit xato bo'lishi mumkin.</p>`;
+      }
+    } catch (err) {
+      console.error("Ma'lumot olishda xatolik yuz berdi:", err);
+    }
+  }
+
+  // Kinolarni DOM strukturaga chiqarish
+  function buildMovieGrid(moviesList) {
+    gridContainer.innerHTML = '';
+
+    moviesList.forEach(movieItem => {
+      const { title, poster_path, vote_count, release_date, overview, vote_average } = movieItem;
+      const releaseYear = release_date ? release_date.split('-')[0] : 'N/A';
+
+      const cardElement = document.createElement('div');
+      cardElement.classList.add('letterboxd-item-card');
+
+      cardElement.innerHTML = `
+        <div class="letterboxd-mini-tooltip">${title} (${releaseYear})</div>
+        <img src="${LB_IMG_BASE}${poster_path}" alt="${title}" onerror="this.src='https://via.placeholder.com/500x750?text=No+Poster'">
+        <div class="letterboxd-card-overlay">
+          <div class="letterboxd-views-count">
+            <i class="fa-solid fa-eye"></i>
+            <span>${calculateMillions(vote_count)}</span>
+          </div>
+        </div>
+      `;
+
+      // KINO KARTASIGA BOSILGANDA (Click)
+      cardElement.addEventListener('click', () => {
+        document.getElementById('letterboxdPanelPoster').src = `${LB_IMG_BASE}${poster_path}`;
+        document.getElementById('letterboxdPanelTitle').textContent = title;
+        document.getElementById('letterboxdPanelYear').textContent = releaseYear;
+        document.getElementById('letterboxdPanelRating').textContent = vote_average.toFixed(1);
+        document.getElementById('letterboxdPanelOverview').textContent = overview || "Ushbu film uchun xulosa kiritilmagan.";
+
+        // Panelni ko'rsatish va silliq harakat bilan ekranga olib kelish
+        detailPanel.classList.add('active-panel');
+        detailPanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      });
+
+      gridContainer.appendChild(cardElement);
+    });
+  }
+
+  // Panelni yopish hodisasi
+  if(closePanelBtn) {
+    closePanelBtn.addEventListener('click', () => {
+      detailPanel.classList.remove('active-panel');
+    });
+  }
+
+  // Scriptni avtomatik ishga tushirish
+  loadLetterboxdContent();
+})();
+
+
+const database = [
+    {
+        name: "Jizzakh Cinema (Jizzax)",
+        lat: 40.1158, lng: 67.8422,
+        img: "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&q=80&w=800",
+        movies: [
+            { title: "G'aroyib Pul (Premyera)", rating: "⭐ 7.2", days: "Har kuni", targetTime: "18:45:00" },
+            { title: "Koshey: Tirik Suv Siri", rating: "⭐ 8.0", days: "Shanba, Yakshanba", targetTime: "21:30:00" }
+        ]
+    },
+    {
+        name: "Drive Cinema (Samarqand, Family Park)",
+        lat: 39.6542, lng: 66.9597,
+        img: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&q=80&w=800",
+        movies: [
+            { title: "Dune: Ikkinchi Qism", rating: "⭐ 8.9", days: "Dushanba - Juma", targetTime: "19:00:00" },
+            { title: "Yo'lovchi (Daxshatli kino)", rating: "⭐ 6.5", days: "Har kuni", targetTime: "23:15:00" }
+        ]
+    },
+    {
+        name: "Magic Cinema (Toshkent, Magic City)",
+        lat: 41.3015, lng: 69.2644,
+        img: "https://images.unsplash.com/photo-1514306191717-452ec28c7814?auto=format&fit=crop&q=80&w=800",
+        movies: [
+            { title: "O'rgimchak Odam (Uzbek tilida)", rating: "⭐ 8.5", days: "Har kuni", targetTime: "17:30:00" },
+            { title: "Interstellar (Retro Seans)", rating: "⭐ 9.0", days: "Faqat Bugun", targetTime: "22:00:00" }
+        ]
+    },
+    {
+        name: "Asiya Cinema (Farg'ona)",
+        lat: 40.3864, lng: 71.7864,
+        img: "https://images.unsplash.com/photo-1574267432553-4b4628081c31?auto=format&fit=crop&q=80&w=800",
+        movies: [
+            { title: "G'aroyib Pul (Грязные деньги)", rating: "⭐ 6.8", days: "Har kuni", targetTime: "20:00:00" }
+        ]
+    },
+    {
+        name: "Buxoro Cinema (Buxoro)",
+        lat: 39.7747, lng: 64.4286,
+        img: "https://images.unsplash.com/photo-1595769816263-9b910be24d5f?auto=format&fit=crop&q=80&w=800",
+        movies: [
+            { title: "Orzu qilish zarar qilmaydi", rating: "⭐ 7.0", days: "Dush - Shan", targetTime: "19:45:00" }
+        ]
+    }
+];
+
+let activeTimers = []; // Dinamik taymerlar klasteri
+let currentLoadedData = []; // Saralangan ma'lumotlarni global saqlash uchun
+
+// Matematik Haversine Formulorasi
+function getDistanceKM(lat1, lon1, lat2, lon2) {
+    const R = 6371; 
+    const dLat = (lat2 - lat1) * Math.PI / 180;
+    const dLon = (lon2 - lon1) * Math.PI / 180;
+    const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+              Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * Math.sin(dLon/2) * Math.sin(dLon/2);
+    return (R * (2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)))).toFixed(1);
+}
+
+// GPS yuklash tizimi
+function initSmartLocator() {
+    const btn = document.getElementById('locBtn');
+    const loader = document.getElementById('mainLoader');
+    const btnTxt = document.getElementById('btnText');
+
+    btn.disabled = true;
+    loader.style.display = 'inline-block';
+    btnTxt.innerText = 'GPS Tizim Ishga Tushdi...';
+
+    if (!navigator.geolocation) {
+        alert("Brauzeringiz koordinatalarni qo'llab quvvatlamaydi!");
+        resetButton();
+        return;
+    }
+
+    navigator.geolocation.getCurrentPosition(
+        (position) => {
+            const uLat = position.coords.latitude;
+            const uLng = position.coords.longitude;
+
+            currentLoadedData = database.map(cinema => {
+                const distance = getDistanceKM(uLat, uLng, cinema.lat, cinema.lng);
+                return { ...cinema, distance: parseFloat(distance) };
+            }).sort((a, b) => a.distance - b.distance);
+
+            renderCinemaList(currentLoadedData);
+            displayResultsArea();
+        },
+        (error) => {
+            alert("GPS ruxsat berilmadi! Standart Jizzax shahri bo'yicha hisoblanadi.");
+            currentLoadedData = database.map(cinema => {
+                const distance = getDistanceKM(40.1158, 67.8422, cinema.lat, cinema.lng);
+                return { ...cinema, distance: parseFloat(distance) };
+            }).sort((a, b) => a.distance - b.distance);
+            
+            renderCinemaList(currentLoadedData);
+            displayResultsArea();
+        }, { enableHighAccuracy: true }
+    );
+}
+
+function displayResultsArea() {
+    const resultsArea = document.getElementById('resultsArea');
+    resultsArea.style.display = 'block';
+    resultsArea.scrollIntoView({ behavior: 'smooth' });
+    resetButton();
+}
+
+function resetButton() {
+    document.getElementById('locBtn').disabled = false;
+    document.getElementById('mainLoader').style.display = 'none';
+    document.getElementById('btnText').innerText = 'Joylashuvimni Qayta Aniqlash';
+}
+
+// Chap tomondagi ro'yxatni generatsiya qilish (HTML buglarsiz, index orqali boshqariladi)
+function renderCinemaList(data) {
+    const listDiv = document.getElementById('cinemaHtmlList');
+    listDiv.innerHTML = '';
+
+    data.forEach((cinema, index) => {
+        listDiv.innerHTML += `
+            <div class="cinema-card" id="card-${index}" onclick="loadCinemaDetails(${index})">
+                <div class="card-meta">
+                    <h3 style="color:#00f2fe;">${cinema.name}</h3>
+                    <span class="dist-badge">📍 ${cinema.distance} km</span>
+                </div>
+                <p style="font-size:0.9rem; color:#cbd5e1;">Kinolar soni: ${cinema.movies.length} ta premyera mavjud</p>
+            </div>
+        `;
+    });
+}
+
+// Element tanlanganda index orqali xavfsiz yuklash
+function loadCinemaDetails(index) {
+    const cinema = currentLoadedData[index];
+    const cardId = `card-${index}`;
+    
+    document.querySelectorAll('.cinema-card').forEach(c => c.classList.remove('active'));
+    document.getElementById(cardId).classList.add('active');
+
+    activeTimers.forEach(t => clearInterval(t));
+    activeTimers = [];
+
+    const panel = document.getElementById('detailsPanel');
+    panel.style.animation = 'none';
+    panel.offsetHeight; 
+    panel.style.animation = 'imgFade 0.5s forwards';
+
+    let moviesHTML = '';
+
+    cinema.movies.forEach((movie, idx) => {
+        const timerId = `timer-${idx}`;
+        moviesHTML += `
+            <div class="movie-row">
+                <div style="display:flex; justify-content:space-between; margin-bottom:5px; gap: 10px;">
+                    <h4 style="color:#fff; text-align: left;">${movie.title}</h4>
+                    <span style="color:#ffbe21; white-space: nowrap;">${movie.rating}</span>
+                </div>
+                <p style="font-size:0.85rem; color:#a0aec0; margin-bottom:10px; text-align: left;">📅 Kunlari: ${movie.days} | ⏰ Boshlanishi: ${movie.targetTime.substring(0,5)}</p>
+                
+                <p style="font-size:0.8rem; color:#00f2fe; text-transform:uppercase; letter-spacing:1px; text-align: left;">Boshlanishiga qoldi:</p>
+                <div class="timer-container" id="${timerId}">
+                    <div class="timer-box"><div class="timer-num" id="${timerId}-h">00</div><div class="timer-label">Soat</div></div>
+                    <div class="timer-box"><div class="timer-num" id="${timerId}-m">00</div><div class="timer-label">Min</div></div>
+                    <div class="timer-box"><div class="timer-num" id="${timerId}-s">00</div><div class="timer-label">Sek</div></div>
+                </div>
+            </div>
+        `;
+
+        startCountdown(movie.targetTime, timerId);
+    });
+
+    panel.innerHTML = `
+        <img src="${cinema.img}" class="cinema-banner" alt="Cinema">
+        <h2 style="margin-bottom:8px; color:#fff; text-align: left; font-size: 1.5rem;">${cinema.name}</h2>
+        <p style="color:#00f2fe; font-size:0.9rem; margin-bottom:25px; text-align: left;">📍 Koordinata: ${cinema.lat}, ${cinema.lng}</p>
+        <h3 style="margin-bottom:15px; font-size:1.1rem; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:5px; text-align: left;">Bugungi Seanslar Jadvali:</h3>
+        ${moviesHTML}
+    `;
+    
+ 
+    if(window.innerWidth <= 968) {
+        panel.scrollIntoView({ behavior: 'smooth' });
+    }
+}
+
+
+function startCountdown(timeStr, elementId) {
+    function update() {
+        const now = new Date();
+        const target = new Date();
+        const timeParts = timeStr.split(':');
+        
+        target.setHours(parseInt(timeParts[0]), parseInt(timeParts[1]), parseInt(timeParts[2]), 0);
+
+        if (target < now) {
+            target.setDate(target.getDate() + 1);
+        }
+
+        const diff = target - now;
+
+        const hours = Math.floor(diff / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+        const hEl = document.getElementById(`${elementId}-h`);
+        const mEl = document.getElementById(`${elementId}-m`);
+        const sEl = document.getElementById(`${elementId}-s`);
+
+        if (hEl && mEl && sEl) {
+            hEl.innerText = hours < 10 ? '0' + hours : hours;
+            mEl.innerText = minutes < 10 ? '0' + minutes : minutes;
+            sEl.innerText = seconds < 10 ? '0' + seconds : seconds;
+        }
+    }
+
+    update();
+    const interval = setInterval(update, 1000);
+    activeTimers.push(interval);
+}

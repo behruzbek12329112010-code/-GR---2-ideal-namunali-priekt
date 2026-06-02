@@ -1,0 +1,138 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.tmdb-custom-navbar {
+  width: 100%;
+  background-color: #032541;
+  font-family: "Source Sans Pro", Arial, sans-serif;
+  box-sizing: border-box;
+  padding: 12px 0;
+}
+
+.tmdb-custom-navbar__container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tmdb-custom-navbar__left-section {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.tmdb-custom-navbar__logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.tmdb-custom-navbar__logo-img {
+  height: 20px;
+  object-fit: contain;
+}
+
+.tmdb-custom-navbar__main-menu {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.tmdb-custom-navbar__menu-link {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.tmdb-custom-navbar__menu-link {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 6px;
+  display: inline-block;
+}
+
+.tmdb-custom-navbar__menu-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: #01b4e4;
+
+  transition: width 0.3s ease-in-out;
+}
+
+.tmdb-custom-navbar__menu-link:hover::after {
+  width: 100%;
+}
+
+.tmdb-custom-navbar__right-section {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.tmdb-custom-navbar__action-btn {
+  background: none;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 22px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.tmdb-custom-navbar__lang-badge {
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 5px;
+  border-radius: 3px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
+}
+
+.tmdb-custom-navbar__lang-badge:hover {
+  background-color: #ffffff;
+  color: #0087ff;
+}
+
+.tmdb-custom-navbar__user-link {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.tmdb-custom-navbar__user-link:hover {
+  color: #01b4e4;
+}
+
+.tmdb-custom-navbar *,
+.tmdb-custom-navbar *::before,
+.tmdb-custom-navbar *::after {
+  box-sizing: border-box;
+}
+.tmdb-custom-navbaruser-link {
+  text-decoration: none;
+  color: #ffffff;
+}

@@ -5,7 +5,7 @@
 }
 .tmdb-custom-navbar {
   width: 100%;
-  background-color: #032541; /* TMDB original to'q ko'k rangi */
+  background-color: #032541;
   font-family: "Source Sans Pro", Arial, sans-serif;
   box-sizing: border-box;
   padding: 12px 0;
@@ -96,7 +96,6 @@
   padding: 0;
 }
 
-/* RU til badji */
 .tmdb-custom-navbar__lang-badge {
   border: 1px solid #ffffff;
   color: #ffffff;
@@ -113,10 +112,9 @@
 
 .tmdb-custom-navbar__lang-badge:hover {
   background-color: #ffffff;
-  color: #032541;
+  color: #0087ff;
 }
 
-/* Kirish va Qo'shilish linklari */
 .tmdb-custom-navbar__user-link {
   color: #ffffff;
   font-weight: 600;
@@ -129,7 +127,6 @@
   color: #01b4e4;
 }
 
-/* O'ziga xosliklar uchun global reset xavfsizligi */
 .tmdb-custom-navbar *,
 .tmdb-custom-navbar *::before,
 .tmdb-custom-navbar *::after {

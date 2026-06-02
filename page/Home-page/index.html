@@ -1,171 +1,537 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="uz">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>UZXTECH</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght=300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
-
-
-<body class="dark-theme"> <div class="app-container">
-        <header class="site-header">
-            <h1 class="logo" id="logoHome" style="cursor: pointer;">UZ<span>XTECH</span></h1>
-            
-            <div class="header-action-group">
-                <button id="themeToggleBtn" class="theme-toggle-btn" title="Rejimni almashtirish">🌙</button>
-                <button id="homeBtnFromProfile" class="hidden-home-btn hidden">Home</button>
-                <button id="rendon" data-holat="bosh">Tizimga kirish</button>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght=300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="dark-theme">
+    <div class="app-container">
+      <header class="site-header">
+        <h1 class="logo" id="logoHome" style="cursor: pointer">
+          UZ<span>XTECH</span>
+        </h1>
+        <nav class="tmdb-custom-navbar__main-menu">
+          <a href="#" class="tmdb-custom-navbar__menu-link">Filmlar</a>
+          <a href="#" class="tmdb-custom-navbar__menu-link">Serialar</a>
+          <a href="#" class="tmdb-custom-navbar__menu-link">Odamlar</a>
+          <a href="#" class="tmdb-custom-navbar__menu-link">Mukofotlar</a>
+          <a href="#" class="tmdb-custom-navbar__menu-link">Ko'proq</a>
+        </nav>
+        <header class="tmdb-custom-navbar">
+          <div class="tmdb-custom-navbar__container">
+            <div class="tmdb-custom-navbar__left-section">
+              <nav class="tmdb-custom-navbar__main-menu"></nav>
             </div>
+
+            <div class="tmdb-custom-navbar__right-section">
+              <button id="rendon" data-holat="bosh">Tizimga kirish</button>
+              <a
+                href="#"
+                class="tmdb-custom-navbaruser-link tmdb-custom-navbaruser-link--join"
+                id="rendon"
+                data-holat="bosh"
+                >TMDBga qo'shiling</a
+              >
+              <button
+                id="themeToggleBtn"
+                class="theme-toggle-btn"
+                title="Rejimni almashtirish"
+              >
+                🌙
+              </button>
+            </div>
+          </div>
         </header>
+        <div class="header-action-group">
+          <button id="homeBtnFromProfile" class="hidden-home-btn hidden">
+            Home
+          </button>
+        </div>
+      </header>
+      <br />
 
-        <main class="main-content-area">
+      <main class="main-content-area">
+        <div id="boshSahifaBloki">
+          <div class="story-carousel-container" id="storyContainer">
+            <div id="storyCarousel" class="story-carousel"></div>
+          </div>
 
-            <div id="boshSahifaBloki">
-                <div class="story-carousel-container" id="storyContainer">
-                    <div id="storyCarousel" class="story-carousel"></div>
+          <div class="search-banner-container" id="dynamicBanner">
+            <div class="banner-overlay"></div>
+            <div class="banner-content">
+              <div class="main-search-wrapper">
+                <div class="main-search-box">
+                  <input
+                    type="text"
+                    id="kinoInput"
+                    placeholder="Film, teleko‘rsatuv qidirish (Masalan: Avatar, Inception)..."
+                    autocomplete="off"
+                  />
+                  <button id="qidirishTugmasi">Search</button>
                 </div>
+                <div
+                  id="liveSearchDropdown"
+                  class="live-search-dropdown hidden"
+                ></div>
+              </div>
+            </div>
+          </div>
 
-                <div class="search-banner-container" id="dynamicBanner">
-                    <div class="banner-overlay"></div>
-                    <div class="banner-content">
-                        <div class="main-search-wrapper">
-                            <div class="main-search-box">
-                                <input type="text" id="kinoInput" placeholder="Film, teleko‘rsatuv qidirish (Masalan: Avatar, Inception)..." autocomplete="off">
-                                <button id="qidirishTugmasi">Search</button>
-                            </div>
-                            <div id="liveSearchDropdown" class="live-search-dropdown hidden"></div>
-                        </div>
-                    </div>
-                </div>
+          <div class="genre-filter-container">
+            <button class="genre-btn active" data-genre="all">Barchasi</button>
+            <button class="genre-btn" data-genre="Action">Action</button>
+            <button class="genre-btn" data-genre="Sci-Fi">Sci-Fi</button>
+            <button class="genre-btn" data-genre="Drama">Drama</button>
+            <button class="genre-btn" data-genre="Comedy">Comedy</button>
+            <button class="genre-btn" data-genre="Thriller">Thriller</button>
+          </div>
 
-                <div class="genre-filter-container">
-                    <button class="genre-btn active" data-genre="all">Barchasi</button>
-                    <button class="genre-btn" data-genre="Action">Action</button>
-                    <button class="genre-btn" data-genre="Sci-Fi">Sci-Fi</button>
-                    <button class="genre-btn" data-genre="Drama">Drama</button>
-                    <button class="genre-btn" data-genre="Comedy">Comedy</button>
-                    <button class="genre-btn" data-genre="Thriller">Thriller</button>
-                </div>
+          <div class="main-layout">
+            <section class="left-content">
+              <h2 class="section-title" id="blockTitle">Mashhur Premyeralar</h2>
+              <div id="kinoGrid" class="kino-grid"></div>
+            </section>
 
-                <div class="main-layout">
-                    <section class="left-content">
-                        <h2 class="section-title" id="blockTitle">Mashhur Premyeralar</h2>
-                        <div id="kinoGrid" class="kino-grid"></div>
-                    </section>
+            <aside class="right-sidebar">
+              <div class="sidebar-card">
+                <h3 class="sidebar-title">Tasodifiy Premyera</h3>
+                <div id="reklamaKino" class="random-reklama-box"></div>
+              </div>
+            </aside>
+          </div>
+        </div>
 
-                    <aside class="right-sidebar">
-                        <div class="sidebar-card">
-                            <h3 class="sidebar-title">Tasodifiy Premyera</h3>
-                            <div id="reklamaKino" class="random-reklama-box"></div>
-                        </div>
-                    </aside>
-                </div>
+        <div id="kinoIchkiSahifa" class="movie-detail-page hidden"></div>
+
+        <div id="profilSahifaBloki" class="profile-page-wrapper hidden">
+          <div class="user-hero-card">
+            <div
+              class="avatar-zone"
+              id="userAvatar"
+              title="Avatarni o'zgartirish"
+              style="cursor: pointer"
+            >
+              U
+            </div>
+            <div class="user-text-meta">
+              <h2 class="username" id="displayUsername">
+                Foydalanuvchi <span class="edit-icon">✏️</span>
+              </h2>
+              <p class="uid-text" id="displayUid">uid: 24095</p>
+            </div>
+          </div>
+
+          <div class="letterboxd-tabs">
+            <button
+              class="tab-btn active"
+              id="tab-liked"
+              onclick="switchProfileTab('liked-pane', 'tab-liked')"
+            >
+              ❤ Sevimli filmlar
+            </button>
+            <button
+              class="tab-btn"
+              id="tab-watchlist"
+              onclick="switchProfileTab('watchlist-pane', 'tab-watchlist')"
+            >
+              ⏳ Watchlist
+            </button>
+            <button
+              class="tab-btn"
+              id="tab-watched"
+              onclick="switchProfileTab('watched-pane', 'tab-watched')"
+            >
+              👁️ Ko'rib bo'linganlar
+            </button>
+          </div>
+
+          <div class="tabs-content-wrapper">
+            <div id="liked-pane" class="tab-panel-item">
+              <h3 class="panel-title" id="likedCount">
+                Sevimli filmlar (0 ta)
+              </h3>
+              <div id="likedGrid" class="movies-flex-grid"></div>
             </div>
 
-            <div id="kinoIchkiSahifa" class="movie-detail-page hidden"></div>
-
-            <div id="profilSahifaBloki" class="profile-page-wrapper hidden">
-                <div class="user-hero-card">
-                    <div class="avatar-zone" id="userAvatar" title="Avatarni o'zgartirish" style="cursor: pointer;">U</div>
-                    <div class="user-text-meta">
-                        <h2 class="username" id="displayUsername">Foydalanuvchi <span class="edit-icon">✏️</span></h2>
-                        <p class="uid-text" id="displayUid">uid: 24095</p>
-                    </div>
-                </div>
-
-                <div class="letterboxd-tabs">
-                    <button class="tab-btn active" id="tab-liked" onclick="switchProfileTab('liked-pane', 'tab-liked')">❤ Sevimli filmlar</button>
-                    <button class="tab-btn" id="tab-watchlist" onclick="switchProfileTab('watchlist-pane', 'tab-watchlist')">⏳ Watchlist</button>
-                    <button class="tab-btn" id="tab-watched" onclick="switchProfileTab('watched-pane', 'tab-watched')">👁️ Ko'rib bo'linganlar</button>
-                </div>
-
-                <div class="tabs-content-wrapper">
-                    <div id="liked-pane" class="tab-panel-item">
-                        <h3 class="panel-title" id="likedCount">Sevimli filmlar (0 ta)</h3>
-                        <div id="likedGrid" class="movies-flex-grid"></div>
-                    </div>
-
-                    <div id="watchlist-pane" class="tab-panel-item hidden">
-                        <h3 class="panel-title" id="watchlistCount">Keyinroq ko'rish (0 ta)</h3>
-                        <div id="watchlistGrid" class="movies-flex-grid"></div>
-                    </div>
-
-                    <div id="watched-pane" class="tab-panel-item hidden">
-                        <h3 class="panel-title" id="watchedCount">Ko'rilgan filmlar (0 ta)</h3>
-                        <div id="watchedGrid" class="movies-watched-detailed-grid"></div>
-                    </div>
-                </div>
+            <div id="watchlist-pane" class="tab-panel-item hidden">
+              <h3 class="panel-title" id="watchlistCount">
+                Keyinroq ko'rish (0 ta)
+              </h3>
+              <div id="watchlistGrid" class="movies-flex-grid"></div>
             </div>
 
+            <div id="watched-pane" class="tab-panel-item hidden">
+              <h3 class="panel-title" id="watchedCount">
+                Ko'rilgan filmlar (0 ta)
+              </h3>
+              <div id="watchedGrid" class="movies-watched-detailed-grid"></div>
+            </div>
+          </div>
+        </div>
+
+        <section class="apple-tv-slider">
+          <div class="slider-wrapper" id="appleTvWrapper"></div>
+          <div class="slider-navigation-bar">
+            <div class="slider-meta-info">
+              <h2 id="activeSlideTitle">Yuklanmoqda...</h2>
+              <p id="activeSlideDesc">Iltimos kuting...</p>
+              <button class="apple-trial-btn" id="activeSlideBtn">
+                Bepul sinab ko'rish
+              </button>
+            </div>
+            <div class="slider-dots" id="sliderDots"></div>
+          </div>
+        </section>
+
+        <hr />
+
+        <header class="hero-section">
+          <div class="main-card">
+            <h1 class="main-title">Smart Cinema Locator</h1>
+
+            <div class="subtitle-container">
+              <p class="subtitle active-sub" data-lang="uz_lat">
+                🇺🇿 O'zbekiston bo'ylab yoningizdagi eng yaqin kinoteatrlarni va
+                filmlar boshlanish vaqtini soniyalarigacha real vaqt rejimida
+                aniqlang , Siz turgan nuqtadan eng yaqin kinoteatrgacha bo'lgan
+                masofani o'lchang va seans boshlanish vaqtini soniyama-soniya
+                jonli hisoblagich yordamida aniqlang. Kino olami endi sizga har
+                qachongidan ham yaqin
+              </p>
+              <p class="subtitle" data-lang="en">
+                🇬🇧 Find cinemas near you instantly and track movie starting
+                times with a live second-by-second countdown timer. Explore the
+                world of cinema right where you are.
+              </p>
+              <p class="subtitle" data-lang="ru">
+                🇷🇺 Мгновенно определяйте расстояние до ближайших кинотеатров и
+                узнавайте время начала сеансов с точностью до секунды благодаря
+                живому таймеру.
+              </p>
+              <p class="subtitle" data-lang="ar">
+                🇦🇪 اعثر على دور السينما القريبة منك على الفور وتابع مواعيد بدء
+                الأفلام بمؤقت تنازلي حي ثانية بثانية. عالم السينما الآن بين
+                يديك!
+              </p>
+              <p class="subtitle" data-lang="tr">
+                🇹🇷 Bulunduğunuz konumdan en yakın sinemaya olan mesafeyi anında
+                ölçün ve canlı sayaç sayesinde seans başlangıç zamanını saniyesi
+                saniyesine öğrenin.
+              </p>
+              <p class="subtitle" data-lang="uz_cyr">
+                🇺🇿 Сиз турган нуқтадан энг яқин кинотеатргача бўлган масофани
+                ўлчанг ва сеанс бошланиш вақтини сонияма-сония жонли ҳисоблагич
+                ёрдамида аниқланг.
+              </p>
+            </div>
+
+            <div class="lang-dots">
+              <span class="dot active-dot" onclick="switchSub(0)"></span>
+              <span class="dot" onclick="switchSub(1)"></span>
+              <span class="dot" onclick="switchSub(2)"></span>
+              <span class="dot" onclick="switchSub(3)"></span>
+              <span class="dot" onclick="switchSub(4)"></span>
+              <span class="dot" onclick="switchSub(5)"></span>
+            </div>
+
+            <button id="locBtn" class="pulse-btn" onclick="initSmartLocator()">
+              <span id="btnText">Joylashuvimni Aniqlash</span>
+              <div class="loader" id="mainLoader"></div>
+            </button>
+          </div>
+        </header>
+        <hr />
+
+        <main class="results-container" id="resultsArea">
+          <h2 class="sec-title">Sizga Eng Yaqin Kinoteatrlar Ketma-ketligi</h2>
+
+          <div class="app-layout">
+            <div class="cinema-list" id="cinemaHtmlList"></div>
+
+            <div class="details-panel" id="detailsPanel">
+              <div class="empty-state">
+                Batafsil ma'lumot va soniyali taymerni ko'rish uchun chap
+                tomondan xohlagan kinoteatringizni tanlang.
+              </div>
+            </div>
+          </div>
         </main>
+        <hr />
+        <script src="TIME.js"></script>
+        <script>
+          let currentSub = 0;
+          const subs = document.querySelectorAll(".subtitle");
+          const dots = document.querySelectorAll(".dot");
+
+          function switchSub(index) {
+            subs[currentSub].classList.remove("active-sub");
+            dots[currentSub].classList.remove("active-dot");
+            currentSub = index;
+            subs[currentSub].classList.add("active-sub");
+            dots[currentSub].classList.add("active-dot");
+          }
+
+          setInterval(() => {
+            let next = (currentSub + 1) % subs.length;
+            switchSub(next);
+          }, 5000);
+        </script>
+
+        <section class="scroll-zone">
+          <div class="zoom-container">
+            <div class="inner-page">
+              <p class="top-intro">
+                With your ID in Wallet, there's no need to reach for your
+                physical ID. Simply add your eligible ID to the Wallet app and
+                use it to show proof of age or identity at select businesses,
+                venues, online, and in-app. Or, travel with it at TSA
+                checkpoints. Presenting your ID just got much easier.
+              </p>
+              <a href="#" class="blue-btn">Learn how to add your ID</a>
+              <a href="#" class="link-text"
+                >See the full list of states supporting ID in Wallet ></a
+              >
+
+              <h2 class="main-title">Easy. Secure. Private.</h2>
+
+              <div class="features-grid">
+                <div class="feature-row">
+                  <div class="feature-col">
+                    <div class="icon-wrapper">
+                      <img
+                        src="../../Assets/instagram.png"
+                        alt="qr"
+                        class="qr"
+                      />
+                    </div>
+                  </div>
+                  <div class="feature-col">
+                    <div class="text-block">
+                      <h3 class="color-red">Present your ID in seconds.</h3>
+                      <p>
+                        Driver's license and state ID make it simple to prove
+                        your age and identity in person at select businesses,
+                        venues, Apple stores, and more.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="feature-row">
+                  <div class="feature-col" style="display: table-cell">
+                    <div class="text-block">
+                      <h3 class="color-green">
+                        Easily verify your age or identity in apps.
+                      </h3>
+                      <p>
+                        When you add a driver's license or state ID in Wallet,
+                        apps that require age or identity verification are a
+                        snap. Whether renting a car or booking a hotel, it's all
+                        that much easier.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="feature-col">
+                    <div class="icon-wrapper">
+                      <img src="../../Assets/telegram.png" alt="" class="qr" />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="feature-row">
+                  <div class="feature-col">
+                    <div class="icon-wrapper">
+                      <img src="../../Assets/GIT.png" alt="" class="qr" />
+                    </div>
+                  </div>
+                  <div class="feature-col">
+                    <div class="text-block">
+                      <h3 class="color-orange">
+                        Breeze through airport security.
+                      </h3>
+                      <p>
+                        Add an eligible driver's license or state ID to Wallet,
+                        or create an ID with your U.S. passport, and present it
+                        at TSA checkpoints for domestic flights by using your
+                        iPhone or Apple Watch.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="feature-row">
+                  <div class="feature-col">
+                    <div class="text-block">
+                      <h3 class="color-blue">Private and transparent.</h3>
+                      <p>
+                        You'll always see which data you're sharing, and your
+                        information will only be shared after you authorize with
+                        Face ID or Touch ID. Neither Apple nor your state
+                        issuing authority can see when or where you share your
+                        information.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="feature-col">
+                    <div class="icon-wrapper">
+                      <img src="../../Assets/qr.png" alt="" class="qr" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <hr />
+        <div class="map-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d47942.029806947385!2d69.240562!3d41.311081!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae8b0cc379e9f3%3A0x40d905923e263f0!2sToshkent%2C%20O%CA%BBzbekiston!5e0!3m2!1suz!2s!4v1716900000000!5m2!1suz!2s"
+            width="100%"
+            height="450"
+            style="
+              border: 0;
+              border-radius: 24px;
+              filter: invert(90%) hue-rotate(180deg) grayscale(10%);
+            "
+            allowfullscreen=""
+            loading="lazy"
+          ></iframe>
+        </div>
+        <hr />
+      </main>
     </div>
 
     <div id="loginModalBloki" class="login-modal-wrapper hidden">
-        <div class="login-card animate-form">     
-            <span class="close-modal-btn" onclick="yopishLoginModal()">&times;</span>
-            <h2 id="loginFormTitle">Tizimga Kirish</h2>
-            <br>
-            
-            <form id="authForm" onsubmit="avtorizatsiyaTizimi(event)">
-                <div class="input-group">
-                    <label>Email manzilingiz</label>
-                    <input type="email" id="authEmail" placeholder="example@mail.com" required>
-                </div>
-                <div class="input-group">
-                    <label>Maxfiy parol</label>
-                    <input type="password" id="authParol" placeholder="••••••••" required>
-                </div>
-                
-                <button type="submit" id="authSubmitBtn" class="auth-main-btn">Kirish</button>
-            </form>
-            <br>
-          
-        </div>
+      <div class="login-card animate-form">
+        <span class="close-modal-btn" onclick="yopishLoginModal()">×</span>
+        <h2 id="loginFormTitle">Tizimga Kirish</h2>
+        <br />
+        <form id="authForm" onsubmit="avtorizatsiyaTizimi(event)">
+          <div class="input-group">
+            <label>Email manzilingiz</label>
+            <input
+              type="email"
+              id="authEmail"
+              placeholder="example@mail.com"
+              required
+            />
+          </div>
+          <div class="input-group">
+            <label>Maxfiy parol</label>
+            <input
+              type="password"
+              id="authParol"
+              placeholder="••••••••"
+              required
+            />
+          </div>
+          <button type="submit" id="authSubmitBtn" class="auth-main-btn">
+            Kirish
+          </button>
+        </form>
+      </div>
     </div>
 
     <div id="avatarModalBloki" class="login-modal-wrapper hidden">
-        <div class="login-card animate-form" style="max-width: 500px;">
-            <span class="close-modal-btn" onclick="document.getElementById('avatarModalBloki').classList.add('hidden')">&times;</span>
-            <h2>Avatar Tanlang</h2>
-            <p class="login-subtitle" style="margin-bottom: 20px;">O'zingizga yoqqan kino personajini profil rasmi qiling:</p>
-            <div class="avatar-selection-grid" id="avatarSelectionGrid"></div>
-        </div>
+      <div class="login-card animate-form" style="max-width: 500px">
+        <span
+          class="close-modal-btn"
+          onclick="
+            document.getElementById('avatarModalBloki').classList.add('hidden')
+          "
+          >×</span
+        >
+        <h2>Avatar Tanlang</h2>
+        <p class="login-subtitle" style="margin-bottom: 20px">
+          O'zingizga yoqqan kino personajini profil rasmi qiling:
+        </p>
+        <div class="avatar-selection-grid" id="avatarSelectionGrid"></div>
+      </div>
     </div>
-    <section class="apple-tv-slider">
-    <div class="slider-wrapper" id="appleTvWrapper">
-        </div>
 
-    <div class="slider-navigation-bar">
-        <div class="slider-meta-info">
-            <h2 id="activeSlideTitle">Yuklanmoqda...</h2>
-            <p id="activeSlideDesc">Iltimos kuting...</p>
-            <button class="apple-trial-btn" id="activeSlideBtn">Bepul sinab ko'rish</button>
-        </div>
-        
-        <div class="slider-dots" id="sliderDots">
-            </div>
-    </div>
-</section>
-<section class="leaderboard-section">
-    <div class="leaderboard-container">
+    <script>
+      window.addEventListener("scroll", () => {
+        const scrollZone = document.querySelector(".scroll-zone");
+        const innerPage = document.querySelector(".inner-page");
+        if (!scrollZone || !innerPage) return;
+        const rect = scrollZone.getBoundingClientRect();
+        const zoneHeight = rect.height - window.innerHeight;
+        const scrolled = -rect.top;
+        let progress = scrolled / zoneHeight;
+        if (progress < 0) progress = 0;
+        if (progress > 1) progress = 1;
+        let scaleValue;
+        let opacityValue;
+        let borderRadiusValue;
+        if (progress <= 0.4) {
+          let localProgress = progress / 0.4;
+          scaleValue = 0.82 + localProgress * 0.18;
+          opacityValue = 0.4 + localProgress * 0.6;
+          borderRadiusValue = 40 - localProgress * 40;
+        } else if (progress > 0.4 && progress <= 0.7) {
+          scaleValue = 1.0;
+          opacityValue = 1.0;
+          borderRadiusValue = 0;
+        } else {
+          let localProgress = (progress - 0.7) / 0.3;
+          scaleValue = 1.0 - localProgress * 0.18;
+          opacityValue = 1.0 - localProgress * 0.6;
+          borderRadiusValue = localProgress * 40;
+        }
+        innerPage.style.transform = `scale(${scaleValue})`;
+        innerPage.style.opacity = opacityValue;
+        innerPage.style.borderRadius = `${borderRadiusValue}px`;
+      });
+    </script>
+
+    <section class="leaderboard-section">
+      <div class="leaderboard-container">
         <div class="leaderboard-header">
-            <h2><i class="fas fa-trophy"></i> Eng Faol Foydalanuvchilar</h2>
-            <div class="leaderboard-badges">
-                <span class="badge badge-total">Jami ko'rilganlar</span>
-                <span class="badge badge-week">Haftalik faollik</span>
-            </div>
+          <h2><i class="fas fa-trophy"></i> Eng Faol Foydalanuvchilar</h2>
+          <div class="leaderboard-badges">
+            <span class="badge badge-total">Jami ko'rilganlar</span>
+            <span class="badge badge-week">Haftalik faollik</span>
+          </div>
         </div>
+        <div class="leaderboard-grid" id="leaderboardGrid"></div>
+      </div>
+    </section>
+    <section class="letterboxd-section-wrapper">
+      <div class="letterboxd-movie-grid" id="letterboxdGridContainer"></div>
 
-        <div class="leaderboard-grid" id="leaderboardGrid">
+      <div class="letterboxd-detail-panel" id="letterboxdDetailPanel">
+        <button class="letterboxd-close-panel-btn" id="letterboxdCloseBtn">
+          &times;
+        </button>
+        <div class="letterboxd-panel-flex">
+          <img src="" id="letterboxdPanelPoster" alt="Kino posteri" />
+          <div class="letterboxd-panel-body">
+            <h2 id="letterboxdPanelTitle">Film Nomi</h2>
+            <div class="letterboxd-panel-meta">
+              <span id="letterboxdPanelYear">Yil</span>
+              <span class="letterboxd-divider">|</span>
+              <i class="fa-solid fa-star"></i>
+              <span id="letterboxdPanelRating">0.0</span>
             </div>
-    </div>
-</section>
-
-
-    <script src="script.js"></script>
-</body>
-
+            <p id="letterboxdPanelOverview">
+              Film haqida qisqacha syujet va batafsil ma'lumotlar shu yerda
+              taqdim etiladi...
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script src="./script.js"></script>
+  </body>
 </html>
