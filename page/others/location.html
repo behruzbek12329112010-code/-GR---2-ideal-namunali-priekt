@@ -3,70 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Smart Cinema Locator</title>
 </head>
 <body>
     <div class="cinema-dashboard-root">
     
-    <div class="cinema-video-container">
-        <video class="cinema-video-bg" autoplay loop muted playsinline poster="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1920">
-            <source src="https://assets.mixkit.co/videos/preview/mixkit-stars-in-space-background-1611-large.mp4" type="video/mp4">
-        </video>
-        <div class="cinema-video-overlay"></div>
-    </div>
+        <div class="cinema-video-container">
+            <video class="cinema-video-bg" autoplay loop muted playsinline poster="../../Assets/plocation.mp4">
+                <source src="../../Assets/plocation.mp4" type="video/mp4">
+            </video>
+            <div class="cinema-video-overlay"></div>
+        </div>
 
-    <div class="cinema-main-wrapper">
-        
-        <header class="cinema-hero-panel">
-            <h1 class="cinema-main-title">Smart Cinema Locator</h1>
+        <div class="cinema-main-wrapper">
             
-            <div class="cinema-lang-scroller">
-                <p class="cinema-subtext cinema-active-lang" data-index="0">🇺🇿 O'zbekiston bo'ylab yoningizdagi eng yaqin kinoteatrlarni va filmlar boshlanish vaqtini soniyalarigacha real vaqt rejimida aniqlang.</p>
-                <p class="cinema-subtext" data-index="1">🇬🇧 Find cinemas near you instantly and track movie starting times with a live second-by-second countdown timer. Explore the world of cinema right where you are.</p>
-                <p class="cinema-subtext" data-index="2">🇷🇺 Мгновенно определяйте расстояние до ближайших кинотеатров и узнавайте время начала сеансов с точностью до секунды благодаря живому таймеру.</p>
-                <p class="cinema-subtext" data-index="3">🇦🇪 اعثر على دور السينما القريبة منك على الفور وتابع مواعيد بدء الأفلام بمؤقت تنازلي حي ثانية بثانية. عالم السينما الآن بين يديك!</p>
-                <p class="cinema-subtext" data-index="4">🇹🇷 Bulunduğunuz konumdan en yakın sinemaya olan mesafeyi anında ölçün ve canlı sayaç sayesinde seans başlangıç zamanını saniyesi saniyesine öğrenin.</p>
-                <p class="cinema-subtext" data-index="5">🇺🇿 Сиз турган нуқтадан энг яқин кинотеатргача бўлган масофани ўлчанг ва сеанс бошланиш вақтини сонияма-сония жонли ҳисоблагич ёрдамида аниқланг.</p>
-            </div>
+            <header class="cinema-hero-panel">
+                <h1 class="cinema-main-title">Smart Cinema Locator</h1>
+                
+                <div class="cinema-lang-scroller">
+                    <p class="cinema-subtext cinema-active-lang" data-index="0">🇺🇿 O'zbekiston bo'ylab yoningizdagi eng yaqin kinoteatrlarni va filmlar boshlanish vaqtini soniyalarigacha real vaqt rejimida aniqlang.</p>
+                    <p class="cinema-subtext" data-index="1">🇬🇧 Find cinemas near you instantly and track movie starting times with a live second-by-second countdown timer. Explore the world of cinema right where you are.</p>
+                    <p class="cinema-subtext" data-index="2">🇷🇺 Мгновенно определяйте расстояние до ближайших кинотеатров и узнавайте время начала сеансов с точностью до секунды благодаря живому таймеру.</p>
+                    <p class="cinema-subtext" data-index="3">🇦🇪 اعثر على دور السينما القريبة منك على الفور وتابع مواعيد بدء الأفلام بمؤقت تنازلي حي ثانية بثانية. عالم السينما الآن بين يديك!</p>
+                    <p class="cinema-subtext" data-index="4">🇹🇷 Bulunduğunuz konumdan en yakın sinemaya olan mesafeyi anında ölçün ve canlı sayaç sayesinde seans başlangıç zamanını saniyesi saniyesine öğrenin.</p>
+                    <p class="cinema-subtext" data-index="5">🇺🇿 Сиз турган нуқтадан энг яқин кинотеатргача бўлган масофани ўлчанг ва сеанс бошланиш вақтини сонияма-сония жонли ҳисоблагич ёрдамида аниқланг.</p>
+                </div>
 
-            <div class="cinema-pagination-dots">
-                <span class="cinema-dot cinema-active-dot" onclick="cinemaJumpToLang(0)"></span>
-                <span class="cinema-dot" onclick="cinemaJumpToLang(1)"></span>
-                <span class="cinema-dot" onclick="cinemaJumpToLang(2)"></span>
-                <span class="cinema-dot" onclick="cinemaJumpToLang(3)"></span>
-                <span class="cinema-dot" onclick="cinemaJumpToLang(4)"></span>
-                <span class="cinema-dot" onclick="cinemaJumpToLang(5)"></span>
-            </div>
+                <div class="cinema-pagination-dots">
+                    <span class="cinema-dot cinema-active-dot" onclick="cinemaJumpToLang(0)"></span>
+                    <span class="cinema-dot" onclick="cinemaJumpToLang(1)"></span>
+                    <span class="cinema-dot" onclick="cinemaJumpToLang(2)"></span>
+                    <span class="cinema-dot" onclick="cinemaJumpToLang(3)"></span>
+                    <span class="cinema-dot" onclick="cinemaJumpToLang(4)"></span>
+                    <span class="cinema-dot" onclick="cinemaJumpToLang(5)"></span>
+                </div>
 
-            <button id="cinemaLocBtn" class="cinema-action-btn" onclick="cinemaStartGeolocate()">
-                <span id="cinemaBtnTxt">Joylashuvni Tasdiqlash</span>
-                <div class="cinema-spinner" id="cinemaBtnLoader"></div>
-            </button>
-        </header>
+                <button id="cinemaLocBtn" class="cinema-action-btn" onclick="cinemaStartGeolocate()">
+                    <span id="cinemaBtnTxt">Joylashuvni Tasdiqlash</span>
+                    <div class="cinema-spinner" id="cinemaBtnLoader"></div>
+                </button>
+            </header>
 
-        <main class="cinema-dashboard-grid" id="cinemaGridUI">
-            <div class="cinema-list-container" id="cinemaListFeed"></div>
+            <main class="cinema-dashboard-grid" id="cinemaGridUI">
+                <div class="cinema-list-container" id="cinemaListFeed"></div>
 
-            <div class="cinema-showcase-panel" id="cinemaShowcaseDeck">
-                <div class="cinema-fallback-text">Seans jadvali va jonli sekundlik hisoblagichni ko'rish uchun chap paneldagi obyektlardan birini tanlang.</div>
-            </div>
-        </main>
+                <div class="cinema-showcase-panel" id="cinemaShowcaseDeck">
+                    <div class="cinema-fallback-text">Seans jadvali va jonli sekundlik hisoblagichni ko'rish uchun chap paneldagi obyektlardan birini tanlang.</div>
+                </div>
+            </main>
+        </div>
     </div>
-
-</div>
 
 <style>
-    body{
+    body {
+        background-color: #030712; /* Premium to'q qora fon */
         margin: 0;
         padding: 0;
-        
+        overflow-x: hidden;
     }
+    
     .cinema-dashboard-root {
         --primary-glow: #00f2fe;
         --secondary-glow: #4facfe;
         --accent-glow: #0072ff;
-        --bg-glass: rgba(10, 20, 38, 0.45);
-        --border-glass: rgba(255, 255, 255, 0.08);
+        --bg-glass: rgba(10, 20, 38, 0.55); /* Bir oz quyuqlashtirildi, matn ajralishi uchun */
+        --border-glass: rgba(255, 255, 255, 0.1);
         --border-active: rgba(0, 242, 254, 0.45);
         --text-main: #ffffff;
         --text-muted: #94a3b8;
@@ -76,13 +77,12 @@
         min-height: 100vh;
         color: var(--text-main);
         font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-        overflow: hidden;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
         box-sizing: border-box;
-        background: #030712; /* Video yuklanguncha eng chuqur qora fon */
+        background: #030712; 
     }
 
     .cinema-dashboard-root *, 
@@ -93,16 +93,16 @@
         padding: 0;
     }
 
-    /* --- 🎥 VIDEO STYLES (MUKAMMAL ORQA FON ARXITEKTURASI) --- */
+    /* --- 🎥 VIDEO FON STULLARI --- */
     .cinema-video-container {
-        position: absolute;
+        position: fixed; /* To'liq ekran uchun absolute o'rniga fixed qilingani ma'qul */
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        z-index: 1; /* Hamma narsadan orqada turadi */
+        z-index: 1; 
         overflow: hidden;
-        pointer-events: none; /* Sichqoncha videoni to'xtatib qo'ymasligi uchun */
+        pointer-events: none; 
     }
 
     .cinema-video-bg {
@@ -111,47 +111,46 @@
         left: 50%;
         width: 100%;
         height: 100%;
-        object-fit: cover; /* Videoni ekranga moslab cho'zadi */
+        object-fit: cover; 
         transform: translate(-50%, -50%);
-        filter: brightness(0.35) contrast(1.1); /* Matnlar yaxshi o'qilishi uchun videoni qoraytiradi */
+        filter: brightness(0.25) contrast(1.15); /* Video ustidagi matnlar 100% o'qilishi uchun qoraytirish kuchaytirildi */
     }
 
-    /* Premium Shaffoflik va Blur Qatlami (Ijodiy Dizayn) */
     .cinema-video-overlay {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background: linear-gradient(180deg, rgba(3, 7, 18, 0.6) 0%, rgba(5, 11, 28, 0.85) 100%),
-                    radial-gradient(circle at 50% 50%, rgba(0, 114, 255, 0.15) 0%, #030712 100%);
-        backdrop-filter: blur(12px); /* Videoni mayin qilib, haqiqiy shisha effektini beradi */
-        -webkit-backdrop-filter: blur(12px);
+  
+
     }
 
-    /* --- 📦 INTERFEYS ELEMENTLARI STULLARI --- */
+    /* --- 📦 INTERFEYS ELEMENTLARI --- */
     .cinema-main-wrapper {
+    
         position: relative;
         width: 100%;
         max-width: 1400px;
-        z-index: 3; /* Videoning ustida turishi shart */
-        padding: 40px 24px;
+        z-index: 3; 
+        padding: 250px 24px;
         display: flex;
         flex-direction: column;
         gap: 30px;
     }
 
-    .cinema-hero-panel {
-        background: var(--bg-glass);
-        border: 1px solid var(--border-glass);
-        backdrop-filter: blur(25px);
-        -webkit-backdrop-filter: blur(25px);
-        border-radius: 24px;
-        padding: 40px;
-        text-align: center;
-        box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.6);
-        animation: cinemaFadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    }
+.cinema-hero-panel {
+    height: 450px;
+    background-color: #0073ff00;
+    border: 1px solid var(--border-glass);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border-radius: 24px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.048);
+    animation: cinemaFadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
 
     .cinema-main-title {
         font-size: 3.2rem;
@@ -216,15 +215,17 @@
 
     .cinema-action-btn {
         position: relative;
-        background: linear-gradient(135deg, var(--accent-glow) 0%, var(--primary-glow) 100%);
+        border: 1px solid var(--border-glass);
+        background-color: #ffffff04;
         color: #ffffff;
         border: none;
+      
         padding: 18px 50px;
         font-size: 1.1rem;
         font-weight: 700;
-        border-radius: 50px;
+        border-radius: 20px;
         cursor: pointer;
-        box-shadow: 0 4px 25px rgba(0, 242, 254, 0.3);
+        box-shadow: 0 4px 25px rgba(0, 0, 0, 0);
         transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         display: inline-flex;
         align-items: center;
@@ -234,7 +235,7 @@
 
     .cinema-action-btn:hover {
         transform: translateY(-3px);
-        box-shadow: 0 0 40px rgba(0, 242, 254, 0.6);
+        box-shadow: 0 0 40px rgb(255, 255, 255);
     }
 
     .cinema-action-btn:active { transform: translateY(1px); }
@@ -286,10 +287,10 @@
     }
 
     .cinema-item-card:hover, .cinema-item-card.cinema-active-item {
-        background: rgba(255, 255, 255, 0.05);
+        background: rgba(255, 255, 255, 0.08);
         border-color: var(--border-active);
         transform: translateX(6px);
-        box-shadow: 0 15px 35px rgba(0,0,0,0.35);
+        box-shadow: 0 15px 35px rgba(0,0,0,0.4);
     }
 
     .cinema-item-card.cinema-active-item::before {
@@ -326,7 +327,7 @@
         white-space: nowrap;
     }
 
-    /* RIGHT PANEL DETALIZATION BOARD */
+    /* RIGHT PANEL */
     .cinema-showcase-panel {
         background: var(--bg-glass);
         border: 1px solid var(--border-glass);
@@ -336,7 +337,7 @@
         padding: 35px;
         position: sticky;
         top: 30px;
-        box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+        box-shadow: 0 30px 60px rgba(0,0,0,0.6);
     }
 
     .cinema-media-banner {
@@ -350,14 +351,13 @@
     }
 
     .cinema-show-row {
-        background: rgba(15, 23, 42, 0.45);
+        background: rgba(15, 23, 42, 0.55);
         border: 1px solid rgba(255,255,255,0.04);
         border-radius: 16px;
         padding: 22px;
         margin-bottom: 18px;
     }
 
-    /* RESPONSIVE TAIMER BOXES */
     .cinema-timer-flex {
         display: flex;
         gap: 10px;
@@ -365,8 +365,8 @@
     }
 
     .cinema-timer-unit {
-        background: linear-gradient(135deg, rgba(0, 114, 255, 0.12), rgba(0, 242, 254, 0.12));
-        border: 1px solid rgba(0, 242, 254, 0.2);
+        background: linear-gradient(135deg, rgba(0, 114, 255, 0.15), rgba(0, 242, 254, 0.15));
+        border: 1px solid rgba(0, 242, 254, 0.25);
         padding: 10px;
         border-radius: 12px;
         text-align: center;
@@ -405,7 +405,6 @@
         to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Katta loyihaga moslashuvchan responsivlik */
     @media (max-width: 1200px) {
         .cinema-main-title { font-size: 2.6rem; }
     }
@@ -491,8 +490,10 @@
 
     setInterval(() => {
         const strings = document.querySelectorAll('.cinema-subtext');
-        let nextIdx = (cinemaCurrentLangIdx + 1) % strings.length;
-        cinemaJumpToLang(nextIdx);
+        if(strings.length > 0) {
+            let nextIdx = (cinemaCurrentLangIdx + 1) % strings.length;
+            cinemaJumpToLang(nextIdx);
+        }
     }, 5000);
 
     function calculateHaversineKM(lat1, lon1, lat2, lon2) {

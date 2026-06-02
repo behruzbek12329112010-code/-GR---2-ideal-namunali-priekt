@@ -6,6 +6,7 @@
     <title>UZXTECH</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght=300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/brands.min.css" integrity="sha512-WxpJXPm/Is1a/dzEdhdaoajpgizHQimaLGL/QqUIAjIihlQqlPQb1V9vkGs9+VzXD7rgI6O+UsSKl4u5K36Ydw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body class="dark-theme">
     <div class="app-container">
@@ -15,7 +16,10 @@
   <body>
 <nav class="navbar">
       <h1 class="logo" id="logoHome" style="cursor: pointer;">UZ<span>XTECH</span></h1>
-      <section class="link">
+      <button class="menu-toggle-btn" id="menuToggleBtn">
+    <i class="fa-solid fa-bars"></i>
+</button>
+      <section class="link" id="navLinks">
         <div class="dropdown">
           <button class="dropbtn">Kinoteatrlar</button>
           <div class="dropdown-content">
@@ -68,6 +72,7 @@
             <a href="../../page/others/api.html" onclick="ochApiDocs()">API Hujjatlari</a>
             <a href="" onclick="ochApiBusiness()">Biznes uchun API</a>
             <a href="../../page/others/Xarita.html" onclick="ochApiBusiness()">Xarita</a>
+            <a href="../../page/others/platforma.html" onclick="ochApiBusiness()">bizning jamiyatga qo'shiling</a>
           </div>
            <div class="login-join-search">
          
@@ -98,13 +103,26 @@
                         <div class="main-search-wrapper">
                             <div class="main-search-box">
                                 <input type="text" id="kinoInput" placeholder="Film, teleko‘rsatuv qidirish (Masalan: Avatar, Inception)..." autocomplete="off">
+                                   <button id="ovozliQidiruvTugmasi" title="Ovozli qidiruv">
+        <i class="fa-solid fa-microphone"></i>
+    </button>
                                 <button id="qidirishTugmasi">Search</button>
                             </div>
                             <div id="liveSearchDropdown" class="live-search-dropdown hidden"></div>
                         </div>
                     </div>
                 </div>
-
+            <section class="apple-tv-slider">
+                <div class="slider-wrapper" id="appleTvWrapper"></div>
+                <div class="slider-navigation-bar">
+                    <div class="slider-meta-info">
+                        <h2 id="activeSlideTitle">Yuklanmoqda...</h2>
+                        <p id="activeSlideDesc">Iltimos kuting...</p>
+                        <button class="apple-trial-btn" id="activeSlideBtn">Bepul sinab ko'rish</button>
+                    </div>
+                    <div class="slider-dots" id="sliderDots"></div>
+                </div>
+            </section>
                 <div class="genre-filter-container">
                     <button class="genre-btn active" data-genre="all">Barchasi</button>
                     <button class="genre-btn" data-genre="Action">Action</button>
@@ -164,11 +182,6 @@
                 </div>
             </div>
 
-
-        
-
-
-<hr>
     <main class="results-container" id="resultsArea">
         <h2 class="sec-title">Sizga Eng Yaqin Kinoteatrlar Ketma-ketligi</h2>
         
@@ -201,136 +214,8 @@
             switchSub(next);
         }, 5000);
     </script>
-            <section class="apple-tv-slider">
-                <div class="slider-wrapper" id="appleTvWrapper"></div>
-                <div class="slider-navigation-bar">
-                    <div class="slider-meta-info">
-                        <h2 id="activeSlideTitle">Yuklanmoqda...</h2>
-                        <p id="activeSlideDesc">Iltimos kuting...</p>
-                        <button class="apple-trial-btn" id="activeSlideBtn">Bepul sinab ko'rish</button>
-                    </div>
-                    <div class="slider-dots" id="sliderDots"></div>
-                </div>
-            </section>
-<section class="tmdb-trending-section">
-  <div class="tmdb-container">
-    
-    <div class="tmdb-header">
-      <h2>Trendda</h2>
-      <div class="tmdb-selector">
-        <button class="time-btn active" data-time="day">Bugun</button>
-        <button class="time-btn" data-time="week">Bu hafta</button>
-      </div>
-    </div>
-
-    <div class="tmdb-slider" id="trending-slider">
-      </div>
-
-  </div>
-</section>
-<section class="join-today-section">
-  <div class="join-container">
-    
-    <div class="join-left">
-      <h2 class="join-title">Bugun qo‘shiling</h2>
-      <p class="join-description">
-        Get access to maintain your own <em>custom personal lists</em>, 
-        track what you’ve seen and search and filter for 
-        <em>what to watch next</em> — regardless if it’s in theatres or on TV.
-      </p>
-      <button class="register-btn" id="rendon" data-holat="bosh">Ro‘yxatdan o‘tish</button>
-    </div>
-
-    <div class="join-right">
-      <ul class="features-list">
-        <li>Maintain a personal watchlist</li>
-        <li>Filter by your subscribed streaming services and find something to watch</li>
-        <li>Log the movies and TV shows you’ve seen</li>
-        <li>Build custom lists</li>
-        <li>Ma'lumotlar bazamizga hissa qo'shing va yaxshilang</li>
-      </ul>
-    </div>
-
-  </div>
-</section>
- 
-
-
     <div class="cinema-main-wrapper">
-
-
-            <section class="scroll-zone">
-                <div class="zoom-container">
-                    <div class="inner-page">
-                        <p class="top-intro">
-                            Platformamiz kino olamini sizga yanada yaqinroq qilish maqsadida yaratildi. Bizning rasmiy sahifalarimiz va dasturchilarimizning ijtimoiy tarmoqdagi profillarini kuzatib borish orqali yangi premyeralar, eksklyuziv yangiliklar va tizimdagi eng so'nggi texnologik yangilanishlardan birinchilardan bo'lib xabardor bo'ling!
-
-                        <h4 class="main-title">Bizning Jamiyatga Qo'shiling</h4>
-
-                        <div class="features-grid">
-                            <div class="feature-row">
-                                <div class="feature-col">
-                                    <div class="icon-wrapper">
-                                        <img src="../../Assets/instagram.png" alt="qr" class="qr">
-                                    </div>
-                                </div>
-                                <div class="feature-col">
-                                    <div class="text-block">
-                                        <h3 class="color-red">Bizni Instagram'da kuzating.</h3>
-                                        <p>Eng so'nggi premyeralar treylerlari, eng yuqori reytingli filmlar ro'yxati va kino olamidagi eng qiziqarli faktlar haftalik ravishda bizning Instagram sahifamizda e'lon qilib boriladi.</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="feature-row">
-                                <div class="feature-col" style="display: table-cell;">
-                                    <div class="text-block">
-                                        <h3 class="color-green">Telegram Kanalimizga Qo'shiling</h3>
-                                        <p> Filmlar sifati, yangi seans vaqtlarining jonli bildirishnomalari va foydalanuvchilar o'rtasidagi qizg'in muhokamalar bizning rasmiy hamjamiyatimizda. Kino olamiga oid eng qaynoq xabarlar shu yerda.</p>
-                                    </div>
-                                </div>
-                                <div class="feature-col">
-                                    <div class="icon-wrapper">
-                                        <img src="../../Assets/telegram.png" alt="" class="qr">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="feature-row">
-                                <div class="feature-col">
-                                    <div class="icon-wrapper">
-                                        <img src="../../Assets/GIT.png" alt="" class="qr">
-                                    </div>
-                                </div>
-                                <div class="feature-col">
-                                    <div class="text-block">
-                                        <h3 class="color-orange">Ochiq Kodlar va Loyiha Arxitekturasi.</h3>
-                                        <p>Dasturning ishlash tizimi, uning aqlli lokator funksiyalari va mukammal JavaScript algoritmlari qanday yozilganiga qiziqasizmi? Loyihaning to'liq kod bazasi va GitHub profilimiz bilan tanishing</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="feature-row">
-                                <div class="feature-col">
-                                    <div class="text-block">
-                                        <h3 class="color-blue">Xavfsiz va Shaxsiy Maxfiylik.</h3>
-                                        <p>izning geo-joylashuvingiz hamda shaxsiy ma'lumotlaringiz xavfsizligi biz uchun birinchi o'rinda turadi. Tizim sizning ruxsatingizsiz hech qanday ma'lumotni saqlamaydi yoki uchinchi shaxslarga uzatmaydi</p>
-                                    </div>
-                                </div>
-                                <div class="feature-col">
-                                    <div class="icon-wrapper">
-                                        <img src="../../Assets/qr.png" alt="" class="qr">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-    
-
-            
+     
         </main>
     </div>
 
@@ -424,6 +309,57 @@
 </section>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+
+
+
+<div class="cinema-dashboard-root">
+    
+        <div class="cinema-video-container">
+            <video class="cinema-video-bg" autoplay loop muted playsinline poster="../../Assets/plocation.mp4">
+                <source src="../../Assets/plocation.mp4" type="video/mp4">
+            </video>
+            <div class="cinema-video-overlay"></div>
+        </div>
+
+        <div class="cinema-main-wrapper">
+            
+            <header class="cinema-hero-panel">
+                <h1 class="cinema-main-title">Smart Cinema Locator</h1>
+                
+                <div class="cinema-lang-scroller">
+                    <p class="cinema-subtext cinema-active-lang" data-index="0">🇺🇿 O'zbekiston bo'ylab yoningizdagi eng yaqin kinoteatrlarni va filmlar boshlanish vaqtini soniyalarigacha real vaqt rejimida aniqlang.</p>
+                    <p class="cinema-subtext" data-index="1">🇬🇧 Find cinemas near you instantly and track movie starting times with a live second-by-second countdown timer. Explore the world of cinema right where you are.</p>
+                    <p class="cinema-subtext" data-index="2">🇷🇺 Мгновенно определяйте расстояние до ближайших кинотеатров и узнавайте время начала сеансов с точностью до секунды благодаря живому таймеру.</p>
+                    <p class="cinema-subtext" data-index="3">🇦🇪 اعثر على دور السينما القريبة منك على الفور وتابع مواعيد بدء الأفلام بمؤقت تنازلي حي ثانية بثانية. عالم السينما الآن بين يديك!</p>
+                    <p class="cinema-subtext" data-index="4">🇹🇷 Bulunduğunuz konumdan en yakın sinemaya olan mesafeyi anında ölçün ve canlı sayaç sayesinde seans başlangıç zamanını saniyesi saniyesine öğrenin.</p>
+                    <p class="cinema-subtext" data-index="5">🇺🇿 Сиз турган нуқтадан энг яқин кинотеатргача бўлган масофани ўлчанг ва сеанс бошланиш вақтини сонияма-сония жонли ҳисоблагич ёрдамида аниқланг.</p>
+                </div>
+
+                <div class="cinema-pagination-dots">
+                    <span class="cinema-dot cinema-active-dot" onclick="cinemaJumpToLang(0)"></span>
+                    <span class="cinema-dot" onclick="cinemaJumpToLang(1)"></span>
+                    <span class="cinema-dot" onclick="cinemaJumpToLang(2)"></span>
+                    <span class="cinema-dot" onclick="cinemaJumpToLang(3)"></span>
+                    <span class="cinema-dot" onclick="cinemaJumpToLang(4)"></span>
+                    <span class="cinema-dot" onclick="cinemaJumpToLang(5)"></span>
+                </div>
+
+                <button id="cinemaLocBtn" class="cinema-action-btn" onclick="cinemaStartGeolocate()">
+                    <span id="cinemaBtnTxt">Joylashuvni Tasdiqlash</span>
+                    <div class="cinema-spinner" id="cinemaBtnLoader"></div>
+                </button>
+            </header>
+
+            <main class="cinema-dashboard-grid" id="cinemaGridUI">
+                <div class="cinema-list-container" id="cinemaListFeed"></div>
+
+                <div class="cinema-showcase-panel" id="cinemaShowcaseDeck">
+                    <div class="cinema-fallback-text">Seans jadvali va jonli sekundlik hisoblagichni ko'rish uchun chap paneldagi obyektlardan birini tanlang.</div>
+                </div>
+            </main>
+        </div>
+    </div>
     <script src="./script.js"></script>
 </body>
 </html>
+ 

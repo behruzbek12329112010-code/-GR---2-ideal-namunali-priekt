@@ -1,0 +1,65 @@
+<nav class="navbar">
+       <a href="../../page/others/UZxtech.html"><h1 class="logo" id="logoHome" style="cursor: pointer;">UZ<span>XTECH</span></h1></a>
+      <section class="link">
+        <div class="dropdown">
+          <button class="dropbtn">Filmlar</button>
+          <div class="dropdown-content">
+            <a href="../../page/others/popular.html" onclick="filtrlaKinolar('popular')">Ommabop filmlar</a>
+            <a href="../../page/others/now_playing.html" onclick="filtrlaKinolar('now_playing')">Kinoteatrlarda</a>
+            <a href="../../page/others/upcoming.html" onclick="filtrlaKinolar('upcoming')">Kutilayotgan premyeralar</a>
+            <a href="../../page/others/top_rated.html" onclick="filtrlaKinolar('top_rated')">Eng yuqori reytingli</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <button class="dropbtn">Telekoʻrsatuvlar</button>
+          <div class="dropdown-content">
+            <a href="../../page/others/popular_series.html" onclick="filtrlaSeriallar('popular')">Ommabop seriallar</a>
+            <a href="../../page/others/airing_today.html" onclick="filtrlaSeriallar('airing_today')">Bugun efirda</a>
+            <a href="../../page/others/on_tv.html" onclick="filtrlaSeriallar('on_tv')">Televideniyeda</a>
+            <a href="../../page/others/top_rated_series.html" onclick="filtrlaSeriallar('top_rated')">Top seriallar</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <button class="dropbtn">Ijodkorlar / Aktyorlar</button>
+          <div class="dropdown-content">
+            <a href="../../page/others/actors.html" onclick="yuklaAktyorlar()">Mashhur aktyorlar</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <button class="dropbtn">Mukofotlar</button>
+          <div class="dropdown-content">
+            <a href="../../page/others/oscar.html" onclick="filtrlaMukofotlar('oscar')">Oskar sovrindorlari</a>
+            <a href="../../page/others/festivals.html" onclick="filtrlaMukofotlar('festival')">Kino festivallar</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <button class="dropbtn">Yana</button>
+          <div class="dropdown-content">
+            <a href="../../page/others/forum.html" onclick="ochForum()">Munozaralar / Forum</a>
+            <a href="../../page/others/leaderboard.html">Peshqadamlar roʻyxati</a>
+            <a href="../../page/others/help.html" onclick="ochYordam()">Yordam / Qoʻllab-quvvatlash</a>
+            <a href="../../page/others/api.html" onclick="ochApiDocs()">API Hujjatlari</a>
+            <a href="" onclick="ochApiBusiness()">Biznes uchun API</a>
+            <a href="../../page/others/Xarita.html" onclick="ochApiBusiness()">Xarita</a>
+          </div>
+        <section class="reg">
+        <a class="plus" href="#">+</a>
+        <div class="lang">
+          <button class="langbtn">EN</button>
+        </div>
+        <div class="login-join-search">
+        <button id="rendon" data-holat="bosh">Tizimga kirish</button>
+        
+                <button id="homeBtnFromProfile" class="hidden-home-btn hidden">Bosh sahifa</button>
+         <button id="themeToggleBtn" class="theme-toggle-btn" title="Rejimni almashtirish">🌙</button>
+         
+        </div>
+      </section
+        </div>
+      </section>
+      
+      </nav>

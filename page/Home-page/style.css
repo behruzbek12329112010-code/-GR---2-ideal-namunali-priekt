@@ -349,7 +349,7 @@ header.site-header {
   font-weight: 500;
 }
 .search-banner-container {
- background: linear-gradient(rgba(5, 11, 20, 0.603), rgba(5, 11, 20, 0.548));
+ background: linear-gradient(rgba(5, 11, 20, 0.952), rgba(5, 11, 20, 0.911));
   position: relative;
   width: 100%;
   min-height: 100px;
@@ -1266,6 +1266,125 @@ header.site-header {
   background: #ffffff;
   transform: scale(1.25);
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+
+}
+
+
+/* ==========================================
+   RESPONSIVE & HAMBURGER MENYU STILI
+   ========================================== */
+
+/* Kompyuterda uch chiziqli tugmani yashirib turamiz */
+.menu-toggle-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.6rem;
+  cursor: pointer;
+  z-index: 101;
+}
+
+/* PLANSHTLAR VA TELEFONLAR UCHUN (Ekran 768px dan kichik bo'lganda) */
+@media (max-width: 768px) {
+  .menu-toggle-btn {
+    display: block; /* Mobil ekranda uch chiziqcha paydo bo'ladi */
+  }
+
+  /* Menyu ro'yxatini mobil variantga moslash */
+  .navbar .link {
+    display: none; /* Standart holatda menyu yopiq turadi */
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(15, 23, 42, 0.95); /* Shaffof qorong'u fon */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 20px 0;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    gap: 12px;
+    z-index: 99;
+  }
+
+  /* Uch chiziqcha bosilganda JS orqali shu klass qo'shiladi va menyu ochiladi */
+  .navbar .link.active {
+    display: flex;
+  }
+
+  .dropdown {
+    width: 100%;
+    text-align: center;
+  }
+
+  .dropbtn {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1rem;
+  }
+
+  .dropdown-content {
+    position: relative;
+    width: 100%;
+    box-shadow: none;
+    background: rgba(0, 0, 0, 0.2);
+    border: none;
+  }
+
+  /* Mobil qurilmada tizimga kirish tugmasini to'g'rilash */
+  .navbar button:not(.dropbtn):not(.menu-toggle-btn) {
+    width: 80%;
+    margin: 10px auto 0 auto;
+    padding: 12px;
+  }
+
+  /* Qidiruv blokini telefon ekraniga moslash */
+  .search-banner-container {
+    margin: 20px auto;
+    padding: 0 15px;
+  }
+
+  .main-search-box input {
+    padding: 12px 15px;
+    font-size: 0.9rem;
+  }
+
+  /* Kino detallari ochiladigan panelni mobil versiyasi */
+  .letterboxd-detail-panel {
+    padding: 20px;
+    margin: 15px;
+  }
+
+  .letterboxd-panel-flex {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  #letterboxdPanelPoster {
+    width: 150px;
+    height: 220px;
+  }
+}
+
+/* KICHIK TELEFONLAR UCHUN (Ekran 480px dan kichik bo'lganda) */
+@media (max-width: 480px) {
+  .logo {
+    font-size: 1.4rem;
+  }
+
+  /* Kinolar ro'yxati (Grid) kichik telefonda 2 tadan chiroyli joylashadi */
+  .letterboxd-movie-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 15px;
+  }
+
+  .poster-box {
+    height: 200px;
+  }
 }
 @keyframes fadeInUp {
   from {
@@ -1334,7 +1453,7 @@ header.site-header {
     justify-content: center;
     text-align: center;
     padding: 24px;
-    background: linear-gradient(rgba(5, 11, 20, 0.88), rgba(5, 11, 20, 0.85)), url(https://i.ytimg.com/vi/yApIWRtP8-c/maxresdefault.jpg);
+    background: linear-gradient(rgba(5, 11, 20, 0.88), rgba(5, 11, 20, 0.85)), url(https://photolondon.org/wp-content/uploads/2026/05/1.-Jane-Evelyn-Atwood.-In-Camera-L.-Parker-Stephenson-Photographs-2-1305x1536.jpg);
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -1344,7 +1463,7 @@ header.site-header {
   height: 100%;
   max-width: 100%;
   max-height: 100%;
-  background-color: #14142706;
+  background-color: #000000;
   backdrop-filter: blur(11px);
   border-radius: 40px;
   padding: 60px 40px;
@@ -2456,10 +2575,10 @@ p.subtitle.active-sub {
   max-width: 80%;
   max-height: 50vh;
 }
-/* Asosiy bo'lim - fondagi chiziqlar rasmdagidek chetda ko'rinadi */
+
 .tmdb-trending-section {
   padding: 30px 0;
-  background-color: #fff; /* Rasmdagi kabi oq fon */
+  background-color: #fff;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
@@ -2469,7 +2588,7 @@ p.subtitle.active-sub {
   padding: 0 20px;
 }
 
-/* Sarlavha va "Bugun / Bu hafta" silliq tugmasi */
+
 .tmdb-header {
   display: flex;
   align-items: center;
@@ -2484,7 +2603,6 @@ p.subtitle.active-sub {
   margin: 0;
 }
 
-/* Rasmdagi to'q ko'k va dumaloq kapsula tugma */
 .tmdb-selector {
   display: flex;
   border: 1px solid #032541;
@@ -2504,13 +2622,13 @@ p.subtitle.active-sub {
   transition: all 0.2s ease;
 }
 
-/* Aktiv bo'lganda to'q ko'k fon va oq yozuv */
+
 .time-btn.active {
   background-color: #032541;
   color: #fff;
 }
 
-/* Gorizontal Slayder (Scroll) */
+
 .tmdb-slider {
   display: flex;
   gap: 20px;
@@ -2519,7 +2637,7 @@ p.subtitle.active-sub {
   padding-bottom: 15px;
 }
 
-/* Scrollbarni chiroyli va ingichka qilish */
+
 .tmdb-slider::-webkit-scrollbar {
   height: 6px;
 }
@@ -2528,7 +2646,6 @@ p.subtitle.active-sub {
   border-radius: 10px;
 }
 
-/* Karta dizayni - Aynan skrinshot o'lchami */
 .movie-card {
   width: 150px;
   flex-shrink: 0;
@@ -2551,7 +2668,6 @@ p.subtitle.active-sub {
   object-fit: cover;
 }
 
-/* Rasmdagi oq dumaloq ichidagi uchta nuqta menyusi */
 .options-dot {
   position: absolute;
   top: 10px;
@@ -2575,7 +2691,7 @@ p.subtitle.active-sub {
   opacity: 1;
 }
 
-/* Matnlar qismi (Kino nomi va sanasi) */
+
 .movie-details {
   padding: 10px 0 0 5px;
 }
@@ -2587,7 +2703,7 @@ p.subtitle.active-sub {
   color: #000;
   white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis; /* Nom uzun bo'lsa uch nuqta */
+  text-overflow: ellipsis;
 }
 
 .movie-details h3:hover {
@@ -2598,13 +2714,13 @@ p.subtitle.active-sub {
 .movie-details p {
   margin: 4px 0 0 0;
   font-size: 14px;
-  color: rgba(0, 0, 0, 0.5); /* Och kulrang sana */
+  color: rgba(0, 0, 0, 0.5);
 }
 
 .join-today-section {
   width: 100%;
   padding: 50px 0;
-  /* Skrinshotdagi binafsha rangli effekt va orqa fon rasmi */
+
   background-image: linear-gradient(to right, rgba(30, 8, 48, 0.9) 0%, rgba(112, 33, 142, 0.8) 100%), 
                     url('https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=1425'); /* Sifatli kino/odamlar rasmi o'rnida */
   background-size: cover;
@@ -2627,7 +2743,7 @@ p.subtitle.active-sub {
   gap: 50px;
 }
 
-/* Chap tomondagi qism dizayni */
+
 .join-left {
   flex: 1.2;
 }
@@ -2646,15 +2762,14 @@ p.subtitle.active-sub {
   margin: 0 0 30px 0;
 }
 
-/* Katta matndagi kursiylar uchun */
+
 .join-description em {
   font-style: italic;
   color: rgba(255, 255, 255, 0.7);
 }
 
-/* Binafsha tugma (Aynan rasmdagidek) */
 .register-btn {
-  background-color: #805be7; /* TMDB ro'yxatdan o'tish tugmasi rangi */
+  background-color: #805be7;
   color: #fff;
   border: none;
   padding: 12px 24px;
@@ -2669,13 +2784,13 @@ p.subtitle.active-sub {
   background-color: #6943cc;
 }
 
-/* O'ng tomondagi ro'yxat qismi */
+
 .join-right {
   flex: 1;
 }
 
 .features-list {
-  list-style: none; /* Standart nuqtalarni o'chiramiz */
+  list-style: none; 
   padding: 0;
   margin: 0;
 }
@@ -2686,10 +2801,10 @@ p.subtitle.active-sub {
   line-height: 1.5;
   color: rgba(255, 255, 255, 0.9);
   margin-bottom: 8px;
-  padding-left: 15px; /* Nuqta uchun joy */
+  padding-left: 15px; 
 }
 
-/* Kichik oq doirachalar (bullet points) */
+
 .features-list li::before {
   content: "•";
   position: absolute;
@@ -2699,7 +2814,37 @@ p.subtitle.active-sub {
   font-size: 16px;
 }
 
-/* Ekran kichrayganda (Mobil moslashuvchanlik) */
+#ovozliQidiruvTugmasi {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease;
+}
+
+#ovozliQidiruvTugmasi:hover {
+  color: #0284c7;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+
 @media (max-width: 768px) {
   .join-container {
     flex-direction: column;
@@ -2712,3 +2857,362 @@ p.subtitle.active-sub {
     font-size: 28px;
   }
 }
+
+body {
+        background-color: #030712; 
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
+    
+    .cinema-dashboard-root {
+        --primary-glow: #00f2fe;
+        --secondary-glow: #4facfe;
+        --accent-glow: #0072ff;
+        --bg-glass: rgba(10, 20, 38, 0.55);
+        --border-glass: rgba(255, 255, 255, 0.1);
+        --border-active: rgba(0, 242, 254, 0.45);
+        --text-main: #ffffff;
+        --text-muted: #94a3b8;
+        
+        position: relative;
+        width: 100%;
+        min-height: 100vh;
+        color: var(--text-main);
+        font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        box-sizing: border-box;
+        background: #030712; 
+    }
+
+    .cinema-dashboard-root *, 
+    .cinema-dashboard-root *::before, 
+    .cinema-dashboard-root *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+
+
+    .cinema-video-bg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        height: 100%;
+        object-fit: cover; 
+        transform: translate(-50%, -50%);
+        filter: brightness(0.25) contrast(1.15);
+    }
+
+    .cinema-video-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+  
+
+    }
+
+
+    .cinema-main-wrapper {
+    
+        position: relative;
+        width: 100%;
+        max-width: 1400px;
+        z-index: 3; 
+      
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+.cinema-hero-panel {
+  margin-top: 250px;
+    height: 450px;
+    background-color: #0073ff00;
+    border: 1px solid var(--border-glass);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border-radius: 24px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.048);
+    animation: cinemaFadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+    .cinema-main-title {
+        font-size: 3.2rem;
+        font-weight: 800;
+        letter-spacing: -0.04em;
+        background: linear-gradient(135deg, #ffffff 40%, var(--primary-glow) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 20px;
+    }
+
+    .cinema-lang-scroller {
+        position: relative;
+        min-height: 60px;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .cinema-subtext {
+        color: var(--text-muted);
+        font-size: 1.15rem;
+        line-height: 1.6;
+        max-width: 850px;
+        position: absolute;
+        opacity: 0;
+        transform: scale(0.96) translateY(5px);
+        transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        pointer-events: none;
+    }
+
+    .cinema-subtext.cinema-active-lang {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+        pointer-events: auto;
+        position: relative;
+    }
+
+    .cinema-pagination-dots {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin-bottom: 30px;
+    }
+
+    .cinema-dot {
+        width: 8px;
+        height: 8px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .cinema-dot.cinema-active-dot {
+        background: var(--primary-glow);
+        width: 24px;
+        border-radius: 4px;
+        box-shadow: 0 0 12px var(--primary-glow);
+    }
+
+    .cinema-action-btn {
+        position: relative;
+        border: 1px solid var(--border-glass);
+        background-color: #ffffff04;
+        color: #ffffff;
+        border: none;
+      
+        padding: 18px 50px;
+        font-size: 1.1rem;
+        font-weight: 700;
+        border-radius: 20px;
+        cursor: pointer;
+        box-shadow: 0 4px 25px rgba(0, 0, 0, 0);
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .cinema-action-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 0 40px rgb(255, 255, 255);
+    }
+
+    .cinema-action-btn:active { transform: translateY(1px); }
+
+    .cinema-action-btn:disabled {
+        background: #1e293b;
+        box-shadow: none;
+        color: #64748b;
+        cursor: not-allowed;
+    }
+
+    .cinema-spinner {
+        display: none;
+        width: 18px; height: 18px;
+        border: 2.5px solid rgba(255,255,255,0.2);
+        border-top-color: #fff;
+        border-radius: 50%;
+        animation: cinemaSpin 0.8s infinite linear;
+    }
+
+    @keyframes cinemaSpin { to { transform: rotate(360deg); } }
+
+    /* LAYOUT GRID */
+    .cinema-dashboard-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.25fr;
+        gap: 30px;
+        align-items: start;
+        width: 100%;
+        display: none;
+    }
+
+    .cinema-list-container {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .cinema-item-card {
+        background: var(--bg-glass);
+        border: 1px solid var(--border-glass);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        border-radius: 20px;
+        padding: 24px;
+        cursor: pointer;
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        position: relative;
+    }
+
+    .cinema-item-card:hover, .cinema-item-card.cinema-active-item {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: var(--border-active);
+        transform: translateX(6px);
+        box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+    }
+
+    .cinema-item-card.cinema-active-item::before {
+        content: '';
+        position: absolute;
+        left: 0; top: 25%; height: 50%; width: 4px;
+        background: var(--primary-glow);
+        border-radius: 0 4px 4px 0;
+        box-shadow: 0 0 15px var(--primary-glow);
+    }
+
+    .cinema-item-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 12px;
+        gap: 15px;
+    }
+
+    .cinema-item-title {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: #ffffff;
+    }
+
+    .cinema-distance-badge {
+        background: rgba(0, 242, 254, 0.1);
+        border: 1px solid rgba(0, 242, 254, 0.2);
+        color: var(--primary-glow);
+        padding: 6px 14px;
+        border-radius: 30px;
+        font-size: 0.85rem;
+        font-weight: 700;
+        white-space: nowrap;
+    }
+
+    /* RIGHT PANEL */
+    .cinema-showcase-panel {
+        background: var(--bg-glass);
+        border: 1px solid var(--border-glass);
+        backdrop-filter: blur(30px);
+        -webkit-backdrop-filter: blur(30px);
+        border-radius: 24px;
+        padding: 35px;
+        position: sticky;
+        top: 30px;
+        box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+    }
+
+    .cinema-media-banner {
+        width: 100%;
+        height: 240px;
+        border-radius: 18px;
+        object-fit: cover;
+        margin-bottom: 25px;
+        border: 1px solid rgba(255,255,255,0.06);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    }
+
+    .cinema-show-row {
+        background: rgba(15, 23, 42, 0.55);
+        border: 1px solid rgba(255,255,255,0.04);
+        border-radius: 16px;
+        padding: 22px;
+        margin-bottom: 18px;
+    }
+
+    .cinema-timer-flex {
+        display: flex;
+        gap: 10px;
+        margin-top: 15px;
+    }
+
+    .cinema-timer-unit {
+        background: linear-gradient(135deg, rgba(0, 114, 255, 0.15), rgba(0, 242, 254, 0.15));
+        border: 1px solid rgba(0, 242, 254, 0.25);
+        padding: 10px;
+        border-radius: 12px;
+        text-align: center;
+        flex: 1;
+        min-width: 60px;
+    }
+
+    .cinema-timer-val {
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: var(--primary-glow);
+        font-family: monospace;
+    }
+
+    .cinema-timer-lbl {
+        font-size: 0.68rem;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        margin-top: 2px;
+        letter-spacing: 0.05em;
+    }
+
+    .cinema-fallback-text {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 380px;
+        color: var(--text-muted);
+        font-style: italic;
+        text-align: center;
+        font-size: 1.05rem;
+    }
+
+    @keyframes cinemaFadeInUp {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 1200px) {
+        .cinema-main-title { font-size: 2.6rem; }
+    }
+    @media (max-width: 992px) {
+        .cinema-dashboard-grid { grid-template-columns: 1fr; gap: 30px; }
+        .cinema-showcase-panel { position: static; min-height: auto; }
+    }
+    @media (max-width: 576px) {
+        .cinema-main-wrapper { padding: 20px 16px; }
+        .cinema-hero-panel { padding: 32px 16px; border-radius: 20px; }
+        .cinema-main-title { font-size: 1.95rem; }
+        .cinema-subtext { font-size: 0.98rem; }
+        .cinema-action-btn { width: 100%; padding: 16px 24px; font-size: 1.05rem; }
+        .cinema-item-card { padding: 20px; border-radius: 16px; }
+        .cinema-item-title { font-size: 1.18rem; }
+        .cinema-timer-val { font-size: 1.25rem; }
+    }

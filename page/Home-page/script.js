@@ -4,100 +4,100 @@ const BASE_URL = "https://www.omdbapi.com";
 
 const defaultMovies = [
 
-    // { title: "Inception", genre: "Sci-Fi" }, 
-    // { title: "Avatar", genre: "Sci-Fi" }, 
-    // { title: "Interstellar", genre: "Sci-Fi" }, 
-    // { title: "The Matrix", genre: "Sci-Fi" }, 
-    // { title: "Dune", genre: "Sci-Fi" },
-    // { title: "Tenet", genre: "Sci-Fi" },
-    // { title: "The Martian", genre: "Sci-Fi" },
-    // { title: "Arrival", genre: "Sci-Fi" },
-    // { title: "Blade Runner 2049", genre: "Sci-Fi" },
-    // { title: "The Avengers", genre: "Sci-Fi" },
-    // { title: "Guardians of the Galaxy", genre: "Sci-Fi" },
-    // { title: "Ready Player One", genre: "Sci-Fi" },
-    // { title: "The Mandalorian", genre: "Sci-Fi" },
-    // { title: "Transformers", genre: "Sci-Fi" },
-    // { title: "Westworld", genre: "Sci-Fi" },
-    // { title: "Pacific Rim", genre: "Sci-Fi" },
-    // { title: "Altered Carbon", genre: "Sci-Fi" },
-    // { title: "Love, Death & Robots", genre: "Sci-Fi" },
+    { title: "Inception", genre: "Sci-Fi" }, 
+    { title: "Avatar", genre: "Sci-Fi" }, 
+    { title: "Interstellar", genre: "Sci-Fi" }, 
+    { title: "The Matrix", genre: "Sci-Fi" }, 
+    { title: "Dune", genre: "Sci-Fi" },
+    { title: "Tenet", genre: "Sci-Fi" },
+    { title: "The Martian", genre: "Sci-Fi" },
+    { title: "Arrival", genre: "Sci-Fi" },
+    { title: "Blade Runner 2049", genre: "Sci-Fi" },
+    { title: "The Avengers", genre: "Sci-Fi" },
+    { title: "Guardians of the Galaxy", genre: "Sci-Fi" },
+    { title: "Ready Player One", genre: "Sci-Fi" },
+    { title: "The Mandalorian", genre: "Sci-Fi" },
+    { title: "Transformers", genre: "Sci-Fi" },
+    { title: "Westworld", genre: "Sci-Fi" },
+    { title: "Pacific Rim", genre: "Sci-Fi" },
+    { title: "Altered Carbon", genre: "Sci-Fi" },
+    { title: "Love, Death & Robots", genre: "Sci-Fi" },
 
 
-    // { title: "Gladiator", genre: "Action" }, 
-    // { title: "The Dark Knight", genre: "Action" }, 
-    // { title: "Spider-Man", genre: "Action" }, 
-    // { title: "Avengers", genre: "Action" }, 
-    // { title: "John Wick", genre: "Action" },
-    // { title: "The Batman", genre: "Action" },
-    // { title: "Mad Max: Fury Road", genre: "Action" },
-    // { title: "Top Gun: Maverick", genre: "Action" },
-    // { title: "Extraction", genre: "Action" },
-    // { title: "Spider-Man: No Way Home", genre: "Action" }, 
-    // { title: "John Wick: Chapter 4", genre: "Action" },
-    // { title: "The Witcher", genre: "Action" },
-    // { title: "Vikings", genre: "Action" },
-    // { title: "The Boys", genre: "Action" },
-    // { title: "Nobody", genre: "Action" },
-    // { title: "Greyhound", genre: "Action" },
-    // { title: "Sisu", genre: "Action" },
+    { title: "Gladiator", genre: "Action" }, 
+    { title: "The Dark Knight", genre: "Action" }, 
+    { title: "Spider-Man", genre: "Action" }, 
+    { title: "Avengers", genre: "Action" }, 
+    { title: "John Wick", genre: "Action" },
+    { title: "The Batman", genre: "Action" },
+    { title: "Mad Max: Fury Road", genre: "Action" },
+    { title: "Top Gun: Maverick", genre: "Action" },
+    { title: "Extraction", genre: "Action" },
+    { title: "Spider-Man: No Way Home", genre: "Action" }, 
+    { title: "John Wick: Chapter 4", genre: "Action" },
+    { title: "The Witcher", genre: "Action" },
+    { title: "Vikings", genre: "Action" },
+    { title: "The Boys", genre: "Action" },
+    { title: "Nobody", genre: "Action" },
+    { title: "Greyhound", genre: "Action" },
+    { title: "Sisu", genre: "Action" },
 
 
-    // { title: "Titanic", genre: "Drama" }, 
-    // { title: "The Sopranos", genre: "Drama" }, 
-    // { title: "Joker", genre: "Drama" }, 
-    // { title: "Whiplash", genre: "Drama" }, 
-    // { title: "Chernobyl", genre: "Drama" }, 
-    // { title: "The Pianist", genre: "Drama" }, 
-    // { title: "The Shawshank Redemption", genre: "Drama" },
-    // { title: "Forrest Gump", genre: "Drama" },
-    // { title: "The Godfather", genre: "Drama" },
-    // { title: "Oppenheimer", genre: "Drama" },
-    // { title: "The Wolf of Wall Street", genre: "Drama" },
-    // { title: "Peaky Blinders", genre: "Drama" },
-    // { title: "The Queen's Gambit", genre: "Drama" },
-    // { title: "Fight Club", genre: "Drama" },
-    // { title: "Succession", genre: "Drama" },
-    // { title: "The Crown", genre: "Drama" },
-    // { title: "A Beautiful Mind", genre: "Drama" },
-    // { title: "The Last of Us", genre: "Drama" },
+    { title: "Titanic", genre: "Drama" }, 
+    { title: "The Sopranos", genre: "Drama" }, 
+    { title: "Joker", genre: "Drama" }, 
+    { title: "Whiplash", genre: "Drama" }, 
+    { title: "Chernobyl", genre: "Drama" }, 
+    { title: "The Pianist", genre: "Drama" }, 
+    { title: "The Shawshank Redemption", genre: "Drama" },
+    { title: "Forrest Gump", genre: "Drama" },
+    { title: "The Godfather", genre: "Drama" },
+    { title: "Oppenheimer", genre: "Drama" },
+    { title: "The Wolf of Wall Street", genre: "Drama" },
+    { title: "Peaky Blinders", genre: "Drama" },
+    { title: "The Queen's Gambit", genre: "Drama" },
+    { title: "Fight Club", genre: "Drama" },
+    { title: "Succession", genre: "Drama" },
+    { title: "The Crown", genre: "Drama" },
+    { title: "A Beautiful Mind", genre: "Drama" },
+    { title: "The Last of Us", genre: "Drama" },
 
 
-    // { title: "Wednesday", genre: "Comedy" }, 
-    // { title: "Friends", genre: "Comedy" }, 
-    // { title: "Deadpool", genre: "Comedy" },
-    // { title: "The Office", genre: "Comedy" },
-    // { title: "Free Guy", genre: "Comedy" },
-    // { title: "Home Alone", genre: "Comedy" },
-    // { title: "The Hangover", genre: "Comedy" },
-    // { title: "Ted Lasso", genre: "Comedy" },
-    // { title: "Rick and Morty", genre: "Comedy" },
-    // { title: "Barbie", genre: "Comedy" },
-    // { title: "Brooklyn Nine-Nine", genre: "Comedy" },
-    // { title: "Kung Fu Panda", genre: "Comedy" },
-    // { title: "The Mask", genre: "Comedy" },
+    { title: "Wednesday", genre: "Comedy" }, 
+    { title: "Friends", genre: "Comedy" }, 
+    { title: "Deadpool", genre: "Comedy" },
+    { title: "The Office", genre: "Comedy" },
+    { title: "Free Guy", genre: "Comedy" },
+    { title: "Home Alone", genre: "Comedy" },
+    { title: "The Hangover", genre: "Comedy" },
+    { title: "Ted Lasso", genre: "Comedy" },
+    { title: "Rick and Morty", genre: "Comedy" },
+    { title: "Barbie", genre: "Comedy" },
+    { title: "Brooklyn Nine-Nine", genre: "Comedy" },
+    { title: "Kung Fu Panda", genre: "Comedy" },
+    { title: "The Mask", genre: "Comedy" },
 
 
-    // { title: "Breaking Bad", genre: "Thriller" }, 
-    // { title: "Narcos", genre: "Thriller" }, 
-    // { title: "Sherlock", genre: "Thriller" }, 
-    // { title: "The Prestige", genre: "Thriller" }, 
-    // { title: "Parasite", genre: "Thriller" }, 
-    // { title: "Dexter", genre: "Thriller" }, 
-    // { title: "Hannibal", genre: "Thriller" }, 
-    // { title: "Shutter Island", genre: "Thriller" },
-    // { title: "Prison Break", genre: "Thriller" },
-    // { title: "True Detective", genre: "Thriller" },
-    // { title: "Mindhunter", genre: "Thriller" },
-    // { title: "Money Heist", genre: "Thriller" },
-    // { title: "Black Mirror", genre: "Thriller" },
-    // { title: "Nightcrawler", genre: "Thriller" },
-    // { title: "The Invisible Guest", genre: "Thriller" },
+    { title: "Breaking Bad", genre: "Thriller" }, 
+    { title: "Narcos", genre: "Thriller" }, 
+    { title: "Sherlock", genre: "Thriller" }, 
+    { title: "The Prestige", genre: "Thriller" }, 
+    { title: "Parasite", genre: "Thriller" }, 
+    { title: "Dexter", genre: "Thriller" }, 
+    { title: "Hannibal", genre: "Thriller" }, 
+    { title: "Shutter Island", genre: "Thriller" },
+    { title: "Prison Break", genre: "Thriller" },
+    { title: "True Detective", genre: "Thriller" },
+    { title: "Mindhunter", genre: "Thriller" },
+    { title: "Money Heist", genre: "Thriller" },
+    { title: "Black Mirror", genre: "Thriller" },
+    { title: "Nightcrawler", genre: "Thriller" },
+    { title: "The Invisible Guest", genre: "Thriller" },
 
 
-    // { title: "The Walking Dead", genre: "Horror" },
-    // { title: "Resident Evil", genre: "Horror" },
-    // { title: "The Haunting of Hill House", genre: "Horror" },
+    { title: "The Walking Dead", genre: "Horror" },
+    { title: "Resident Evil", genre: "Horror" },
+    { title: "The Haunting of Hill House", genre: "Horror" },
 
 ];
 
@@ -321,12 +321,12 @@ async function ijroJonliQidiruv(matn) {
     }
 }
 
-// ================= 3-FUNKSIYA: KINOLARGA IZOH VA YULDUZCHA BERISH TIZIMI =================
+
 function renderIzohlarTizimi(kinoNomi) {
     const reviewsBox = document.getElementById("movieReviewsSection");
     if(!reviewsBox) return;
 
-    // LocalStoragedan faqat shu kinoga tegishli izohlarni olamiz
+
     let barchaIzohlar = JSON.parse(localStorage.getItem("uzmovi_global_reviews")) || [];
     let shuKinoIzohlari = barchaIzohlar.filter(r => r.movie === kinoNomi);
 
@@ -358,7 +358,7 @@ function renderIzohlarTizimi(kinoNomi) {
         </div>
     `;
 
-    // Yulduzchalarni tanlash klik hodisasi
+
     document.querySelectorAll(".star-select-item").forEach(star => {
         star.onclick = function() {
             joriyTanlanganBaho = parseInt(this.getAttribute("data-star"));
@@ -389,12 +389,11 @@ function saqlashYangiIzoh(kinoNomi) {
     });
 
     localStorage.setItem("uzmovi_global_reviews", JSON.stringify(barchaIzohlar));
-    joriyTanlanganBaho = 5; // Formani tozalaymiz
+    joriyTanlanganBaho = 5; 
     renderIzohlarTizimi(kinoNomi);
-    yangilaBarchaRoʻyxatlarni(); // Profildagi ko'rinishni yangilash
+    yangilaBarchaRoʻyxatlarni(); 
 }
 
-// ================= 4-FUNKSIYA: DARK / LIGHT REJIMNI INIT QILISH =================
 function initTheme() {
     const saqlanganTheme = localStorage.getItem("uzmovi_theme") || "dark";
     const themeBtn = document.getElementById("themeToggleBtn");
@@ -407,7 +406,7 @@ function initTheme() {
     }
 }
 
-// ================= 5-FUNKSIYA: PERSONAJ AVATARLARINI TANLASH VA RO'YXATGA OLISH =================
+
 function yuklashAvatarVariantlari() {
     const grid = document.getElementById("avatarSelectionGrid");
     if(!grid) return;
@@ -438,8 +437,7 @@ function tekshirishJoriyFoydalanuvchi() {
     if (joriyUser) {
         const usernameClean = joriyUser.split("@")[0];
         if (displayUsername) displayUsername.innerHTML = `${usernameClean} <span class="edit-icon"></span>`;
-        
-        // 5-FUNKSIYA: Agar foydalanuvchi shaxsiy personaj avatarini tanlagan bo'lsa uni chizamiz
+
         const saqlanganAvatar = localStorage.getItem(getUserStorageKey("user_avatar_img"));
         if (userAvatar) {
             if(saqlanganAvatar) {
@@ -468,7 +466,7 @@ function tekshirishJoriyFoydalanuvchi() {
     }
 }
 
-// ================= KINO ICHKI SAHIFASI VA SILLIQ INTEGRATSIYA =================
+
 async function ochishIchkiSahifa(kinoNomi) {
     ochishAniqBlok("kinoIchkiSahifa");
     const ichkiSahifa = document.getElementById("kinoIchkiSahifa");
@@ -523,12 +521,12 @@ async function ochishIchkiSahifa(kinoNomi) {
             window.currentMovieUrl = playerUrl;
             document.getElementById("posterPlayerBtn").onclick = () => pleyerniYoqish();
             
-            // Tugmalar funksionali
+     
             document.getElementById("btnLike").onclick = function() { toggleData("sevimliFilmlar", data.Title, posterUrl, safePlot); this.classList.toggle("active"); };
             document.getElementById("btnWatchlist").onclick = function() { toggleData("watchlistFilmlar", data.Title, posterUrl, safePlot); this.classList.toggle("active"); };
             document.getElementById("btnWatched").onclick = function() { toggleData("watchedFilmlar", data.Title, posterUrl, safePlot); this.classList.toggle("active"); };
 
-            // Izohlarni chizish
+         
             renderIzohlarTizimi(data.Title);
 
         } else { ichkiSahifa.innerHTML = "<p style='text-align:center; padding:50px; color:#ef4444;'>Kino topilmadi!</p>"; }
@@ -570,7 +568,7 @@ function yangilaBarchaRoʻyxatlarni() {
                 dataRoʻyxat.forEach((kino) => {
                     const card = document.createElement("div");
                     if (tur.key === "watchedFilmlar") {
-                        // 3-FUNKSIYA INTEGRATSIYASI: Foydalanuvchi ushbu kinoga o'z profilida qoldirgan bahosini ham chiqaradi
+   
                         const userShaxsiyFikri = barchaIzohlar.find(r => r.movie === kino.title && r.user === localStorage.getItem("tizimgaKirganUser"));
                         const starBadge = userShaxsiyFikri ? `★ Berilgan baho: ${userShaxsiyFikri.rating}/5` : "Baho berilmagan";
 
@@ -600,7 +598,6 @@ function yangilaBarchaRoʻyxatlarni() {
     });
 }
 
-// QOLGAN STANDARD FUNKSIYALAR
 function toggleData(key, title, poster, plot) {
     let list = getUserListData(key);
     const idx = list.findIndex(k => k.title === title);
@@ -714,7 +711,7 @@ function initAuthButtonLogic() {
                 yangilaBarchaRoʻyxatlarni();
             } else {
                 document.getElementById("loginModalBloki").classList.remove("hidden");
-                // Har gal login ochilganda default Kirish holatida ochiladi
+
                 almashtirishAuthRejim(false);
             }
         }
@@ -723,7 +720,6 @@ function initAuthButtonLogic() {
 
 function yopishLoginModal() { document.getElementById("loginModalBloki").classList.add("hidden"); }
 
-// TAHRIRLANGAN VA YANGILANGAN AUTH REJIM ALMASHTIRUVCHISI ("Sizda profil bormi?")
 function almashtirishAuthRejim(r) {
     isRegisterMode = r;
     const formTitle = document.getElementById("loginFormTitle");
@@ -732,10 +728,10 @@ function almashtirishAuthRejim(r) {
     if (formTitle) formTitle.innerText = r ? "Ro'yxatdan O'tish" : "Tizimga Kirish";
     if (submitBtn) submitBtn.innerText = r ? "Akkount Yaratish" : "Kirish";
 
-    // Dinamik interaktiv pastki matn (Sizda profil bormi? funksiyasi shu yerda shakllanadi)
+
     let dynamicToggleOption = document.getElementById("authDynamicToggleOption");
     if (!dynamicToggleOption) {
-        // Agar oyna ichida o'tish konteyneri mavjud bo'lmasa, uni yaratib joylaymiz
+
         const authForm = document.getElementById("authForm");
         if (authForm) {
             dynamicToggleOption = document.createElement("div");
@@ -746,7 +742,7 @@ function almashtirishAuthRejim(r) {
 
     if (dynamicToggleOption) {
         if (r) {
-            // Ro'yxatdan o'tish rejimidagi ko'rinish
+
             dynamicToggleOption.innerHTML = `
                 <p class="auth-toggle-text">
                     Sizda profil bormi? 
@@ -754,7 +750,7 @@ function almashtirishAuthRejim(r) {
                 </p>
             `;
         } else {
-            // Tizimga kirish rejimidagi ko'rinish
+
             dynamicToggleOption.innerHTML = `
                 <p class="auth-toggle-text">
                     Yangi foydalanuvchimisiz? 
@@ -798,15 +794,14 @@ if(qidirishTugmasi) {
         if(val) ochishIchkiSahifa(kinoLugat[val.toLowerCase()] || val);
     });
 }
-// Brauzer manzilidagi parametrlarni tekshirish va ishlatish
+
 function tekshirishURLParametrlari() {
-    // URL ichidan query parametrlarni ajratib olamiz (masalan: ?movie=Avatar)
+
     const urlParams = new URLSearchParams(window.location.search);
     const kinoNomi = urlParams.get('movie');
 
     if (kinoNomi) {
-        // Agar manzil satrida kino nomi bo'lsa, uni avtomatik ochamiz
-        // Ruscha kiritilgan nomlarni ham lug'atdan tekshirib o'tadi
+
         const qidirilayotganKino = kinoLugat[kinoNomi.toLowerCase()] || kinoNomi;
         ochishIchkiSahifa(qidirilayotganKino);
     }
@@ -834,7 +829,7 @@ function yuklashLeaderboard() {
     const maxTotal = Math.max(...leaderboardUsers.map(u => u.totalMovies));
     const maxWeek = Math.max(...leaderboardUsers.map(u => u.weekMovies));
 
-    gridContainer.innerHTML = ""; // Tozalash
+    gridContainer.innerHTML = ""; 
 
     leaderboardUsers.forEach(user => {
      
@@ -1128,7 +1123,7 @@ function chalishUiClickTovushi() {
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    // Butun ekran bo'ylab tugmalar bosilishini eshitish
+
     document.body.addEventListener("click", (event) => {
         const button = event.target.closest("button") || 
                        event.target.closest(".genre-btn") || 
@@ -1209,30 +1204,29 @@ function ochishAniqBlok(blokId) {
     }
   };
 
-  // --- LETTERBOXD MOVIES SCRIPT LOGIC ---
+
 (function() {
-const API_KEY = "ed1c56f1";
-const BASE_URL = "https://www.omdbapi.com";
+
 const LB_FETCH_URL = `https://api.themoviedb.org/3/discover/movie?api_key=${LB_API_KEY}&sort_by=vote_count.desc&language=en-US&page=1`;
 
   const gridContainer = document.getElementById('letterboxdGridContainer');
   const detailPanel = document.getElementById('letterboxdDetailPanel');
   const closePanelBtn = document.getElementById('letterboxdCloseBtn');
 
-  // Ovozlar soniga qarab taxminiy "Million marta ko'rilgan" formatiga o'tkazish
+
   function calculateMillions(votes) {
     const formattedViews = (votes * 1.4) / 1000;
     return formattedViews.toFixed(1) + 'M marta';
   }
 
-  // TMDB'dan 10 ta eng ko'p ovoz olgan (ko'rilgan) filmlarni yuklash
+
   async function loadLetterboxdContent() {
     try {
       const response = await fetch(LB_FETCH_URL);
       const payload = await response.json();
 
       if (payload.results && payload.results.length > 0) {
-        // Faqatgina dastlabki 10 ta top kinolarni qirqib olamiz
+
         const topTenMovies = payload.results.slice(0, 10);
         buildMovieGrid(topTenMovies);
       } else {
@@ -1243,7 +1237,14 @@ const LB_FETCH_URL = `https://api.themoviedb.org/3/discover/movie?api_key=${LB_A
     }
   }
 
-  // Kinolarni DOM strukturaga chiqarish
+
+
+
+
+
+
+
+
   function buildMovieGrid(moviesList) {
     gridContainer.innerHTML = '';
 
@@ -1265,7 +1266,7 @@ const LB_FETCH_URL = `https://api.themoviedb.org/3/discover/movie?api_key=${LB_A
         </div>
       `;
 
-      // KINO KARTASIGA BOSILGANDA (Click)
+
       cardElement.addEventListener('click', () => {
         document.getElementById('letterboxdPanelPoster').src = `${LB_IMG_BASE}${poster_path}`;
         document.getElementById('letterboxdPanelTitle').textContent = title;
@@ -1273,7 +1274,7 @@ const LB_FETCH_URL = `https://api.themoviedb.org/3/discover/movie?api_key=${LB_A
         document.getElementById('letterboxdPanelRating').textContent = vote_average.toFixed(1);
         document.getElementById('letterboxdPanelOverview').textContent = overview || "Ushbu film uchun xulosa kiritilmagan.";
 
-        // Panelni ko'rsatish va silliq harakat bilan ekranga olib kelish
+
         detailPanel.classList.add('active-panel');
         detailPanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       });
@@ -1282,14 +1283,12 @@ const LB_FETCH_URL = `https://api.themoviedb.org/3/discover/movie?api_key=${LB_A
     });
   }
 
-  // Panelni yopish hodisasi
   if(closePanelBtn) {
     closePanelBtn.addEventListener('click', () => {
       detailPanel.classList.remove('active-panel');
     });
   }
 
-  // Scriptni avtomatik ishga tushirish
   loadLetterboxdContent();
 })();
 
@@ -1340,10 +1339,10 @@ const database = [
     }
 ];
 
-let activeTimers = []; // Dinamik taymerlar klasteri
-let currentLoadedData = []; // Saralangan ma'lumotlarni global saqlash uchun
+let activeTimers = [];
+let currentLoadedData = []; 
 
-// Matematik Haversine Formulorasi
+
 function getDistanceKM(lat1, lon1, lat2, lon2) {
     const R = 6371; 
     const dLat = (lat2 - lat1) * Math.PI / 180;
@@ -1353,7 +1352,7 @@ function getDistanceKM(lat1, lon1, lat2, lon2) {
     return (R * (2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)))).toFixed(1);
 }
 
-// GPS yuklash tizimi
+
 function initSmartLocator() {
     const btn = document.getElementById('locBtn');
     const loader = document.getElementById('mainLoader');
@@ -1408,7 +1407,7 @@ function resetButton() {
     document.getElementById('btnText').innerText = 'Joylashuvimni Qayta Aniqlash';
 }
 
-// Chap tomondagi ro'yxatni generatsiya qilish (HTML buglarsiz, index orqali boshqariladi)
+
 function renderCinemaList(data) {
     const listDiv = document.getElementById('cinemaHtmlList');
     listDiv.innerHTML = '';
@@ -1426,7 +1425,6 @@ function renderCinemaList(data) {
     });
 }
 
-// Element tanlanganda index orqali xavfsiz yuklash
 function loadCinemaDetails(index) {
     const cinema = currentLoadedData[index];
     const cardId = `card-${index}`;
@@ -1515,44 +1513,44 @@ function startCountdown(timeStr, elementId) {
     activeTimers.push(interval);
 }
 
-const OMDB_API_KEY = 'Sizning_OMDB_API_KEY'; // Bu yerga o'zingizni API kalitingizni qo'ying
+const OMDB_API_KEY = 'Sizning_OMDB_API_KEY';
 const slider = document.getElementById('trending-slider');
 const buttons = document.querySelectorAll('.toggle-btn');
 
-// Bugun va Shu haftada eng ko'p ko'rilgan kinolarning real IMDb ID-lari
+
 const topMoviesData = {
     day: [
-        'tt16366836', // Spider-Noir (2025/2026)
-        'tt21415214', // Obsession
-        'tt32341416', // Backrooms
-        'tt15438246', // Fuze (2025)
-        'tt6718170',  // The Super Mario Movie
-        'tt22111244'  // Propeller One Way Night Coach
+        'tt16366836',
+        'tt21415214', 
+        'tt32341416',
+        'tt15438246',
+        'tt6718170',  
+        'tt22111244'  
     ],
     week: [
-        'tt11389872', // Batman (Top ko'rilgan)
-        'tt4154664',  // Avengers: Infinity War
-        'tt0120737',  // Lord of the Rings
-        'tt1375666',  // Inception
-        'tt0944947',  // Game of Thrones
-        'tt1877830'   // Interstellar
+        'tt11389872', 
+        'tt4154664', 
+        'tt0120737',  
+        'tt1375666', 
+        'tt0944947', 
+        'tt1877830'  
     ]
 };
 
-// Kinolarni API'dan olish va skrolga chiqarish
+
 async function loadMostViewed(timePeriod) {
     slider.innerHTML = '<p style="color: white; padding-left: 20px;">Yuklanmoqda...</p>';
     const idList = topMoviesData[timePeriod];
     let cardsHTML = '';
 
-    // ID'lar bo'yicha sikl aylanib ma'lumot olamiz
+
     for (let id of idList) {
         try {
             const res = await fetch(`https://www.omdbapi.com/?apikey=${OMDB_API_KEY}&i=${id}`);
             const movie = await res.json();
 
             if (movie.Response === "True") {
-                // Skrinshotdagi sana formatini chiqarish (masalan: May 25, 2026)
+      
                 let releaseDate = movie.Released !== "N/A" ? movie.Released : movie.Year;
 
                 cardsHTML += `
@@ -1575,7 +1573,6 @@ async function loadMostViewed(timePeriod) {
     slider.innerHTML = cardsHTML;
 }
 
-// Tugmalar bosilganda almashish mantiqi
 buttons.forEach(btn => {
     btn.addEventListener('click', (e) => {
         buttons.forEach(b => b.classList.remove('active'));
@@ -1586,13 +1583,12 @@ buttons.forEach(btn => {
     });
 });
 
-// Kinoga bosilganda ishlaydigan funksiya (ID ni tutib beradi)
 function openMovie(id) {
     alert("Kino sahifasiga o'tish ID: " + id);
-    // Bu yerda o'zingizni ichki sahifaga yo'naltirsangiz bo'ladi
+
 }
 
-// Sayt ochilganda srazu bugungi eng ko'p ko'rilganlarni yuklaydi
+
 document.addEventListener("DOMContentLoaded", () => {
     loadMostViewed('day');
 });
@@ -1600,27 +1596,26 @@ document.addEventListener("DOMContentLoaded", () => {
 const sliderContainer = document.getElementById('trending-slider');
 const filterButtons = document.querySelectorAll('.time-btn');
 
-// Bugun va Bu hafta eng ko'p ko'rilgan filmlar ID ro'yxati (Aniq ma'lumot kelishi uchun)
 const movieLists = {
     day: [
-        'tt16366836', // Spider-Noir
-        'tt21415214', // Obsession
-        'tt32341416', // Backrooms
-        'tt15438246', // Fuze
-        'tt6718170',  // The Super Mario Movie
-        'tt22111244'  // Propeller One Way Night Coach
+        'tt16366836',
+        'tt21415214',
+        'tt32341416',
+        'tt15438246',
+        'tt6718170',  
+        'tt22111244' 
     ],
     week: [
-        'tt11389872', // The Batman
-        'tt4154664',  // Avengers: Infinity War
-        'tt1375666',  // Inception
-        'tt1877830',  // Interstellar
-        'tt0120737',  // Lord of the Rings
-        'tt0944947'   // Game of Thrones
+        'tt11389872', 
+        'tt4154664',  
+        'tt1375666',  
+        'tt1877830',  
+        'tt0120737',  
+        'tt0944947' 
     ]
 };
 
-// Ma'lumotlarni yuklash funksiyasi
+
 async function fetchTrending(timeOption) {
     sliderContainer.innerHTML = '<p style="padding-left: 20px; color: #333;">Yuklanmoqda...</p>';
     const currentIDs = movieLists[timeOption];
@@ -1632,7 +1627,7 @@ async function fetchTrending(timeOption) {
             const data = await response.json();
 
             if (data.Response === "True") {
-                // Rasmdagi kabi reliz sanasi (agar to'liq sana bo'lsa chiqadi, bo'lmasa yilini qo'yadi)
+              
                 let movieDate = data.Released !== "N/A" ? data.Released : data.Year;
 
                 htmlContent += `
@@ -1655,26 +1650,97 @@ async function fetchTrending(timeOption) {
     sliderContainer.innerHTML = htmlContent;
 }
 
-// Tugmalarni boshqarish
+
 filterButtons.forEach(button => {
     button.addEventListener('click', (event) => {
-        // Eski aktiv klassni o'chirish
+     
         filterButtons.forEach(btn => btn.classList.remove('active'));
-        // Yangi bosilganni aktiv qilish
+   
         event.target.classList.add('active');
 
-        // Qaysi vaqt bosilganini aniqlash (day yoki week)
+  
         const selectedTime = event.target.getAttribute('data-time');
         fetchTrending(selectedTime);
     });
 });
 
-// Kinoga bosilganda ishlaydigan feyk funksiya
+
 function goToMovie(id) {
     console.log("Kino ID:", id);
 }
 
-// Sahifa yuklanganda srazu "Bugun" ro'yxati chiqadi
 document.addEventListener("DOMContentLoaded", () => {
     fetchTrending('day');
+});
+
+
+window.addEventListener("DOMContentLoaded", () => {
+    const ovozliBtn = document.getElementById("ovozliQidiruvTugmasi");
+    if (ovozliBtn) {
+        ovozliBtn.addEventListener("click", faollashtirOvozliQidiruv);
+    }
+});
+
+
+function faollashtirOvozliQidiruv() {
+
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (!SpeechRecognition) {
+        alert("Kechirasiz, siz foydalanayotgan brauzer ovozli qidiruvni qo'llab-quvvatlamaydi (Google Chrome tavsiya etiladi).");
+        return;
+    }
+
+    const recognition = new SpeechRecognition();
+    recognition.lang = 'en-US'; 
+    const ovozliBtn = document.getElementById("ovozliQidiruvTugmasi");
+    
+ 
+    ovozliBtn.innerHTML = `<i class="fa-solid fa-microphone-lines" style="color: #ef4444; animation: pulse 1s infinite;"></i>`;
+    
+
+    recognition.start();
+
+    recognition.onresult = (event) => {
+        const natijaMatni = event.results[0][0].transcript;
+        
+
+        const kinoInput = document.getElementById("kinoInput");
+        if (kinoInput) {
+            kinoInput.value = natijaMatni;
+        }
+
+        if (typeof qidiruvKinoAsosiy === "function") {
+            qidiruvKinoAsosiy(natijaMatni);
+        } else {
+            console.log("Ovozli matn aniqlandi: " + natijaMatni);
+        }
+    };
+
+    recognition.onend = () => {
+        ovozliBtn.innerHTML = `<i class="fa-solid fa-microphone"></i>`;
+    };
+
+    recognition.onerror = (event) => {
+        console.error("Ovozni aniqlashda xatolik:", event.error);
+        ovozliBtn.innerHTML = `<i class="fa-solid fa-microphone"></i>`;
+    };
+}
+
+
+window.addEventListener("DOMContentLoaded", () => {
+    const menuToggleBtn = document.getElementById("menuToggleBtn");
+    const navLinks = document.getElementById("navLinks");
+
+    if (menuToggleBtn && navLinks) {
+        menuToggleBtn.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
+
+            const icon = menuToggleBtn.querySelector("i");
+            if (navLinks.classList.contains("active")) {
+                icon.className = "fa-solid fa-xmark";
+            } else {
+                icon.className = "fa-solid fa-bars";
+            }
+        });
+    }
 });

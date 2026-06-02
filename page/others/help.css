@@ -10,4 +10,4 @@ body.help-body { background: #07070a; font-family: 'Poppins', sans-serif; color:
 .help-card .arrow { font-size: 0.8rem; transition: 0.3s; color: #fff; }
 .answer { display: none; margin-top: 15px; font-size: 0.9rem; color: #94a3b8; line-height: 1.6; }
 .help-card.active .answer { display: block; }
-.help-card.active .arrow { transform: rotate(180px); }
+.help-card.active .arrow { transform: rotate(180px); }api.html
