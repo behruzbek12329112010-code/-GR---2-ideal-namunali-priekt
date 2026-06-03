@@ -3,6 +3,9 @@ Saytning asosiy sahifalari joylashadigan joy.
 
 home page: Bu saytning bosh sahifasi (ya'ni asosiy qismi). Ichida index.html fayli turadi. (Eslatma: Papka nomida joy tashlangan home page, buni home-page yoki shunchaki home deb yozgan ma'qul).
 
+<<<<<<< HEAD
+others: Saytning boshqa qo'shimcha sahifalari. Masalan: "Biz haqimizda", "Bog'lanish" yoki "Galereya" sahifalarining HTML fayllari shu papka ichiga ochiladi.ss
+=======
 others: Saytning boshqa qo'shimcha sahifalari. Masalan: "Biz haqimizda", "Bog'lanish" yoki "Galereya" sahifalarining HTML fayllari shu papka ichiga ochiladi.
 
 
@@ -64,3 +67,4 @@ others: Saytning boshqa qo'shimcha sahifalari. Masalan: "Biz haqimizda", "Bog'la
             </button>
         </div>
     </header>
+>>>>>>> cd69c37d891a6c18cbc091a476720f866057251f

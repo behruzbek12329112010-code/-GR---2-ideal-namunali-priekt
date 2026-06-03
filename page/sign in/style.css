@@ -1,0 +1,133 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+    url("https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1600&auto=format&fit=crop");
+  background-size: cover;
+  background-position: center;
+}
+.termsofuse {
+  display: flex;
+  align-items: center;
+}
+#terms {
+  display: flex;
+  align-items: center;
+}
+.signup-box {
+  width: 400px;
+  background: #0f172a;
+  padding: 40px;
+  border-radius: 22px;
+  color: white;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.logo h1 {
+  font-size: 34px;
+  font-weight: 800;
+  background: linear-gradient(90deg, #00b4e4, #90cea1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  color: #94a3b8;
+  font-size: 14px;
+  margin-bottom: 28px;
+}
+
+.input-group {
+  margin-bottom: 18px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #cbd5e1;
+  font-size: 14px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  outline: none;
+  border-radius: 12px;
+  background: #1e293b;
+  color: white;
+  font-size: 15px;
+}
+
+.input-group input:focus {
+  box-shadow: 0 0 0 2px #00b4e4;
+}
+
+.terms {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: #cbd5e1;
+}
+
+.signup-btn {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 14px;
+  background: linear-gradient(90deg, #01b4e4, #90cea1);
+  color: #07121f;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.signup-btn:hover {
+  opacity: 0.6;
+}
+
+.message {
+  margin-top: 18px;
+  text-align: center;
+  font-size: 14px;
+  color: #90cea1;
+}
+
+.error {
+  color: #ff6b6b;
+}
+#termsofuse {
+  text-decoration: none;
+  color: blue;
+}
+@media (max-width: 450px) {
+  .signup-box {
+    width: 92%;
+  }
+}
