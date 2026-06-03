@@ -312,54 +312,157 @@
 
 
 
-<div class="cinema-dashboard-root">
+
     
-        <div class="cinema-video-container">
-            <video class="cinema-video-bg" autoplay loop muted playsinline poster="../../Assets/plocation.mp4">
-                <source src="../../Assets/plocation.mp4" type="video/mp4">
-            </video>
-            <div class="cinema-video-overlay"></div>
-        </div>
-
-        <div class="cinema-main-wrapper">
-            
-            <header class="cinema-hero-panel">
-                <h1 class="cinema-main-title">Smart Cinema Locator</h1>
-                
-                <div class="cinema-lang-scroller">
-                    <p class="cinema-subtext cinema-active-lang" data-index="0">🇺🇿 O'zbekiston bo'ylab yoningizdagi eng yaqin kinoteatrlarni va filmlar boshlanish vaqtini soniyalarigacha real vaqt rejimida aniqlang.</p>
-                    <p class="cinema-subtext" data-index="1">🇬🇧 Find cinemas near you instantly and track movie starting times with a live second-by-second countdown timer. Explore the world of cinema right where you are.</p>
-                    <p class="cinema-subtext" data-index="2">🇷🇺 Мгновенно определяйте расстояние до ближайших кинотеатров и узнавайте время начала сеансов с точностью до секунды благодаря живому таймеру.</p>
-                    <p class="cinema-subtext" data-index="3">🇦🇪 اعثر على دور السينما القريبة منك على الفور وتابع مواعيد بدء الأفلام بمؤقت تنازلي حي ثانية بثانية. عالم السينما الآن بين يديك!</p>
-                    <p class="cinema-subtext" data-index="4">🇹🇷 Bulunduğunuz konumdan en yakın sinemaya olan mesafeyi anında ölçün ve canlı sayaç sayesinde seans başlangıç zamanını saniyesi saniyesine öğrenin.</p>
-                    <p class="cinema-subtext" data-index="5">🇺🇿 Сиз турган нуқтадан энг яқин кинотеатргача бўлган масофани ўлчанг ва сеанс бошланиш вақтини сонияма-сония жонли ҳисоблагич ёрдамида аниқланг.</p>
-                </div>
-
-                <div class="cinema-pagination-dots">
-                    <span class="cinema-dot cinema-active-dot" onclick="cinemaJumpToLang(0)"></span>
-                    <span class="cinema-dot" onclick="cinemaJumpToLang(1)"></span>
-                    <span class="cinema-dot" onclick="cinemaJumpToLang(2)"></span>
-                    <span class="cinema-dot" onclick="cinemaJumpToLang(3)"></span>
-                    <span class="cinema-dot" onclick="cinemaJumpToLang(4)"></span>
-                    <span class="cinema-dot" onclick="cinemaJumpToLang(5)"></span>
-                </div>
-
-                <button id="cinemaLocBtn" class="cinema-action-btn" onclick="cinemaStartGeolocate()">
-                    <span id="cinemaBtnTxt">Joylashuvni Tasdiqlash</span>
-                    <div class="cinema-spinner" id="cinemaBtnLoader"></div>
-                </button>
-            </header>
-
-            <main class="cinema-dashboard-grid" id="cinemaGridUI">
-                <div class="cinema-list-container" id="cinemaListFeed"></div>
-
-                <div class="cinema-showcase-panel" id="cinemaShowcaseDeck">
-                    <div class="cinema-fallback-text">Seans jadvali va jonli sekundlik hisoblagichni ko'rish uchun chap paneldagi obyektlardan birini tanlang.</div>
-                </div>
-            </main>
-        </div>
-    </div>
     <script src="./script.js"></script>
 </body>
 </html>
- 
+ <!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TMDB Bosh Sahifa Eksklyuziv</title>
+  <link rel="stylesheet" href="./stylee.css">
+</head>
+<body>
+
+  <div id="main-page" class="page-block active">
+    <div class="tmdb-wrapper">
+      
+      <section class="tmdb-section">
+        <div class="section-column">
+          <div class="column-header">
+            <h2>Trendda</h2>
+            <div class="selector-wrap">
+              <div class="selector">
+                <div class="anchor active" id="trend-today">Bugun</div>
+                <div class="anchor" id="trend-week">Bu hafta</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="media-container">
+            <div class="media-scroller" id="trend-scroller"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="tmdb-section video-section">
+        <div class="section-column">
+          <div class="column-header white-text">
+            <h2>Eng oxirgi treylerlar</h2>
+            <div class="selector-wrap video-selector">
+              <div class="selector">
+                <div class="anchor active" id="trailer-popular">Popular</div>
+                <div class="anchor" id="trailer-theaters">Kinoteatrlarda</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="media-container">
+            <div class="media-scroller" id="video-scroller"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="tmdb-section">
+        <div class="section-column">
+          <div class="column-header">
+            <h2>Ommabop</h2>
+            <div class="selector-wrap">
+              <div class="selector">
+                <div class="anchor active">Kinoteatrlarda</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="media-container">
+            <div class="media-scroller" id="popular-scroller"></div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <div id="detail-page" class="page-block">
+    <div class="back-nav">
+      <button onclick="backToMain()">← Bosh sahifaga qaytish</button>
+    </div>
+
+    <div id="movie-banner" class="movie-banner-section">
+      <div class="banner-overlay"></div>
+      <div class="detail-wrapper banner-content">
+        <div class="detail-poster">
+          <img id="detail-img" src="" alt="">
+        </div>
+        <div class="detail-main-info">
+          <h1 id="detail-title"></h1>
+          <div class="movie-meta-row">
+            <span class="rating-badge" id="detail-score">0%</span>
+            <span class="meta-item" id="detail-date"></span>
+            <span class="meta-item" id="detail-genres">Horror, Mystery, Sci-Fi</span>
+            <span class="meta-item">• 1h 51m</span>
+          </div>
+          
+          <div class="action-buttons">
+            <button class="action-btn">☰</button>
+            <button class="action-btn">❤</button>
+            <button class="action-btn">🔖</button>
+            <button class="play-tr-btn">▶ Play Trailer</button>
+          </div>
+
+          <div class="overview-section">
+            <p class="tagline" id="detail-tagline"></p>
+            <h3>Overview</h3>
+            <p id="detail-desc"></p>
+            
+            <div class="crew-grid">
+              <div>
+                <strong id="detail-director">Kane Parsons</strong>
+                <p>Director</p>
+              </div>
+              <div>
+                <strong id="detail-writer">Will Soodik</strong>
+                <p>Writer</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="detail-wrapper bottom-details">
+      <div class="cast-column">
+        <h2>Bosh rollarda</h2>
+        <div class="cast-scroller" id="cast-container">
+          </div>
+      </div>
+      
+      <div class="sidebar-column">
+        <button class="watch-now-full">Watch Now <span>Outcome on Apple TV</span></button>
+        
+        <div class="social-links">
+          <span>🌐</span> <span>🕊️</span> <span>📸</span>
+        </div>
+
+        <div class="info-meta-block">
+          <h4>Status</h4>
+          <p>Chiqarilgan</p>
+        </div>
+        <div class="info-meta-block">
+          <h4>Til</h4>
+          <p id="detail-lang">English</p>
+        </div>
+        <div class="info-meta-block">
+          <h4>Byudjet</h4>
+          <p id="detail-budget">$10,000,000.00</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./sciptt.js"></script>
+</body>
+</html>
