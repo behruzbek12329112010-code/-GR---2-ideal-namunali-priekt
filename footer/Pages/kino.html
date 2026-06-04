@@ -12,101 +12,39 @@
 </head>
 <body>
 
-  <div class="container">
-    <aside class="sidebar">
-      <div class="logo">
-        <i class="fa-solid fa-clapperboard"></i>
-        <span>Cine<span>Wave</span></span>
-      </div>
-      
-      <nav class="menu-group">
-        <p class="menu-title">Kashf etish</p>
-        <button class="active" onclick="getMovies('popular')">
-          <i class="fa-solid fa-fire"></i> Popular
-        </button>
-        <button onclick="getMovies('top_rated')">
-          <i class="fa-solid fa-star"></i> Top Rated
-        </button>
-        <button onclick="getMovies('upcoming')">
-          <i class="fa-solid fa-calendar-days"></i> Upcoming
-        </button>
-        <button onclick="getMovies('now_playing')">
-          <i class="fa-solid fa-play"></i> Now Playing
-        </button>
-      </nav>
-    </aside>
-    <main>
-      <header class="main-header">
-        <h1>Popular Movies</h1>
-        <div class="search-box">
-          <i class="fa-solid fa-magnifying-glass"></i>
-          <input type="text" placeholder="Kinolarni qidirish..." oninput="searchMovies(this.value)">
-        </div>
-      </header>
-
-      <div id="movies"></div>
-    </main>
-  </div>
-
-  <div id="trailerModal" class="modal">
-    <div class="modal-content">
-      <button class="close-btn" onclick="closeTrailer()">&times;</button>
-      <iframe id="trailerPlayer" allowfullscreen></iframe>
-    </div>
-  </div>
-
-
-
-
-
 <div class="container">
 
   <aside class="sidebar">
 
     <div class="logo">
       <i class="fa-solid fa-clapperboard"></i>
-      Cine<span>Wave</span>
+      <span>Cine<span>Wave</span></span>
     </div>
 
+    <p class="menu-title">Kashf etish</p>
+
     <div class="menu-group">
-
-      <button onclick="getMovies('popular')">
-        🔥 Popular
-      </button>
-
-      <button onclick="getMovies('top_rated')">
-        ⭐ Top Rated
-      </button>
-
-      <button onclick="getMovies('upcoming')">
-        📅 Upcoming
-      </button>
-
-      <button onclick="getMovies('now_playing')">
-        ▶ Now Playing
-      </button>
-
+      <button onclick="getMovies('popular')">🔥 Popular</button>
+      <button onclick="getMovies('top_rated')">⭐ Top Rated</button>
+      <button onclick="getMovies('upcoming')">📅 Upcoming</button>
+      <button onclick="getMovies('now_playing')">▶ Now Playing</button>
     </div>
 
   </aside>
 
   <main>
 
-    <div class="main-header">
-
+    <header class="main-header">
       <h1>Movies</h1>
 
       <div class="search-box">
         <i class="fa-solid fa-magnifying-glass"></i>
-
         <input
           type="text"
-          placeholder="Search movie..."
-          oninput="searchMovies(this.value)"
-        >
+          placeholder="Kinolarni qidirish..."
+          oninput="searchMovies(this.value)">
       </div>
-
-    </div>
+    </header>
 
     <div id="movies"></div>
 
@@ -114,25 +52,19 @@
 
 </div>
 
+<!-- MODAL -->
 <div id="trailerModal" class="modal">
-
   <div class="modal-content">
 
-    <button
-      class="close-btn"
-      onclick="closeTrailer()"
-    >
+    <button class="close-btn" onclick="closeTrailer()">
       &times;
     </button>
 
-    <iframe
-      id="trailerPlayer"
-      allowfullscreen>
-    </iframe>
+    <iframe id="trailerPlayer" allowfullscreen></iframe>
 
   </div>
-
 </div>
+
   <script src="/footer/js/kino.js"></script>
 </body>
 </html>

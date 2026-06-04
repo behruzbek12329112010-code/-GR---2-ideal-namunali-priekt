@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/footer/css/js.css">
+</head>
+<body>
+    <div class="main-container">
+  <header class="section-header">
+    <div class="title-group">
+      <span class="label">SARALANGAN</span>
+      <h1>Trendda <span>Olov</span></h1>
+    </div>
+    
+    <div class="filter-controls">
+      <button class="pill active" onclick="filterList('all', this)">Barchasi</button>
+      <button class="pill" onclick="filterList('day', this)">Bugun</button>
+      <button class="pill" onclick="filterList('week', this)">Haftalik</button>
+    </div>
+  </header>
+
+  <div class="carousel-wrapper">
+    <button class="nav-btn prev" onclick="scrollPrev()">
+      <svg viewBox="0 0 24 24"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/></svg>
+    </button>
+
+    <div class="movie-grid" id="movieGrid">
+      <div class="movie-card" data-type="day">
+        <div class="poster-box">
+          <img src="https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?q=80&w=400&h=600&auto=format&fit=crop">
+          <div class="rating">8.9</div>
+        </div>
+        <div class="info">
+          <h3>Spider-Noir</h3>
+          <p>Dramma • 2026</p>
+        </div>
+      </div>
+
+      <div class="movie-card" data-type="week">
+        <div class="poster-box">
+          <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=400&h=600&auto=format&fit=crop">
+          <div class="rating">7.4</div>
+        </div>
+        <div class="info">
+          <h3>Backrooms</h3>
+          <p>Triller • 2026</p>
+        </div>
+      </div>
+
+      <div class="movie-card" data-type="day">
+        <div class="poster-box">
+          <img src="https://images.unsplash.com/photo-1594909122845-11baa439b7bf?q=80&w=400&h=600&auto=format&fit=crop">
+          <div class="rating">9.2</div>
+        </div>
+        <div class="info">
+          <h3>Star City</h3>
+          <p>Sarguzasht • 2026</p>
+        </div>
+      </div>
+
+      <div class="movie-card" data-type="week">
+        <div class="poster-box">
+          <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?q=80&w=400&h=600&auto=format&fit=crop">
+          <div class="rating">8.1</div>
+        </div>
+        <div class="info">
+          <h3>Obsession</h3>
+          <p>Melodramma • 2026</p>
+        </div>
+      </div>
+
+      <div class="movie-card" data-type="day">
+        <div class="poster-box">
+          <img src="https://images.unsplash.com/photo-1509248961158-e54f6934749c?q=80&w=400&h=600&auto=format&fit=crop">
+          <div class="rating">8.5</div>
+        </div>
+        <div class="info">
+          <h3>Silent Road</h3>
+          <p>Detecktiv • 2025</p>
+        </div>
+      </div>
+    </div>
+
+    <button class="nav-btn next" onclick="scrollNext()">
+      <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+    </button>
+  </div>
+</div>
+<script src="/footer/js/js.js"></script>
+</body>
+</html>

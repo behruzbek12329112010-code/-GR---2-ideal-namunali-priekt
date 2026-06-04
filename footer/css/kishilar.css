@@ -6,12 +6,12 @@
 }
 
 body {
-    background-color: #0d1b2a;
+    background-color: #0b132b;
     color: white;
 }
 
 header {
-    background-color: #1b263b;
+    background-color: #1c2541;
     padding: 20px;
     text-align: center;
     color: #e0e1dd;
@@ -38,7 +38,7 @@ header h1 {
 
 #searchBtn {
     padding: 10px 20px;
-    background-color: #e50914;
+    background-color: #0087ff;
     color: white;
     border: none;
     border-radius: 5px;
@@ -48,7 +48,7 @@ header h1 {
 }
 
 #searchBtn:hover {
-    background-color: #b80710;
+    background-color: #0066cc;
 }
 
 main {
@@ -64,7 +64,7 @@ main {
 }
 
 .person-card {
-    background-color: #1b263b;
+    background-color: #1c2541;
     border-radius: 10px;
     overflow: hidden;
     cursor: pointer;
@@ -75,7 +75,7 @@ main {
 
 .person-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+    box-shadow: 0 8px 16px rgba(0, 135, 255, 0.3);
 }
 
 .person-card img {
@@ -91,7 +91,7 @@ main {
 
 .person-card p {
     padding-bottom: 15px;
-    color: #8d99ae;
+    color: #5bc0be;
     font-size: 14px;
 }
 
@@ -108,7 +108,7 @@ main {
 }
 
 .modal-content {
-    background-color: #1b263b;
+    background-color: #1c2541;
     margin: 5% auto;
     padding: 25px;
     border-radius: 12px;
@@ -130,11 +130,11 @@ main {
     top: 15px;
     font-size: 30px;
     cursor: pointer;
-    color: #8d99ae;
+    color: #5bc0be;
 }
 
 .close-btn:hover {
-    color: white;
+    color: #0087ff;
 }
 
 .modal-details {
@@ -150,7 +150,7 @@ main {
 
 .info-side h2 {
     margin-bottom: 10px;
-    color: #e50914;
+    color: #0087ff;
 }
 
 .info-side p {
