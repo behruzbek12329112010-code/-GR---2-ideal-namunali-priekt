@@ -586,7 +586,7 @@ header.site-header {
   border-radius: 6px;
 }
 .movie-detail-main {
-  background: var(--bg-card);
+  background-color: #fff;
   border: 1px solid var(--border-color);
   border-radius: 12px;
   padding: 25px;
